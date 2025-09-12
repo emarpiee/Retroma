@@ -1849,6 +1849,66 @@ settings:
         max: 0.2
         step: 0.001
     -
+        id: typography
+        title:  Typography Tuner
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: heading-colors
+        title:  Heading Colors
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: h1-color
+        title: H1
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: h2-color
+        title: H2
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: h3-color
+        title: H3
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: h4-color
+        title: H4
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: h5-color
+        title: H5
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: h6-color
+        title: H6
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
         id: image-tuner
         title:  Image Settings
         type: heading
