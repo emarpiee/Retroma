@@ -538,7 +538,7 @@ body {
   border: var(--border-groove);
   border-radius: var(--window-border-radius);
   background-color: var(--background-primary);
-  height: unset;
+  height: 98%;
 }
 
 .workspace-leaf-content .view-content {
@@ -650,7 +650,7 @@ body:not(.is-mobile)
 
 /* Scrollable header */
 .view-header {
-  overflow: overlay !important;
+  overflow: auto !important;
   scrollbar-width: none !important;
 }
 
@@ -862,6 +862,10 @@ button.mod-warning {
 .nav-buttons-container,
 .workspace-drawer-vault-actions {
   gap: var(--size-2-3) !important;
+}
+
+.is-mobile .view-actions {
+  padding: unset;
 }
 
 /* --- Inputs & Selects --- */
@@ -1938,10 +1942,6 @@ tr:last-child td:last-child {
   border: var(--border-groove);
 }
 
-.is-mobile .workspace-drawer {
-  width: -webkit-fill-available;
-}
-
 .is-mobile .workspace-leaf {
   background-color: var(--background-primary);
 }
@@ -1958,30 +1958,12 @@ tr:last-child td:last-child {
   height: 70px !important;
 }
 
-.is-mobile .nav-header {
-  order: unset;
-  padding-block: var(--size-4-2);
-}
-
 .is-mobile .view-header-title-container {
   height: unset;
 }
 
-.is-mobile .view-actions {
-  padding: unset;
-}
-
 .is-mobile .mod-activated {
   background-color: var(--background-secondary-alt);
-}
-
-.is-phone .modal.mod-settings .vertical-tab-header,
-.is-phone .mod-settings.mod-sidebar-layout {
-  background-color: var(--background-secondary);
-}
-
-.is-phone .mod-settings.mod-sidebar-layout {
-  padding: 0 6px;
 }
 
 /* @settings
