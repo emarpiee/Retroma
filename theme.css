@@ -893,14 +893,24 @@ textarea {
 =                 FILE EXPLORER               =
 =============================================*/
 
+.nav-files-container .collapse-icon svg.svg-icon {
+  color: unset;
+} 
+
 .nav-files-container > div > .nav-folder {
   margin-block: 6px;
   border-radius: var(--button-border-radius);
-  background-color: oklch(
-    from var(--background-secondary) l c h / 30%
-  ) !important;
+  background-color: oklch(from var(--accent-1) l c h / 15%) !important;
+  border: 2px solid oklch(from var(--accent-2) 55% var(--chroma-folder) h / 50%);
   box-shadow: -1px 1px 0px var(--background-tertiary);
-  border: 2px solid oklch(from var(--accent-2) 55% c h / 50%);
+}
+
+.nav-file-title-content {
+  padding-inline: var(--size-2-3);
+  margin: 0 var(--size-2-3) 0 0;
+  border-radius: var(--button-border-radius);
+  border: 1px solid var(--text-faint) !important;
+  background-color: oklch(from var(--background-paper) l c h / 65%);
 }
 
 .nav-files-container::-webkit-scrollbar {
@@ -908,14 +918,15 @@ textarea {
 }
 
 .nav-files-container > div > .nav-folder:not(.is-collapsed) {
-  box-shadow: var(--box-shadow-active);
+  background-color: oklch(
+    from var(--folder-color) l var(--chroma-folder) h / 30%
+  ) !important;
   font-weight: var(--font-bold);
-  padding-block: var(--size-2-3);
-  border: unset;
 }
 
+
 .nav-folder-title {
-  color: var(--text-normal) !important;
+  color: var(--folder-color) !important;
 }
 
 .is-mobile .workspace-drawer-active-tab-content {
