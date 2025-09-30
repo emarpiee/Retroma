@@ -869,11 +869,17 @@ button.mod-warning {
 }
 
 /* --- Inputs & Selects --- */
-input:not(input[type="checkbox"], input[type="range"]),
+input:not(
+  input[type="checkbox"],
+  input[type="range"],
+  .metadata-property input[type="text"],
+  .metadata-property input[type="datetime-local"]
+),
+input[type="search"],
 .setting-item-control select,
 .formula-editor,
 textarea {
-  border-color: var(--interactive-active) !important;
+  border: 2px solid oklch(from var(--interactive-accent) l c h / 50%) !important;
   background-color: var(--background-paper) !important;
 }
 
@@ -895,7 +901,7 @@ textarea {
 
 .nav-files-container .collapse-icon svg.svg-icon {
   color: unset;
-} 
+}
 
 .nav-files-container > div > .nav-folder {
   margin-block: 6px;
@@ -923,7 +929,6 @@ textarea {
   ) !important;
   font-weight: var(--font-bold);
 }
-
 
 .nav-folder-title {
   color: var(--folder-color) !important;
