@@ -1960,6 +1960,43 @@ tr:last-child td:last-child {
   background-color: var(--code-background);
 }
 
+/* Notebook Navigator */
+.view-content.notebook-navigator {
+  border-radius: var(--window-border-radius);
+}
+
+.nn-pane-header,
+.nn-mobile-toolbar {
+  border: var(--border-groove);
+  border-radius: var(--window-border-radius);
+  height: unset;
+  background-color: var(--background-secondary) !important;
+}
+
+.nn-navigation-pane {
+  background-color: var(--background-primary);
+}
+
+.nn-navigation-pane-scroller,
+.nn-list-pane-scroller {
+  border-radius: var(--window-border-radius);
+  border: var(--border-ridge);
+  background-color: var(--background-paper) !important;
+  box-shadow: inset 0 0 4px oklch(from black l c h / 50%);
+}
+
+.nn-file-content {
+  border: var(--border-width) solid var(--outline-color) !important;
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-primary);
+  border-radius: var(--window-border-radius);
+  padding: 2px var(--size-4-1);
+}
+
+.nn-virtual-file-item:not(.nn-last-file)::after {
+  display: none;
+}
+
 /*=============================================
 =             RESPONSIVE & MOBILE             =
 =============================================*/
