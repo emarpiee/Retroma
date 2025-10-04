@@ -1401,6 +1401,10 @@ tr:last-child td:last-child {
   box-shadow: 0 0 12px oklch(from black l c h / 50%);
 }
 
+.disable-checklist-done-decoration {
+  --checklist-done-decoration: none !important;
+}
+
 /*=============================================
 =                   CANVAS                    =
 =============================================*/
@@ -2626,6 +2630,11 @@ settings:
         title: Enable Alternative Checkboxes
         description: Disable this if you are using your own implementation via a CSS Snippet.
         default: true
+        type: class-toggle
+    -
+        id: disable-checklist-done-decoration
+        title: Disable strikethrough on completed checklists.
+        default: false
         type: class-toggle
     -
         id: heading-divider
