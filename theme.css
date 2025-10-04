@@ -226,6 +226,7 @@ body {
   --ribbon-background-collapsed: var(--ribbon-background);
   --titlebar-background-focused: var(--titlebar-background);
   --slider-track-height: var(--size-2-3);
+  --strong-emphasis: var(--italic-color);
 
   /*** Metadata  ***/
   --metadata-background: oklch(from var(--background-secondary) l c h / 75%);
@@ -1296,6 +1297,11 @@ img {
   }
 }
 
+strong em,
+strong i {
+  color: var(--strong-emphasis);
+}
+
 /*--- Footnote  ---*/
 
 .footnote-divider {
@@ -2253,6 +2259,14 @@ settings:
     -
         id: italic-color
         title: Italic Text
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: strong-emphasis
+        title: Bold + Italic
         type: variable-themed-color
         format: hex
         opacity: false
