@@ -1298,7 +1298,8 @@ img {
 }
 
 strong em,
-strong i {
+strong i,
+.cm-strong.cm-em {
   color: var(--strong-emphasis);
 }
 
