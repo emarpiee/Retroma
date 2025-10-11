@@ -201,7 +201,6 @@ body {
     from var(--background-secondary) l c h / 50%
   );
   --blockquote-border-thickness: var(--size-2-2);
-  --blockquote-border-color: oklch(from var(--base-accent) 50% c h / 50%);
 
   /* Table Styling */
   --table-selection: var(--text-selection);
@@ -1192,8 +1191,13 @@ a.tag:hover,
 }
 
 blockquote {
-  padding: 5px;
-  border-radius: var(--window-border-radius);
+  padding: 4px 8px !important;
+  border-radius: var(--window-border-radius) !important;
+  border: 2px groove var(--background-primary-alt);
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+  border: 1px groove var(--background-primary-alt);
 }
 
 /*** Code  ***/
