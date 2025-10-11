@@ -873,8 +873,10 @@ button.mod-warning {
 input:not(
   input[type="checkbox"],
   input[type="range"],
-  .metadata-property input[type="text"],
-  .metadata-property input[type="datetime-local"]
+  :not(
+    .bases-view .metadata-property input[type="text"],
+    .bases-view .metadata-property input[type="datetime-local"]
+  )
 ),
 input[type="search"],
 .setting-item-control select,
