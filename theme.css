@@ -758,6 +758,12 @@ body:not(.is-mobile)
   background-color: oklch(from var(--background-primary-alt) l c h);
 }
 
+.markdown-rendered mark {
+  border-radius: var(--window-border-radius);
+  padding-inline: 6px !important;
+  border: 1px groove var(--accent-1);
+}
+
 /*=============================================
 =            INTERACTIVE ELEMENTS             =
 =============================================*/
