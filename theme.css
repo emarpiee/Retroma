@@ -1699,7 +1699,6 @@ tr:last-child td:last-child {
 }
 
 .community-modal-search-results-wrapper {
-  margin: var(--size-4-3) !important;
   padding: var(--size-4-3) !important;
   border-radius: var(--window-border-radius) !important;
   border: unset;
