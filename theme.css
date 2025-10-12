@@ -1695,9 +1695,6 @@ tr:last-child td:last-child {
   background: oklch(from var(--base-accent) 20% c h / 75%);
 }
 
-.modal.mod-sidebar-layout {
-}
-
 .community-modal-search-results-wrapper {
   padding: var(--size-4-3) !important;
   border-radius: var(--window-border-radius) !important;
