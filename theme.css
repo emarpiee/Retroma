@@ -373,22 +373,14 @@ body {
   --text-selection: oklch(from var(--accent-2) 80% var(--chroma) h / 75%);
   --box-shadow:
     inset -2px -2px oklch(from var(--background-secondary) 50% c h),
-    inset 2px 2px oklch(from var(--background-secondary) 100% c h),
-    inset -2px -2px oklch(from var(--background-secondary) 50% c h),
     inset 2px 2px oklch(from var(--background-secondary) 100% c h);
   --box-shadow-active:
     inset 2px 2px oklch(from var(--background-secondary) 50% c h),
-    inset -2px -2px oklch(from var(--background-secondary) 100% c h),
-    inset 2px 2px oklch(from var(--background-secondary) 50% c h),
-    inset -2px -2px oklch(from var(--background-secondary) 100% c h);
+    inset 0 0 oklch(from var(--background-secondary) 100% c h);
   --box-shadow-sm:
-    inset -1px -1px oklch(from var(--background-secondary) 50% c h),
-    inset 1px 1px oklch(from var(--background-secondary) 100% c h),
     inset -1px -1px oklch(from var(--background-secondary) 50% c h),
     inset 1px 1px oklch(from var(--background-secondary) 100% c h);
   --box-shadow-active-sm:
-    inset 1px 1px oklch(from var(--background-secondary) 50% c h),
-    inset -1px -1px oklch(from var(--background-secondary) 100% c h),
     inset 1px 1px oklch(from var(--background-secondary) 50% c h),
     inset -1px -1px oklch(from var(--background-secondary) 100% c h);
 
@@ -467,24 +459,16 @@ body {
   --tag-color: oklch(from var(--base-accent) 80% c h / 75%);
   --text-selection: oklch(from var(--accent-2) 45% c h / 75%);
   --box-shadow:
-    inset -2px -2px oklch(from var(--background-secondary) 15% c h),
-    inset 2px 2px oklch(from var(--background-secondary) 50% c h),
-    inset -2px -2px oklch(from var(--background-secondary) 50% c h),
+    inset -2px -2px oklch(from var(--background-secondary) 0% c h),
     inset 2px 2px oklch(from var(--background-secondary) 50% c h);
   --box-shadow-active:
-    inset 2px 2px oklch(from var(--background-secondary) 15% c h),
-    inset -2px -2px oklch(from var(--background-secondary) 50% c h),
-    inset 2px 2px oklch(from var(--background-secondary) 50% c h),
+    inset 2px 2px oklch(from var(--background-secondary) 0% c h),
     inset -2px -2px oklch(from var(--base-accent) 50% c h);
   --box-shadow-sm:
-    inset -1px -1px oklch(from var(--background-secondary) 15% c h),
-    inset 1px 1px oklch(from var(--background-secondary) 50% c h),
-    inset -1px -1px oklch(from var(--background-secondary) 50% c h),
+    inset -1px -1px oklch(from var(--background-secondary) 0% c h),
     inset 1px 1px oklch(from var(--background-secondary) 50% c h);
   --box-shadow-active-sm:
-    inset 1px 1px oklch(from var(--background-secondary) 15% c h),
-    inset -1px -1px oklch(from var(--background-secondary) 50% c h),
-    inset 1px 1px oklch(from var(--background-secondary) 50% c h),
+    inset 1px 1px oklch(from var(--background-secondary) 0% c h),
     inset -1px -1px oklch(from var(--base-accent) 50% c h);
 
   --button-active: oklch(from var(--background-secondary) 25% c h);
