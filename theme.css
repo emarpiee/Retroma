@@ -870,7 +870,9 @@ input:not(
 input[type="search"],
 .setting-item-control select,
 .formula-editor,
-textarea {
+textarea,
+input[type="text"],
+input[type="number"] {
   border: 2px solid oklch(from var(--interactive-accent) l c h / 50%) !important;
   background-color: var(--background-paper) !important;
 }
@@ -881,6 +883,7 @@ textarea {
 .metadata-property input[type="number"],
 .metadata-property .multi-select-container {
   background-color: unset !important;
+  border: unset !important;
 }
 
 .vertical-tab-nav-item.is-active {
