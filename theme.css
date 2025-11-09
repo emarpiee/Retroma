@@ -2377,7 +2377,7 @@ settings:
         id: rotation-2
         title: Main Accents
         type: variable-number-slider
-        default: 345
+        default: 330
         min: 0
         max: 360
         step: 1
@@ -2385,7 +2385,7 @@ settings:
         id: rotation-1
         title: Minor Accents 
         type: variable-number-slider
-        default: 15
+        default: 30
         min: 0
         max: 360
         step: 1
