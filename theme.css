@@ -901,7 +901,7 @@ input[type="number"] {
 .nav-files-container > div > .nav-folder {
   margin-block: 6px;
   border-radius: var(--button-border-radius);
-  background-color: oklch(from var(--accent-1) l c h / 15%) !important;
+  background-color: oklch(from var(--background-primary) l c h) !important;
   border: 2px solid oklch(from var(--accent-2) 55% var(--chroma-folder) h / 50%);
   box-shadow: -1px 1px 0px var(--background-tertiary);
 }
