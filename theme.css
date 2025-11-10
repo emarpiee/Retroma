@@ -873,7 +873,7 @@ input[type="search"],
 textarea,
 input[type="text"],
 input[type="number"] {
-  border: 2px solid oklch(from var(--interactive-accent) l c h / 50%) !important;
+  border: 2px solid oklch(from var(--text-muted) l c h / 50%) !important;
   background-color: var(--background-paper) !important;
 }
 
