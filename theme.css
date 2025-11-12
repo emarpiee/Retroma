@@ -681,6 +681,10 @@ body:not(.is-mobile)
   border-radius: var(--window-border-radius);
 }
 
+.bases-toolbar-menu .bases-toolbar-section-header {
+  background-color: oklch(from var(--background-tertiary) l c h / 30%);
+}
+
 .bases-query-container .filter-expression {
   border-radius: var(--window-border-radius);
   background-color: var(--background-paper);
