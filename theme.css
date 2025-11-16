@@ -204,11 +204,7 @@ body {
   --blockquote-border-color: oklch(from var(--base-accent) 50% c h / 75%);
 
   /* Table Styling */
-  --table-selection: var(--text-selection);
-  --table-header-background: oklch(from var(--text-normal) l c h / 10%);
-  --table-header-background-hover: oklch(
-    from var(--table-header-background) l c h / 15% / 50%
-  );
+  --table-header-background: oklch(from var(--accent-1) 50% c h / 30%);
   --table-border-color: oklch(from var(--table-header-color) 50% c h / 50%);
   --table-border-width: 1px;
 
@@ -1330,6 +1326,10 @@ table {
   border-collapse: unset !important;
   gap: 0 !important;
   /* border-spacing: 0; */
+}
+
+table td {
+  background-color: oklch(from var(--base-accent) l c h / 7%) !important;
 }
 
 tr:first-child th:first-child {
