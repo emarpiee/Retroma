@@ -1143,6 +1143,7 @@ a.tag {
   --tag-color-hover: var(--tag-color);
   --tag-border-color-hover: var(--tag-border-color);
   --tag-background-hover: oklch(from var(--tag-color) l c h / 30%);
+  font-weight: var(--font-bold);
 }
 
 .cm-hashtag.cm-hashtag-begin,
@@ -1157,43 +1158,36 @@ a.tag:hover,
 .cm-tag-Obsidian,
 .cm-tag-obsidian {
   --tag-color: var(--color-purple) !important;
-  font-weight: var(--font-bold);
 }
 
 .tag[href="#todo"],
 .cm-tag-todo {
   --tag-color: var(--color-blue) !important;
-  font-weight: var(--font-bold);
 }
 
 .tag[href="#work"],
 .cm-tag-work {
   --tag-color: var(--color-orange) !important;
-  font-weight: var(--font-bold);
 }
 
 .tag[href="#home"],
 .cm-tag-home {
   --tag-color: var(--color-indigo) !important;
-  font-weight: var(--font-bold);
 }
 
 .tag[href="#high"],
 .cm-tag-high {
   --tag-color: var(--color-red) !important;
-  font-weight: var(--font-bold);
 }
 
 .tag[href="#low"],
 .cm-tag-low {
   --tag-color: var(--color-green) !important;
-  font-weight: var(--font-bold);
 }
 
 .tag[href="#medium"],
 .cm-tag-medium {
   --tag-color: var(--color-orange) !important;
-  font-weight: var(--font-bold);
 }
 
 .tag[href="#test"],
@@ -1201,7 +1195,6 @@ a.tag:hover,
 .cm-tag-Test,
 .cm-tag-test {
   --tag-color: var(--color-teal) !important;
-  font-weight: var(--font-bold);
 }
 
 .multi-select-pill {
