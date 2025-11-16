@@ -201,6 +201,7 @@ body {
     from var(--background-secondary) l c h / 50%
   );
   --blockquote-border-thickness: var(--size-2-2);
+  --blockquote-border-color: oklch(from var(--base-accent) 50% c h / 75%);
 
   /* Table Styling */
   --table-selection: var(--text-selection);
