@@ -298,6 +298,54 @@ body {
 }
 
 /*=============================================
+=               COLOR SCHEMES                 =
+=============================================*/
+/*Reference: https://en.wikipedia.org/wiki/Color_scheme*/
+
+/*Uses hues that are adjacent on the color wheel, typically spaced 30 degrees apart.*/
+.cs-analogous-colors {
+  --rotation-1: 30;
+  --rotation-2: 60;
+}
+
+.cs-analogous-colors-reversed {
+  --rotation-1: 60;
+  --rotation-2: 30;
+}
+
+/*Uses the base hue and the two colors next to its complement (which is at 180 degress). The two supporting colors are 30 degrees away from the exact complementary color.*/
+.cs-split-complementary-colors {
+  --rotation-1: 150;
+  --rotation-2: 210;
+}
+
+.cs-split-complementary-colors-reversed {
+  --rotation-1: 210;
+  --rotation-2: 150;
+}
+
+/*Uses three colors equally spaced on the color wheel (360 / 3 = 120 degrees ).*/
+.cs-triadic-colors {
+  --rotation-1: 120;
+  --rotation-2: 240;
+}
+
+.cs-triadic-colors-reversed {
+  --rotation-1: 240;
+  --rotation-2: 120;
+}
+
+.cs-monochromatic-colors {
+  --rotation-1: 5;
+  --rotation-2: 355;
+}
+
+.cs-monochromatic-colors-reversed {
+  --rotation-1: 355;
+  --rotation-2: 5;
+}
+
+/*=============================================
 =                 LIGHT THEME                 =
 =============================================*/
 
@@ -2327,6 +2375,39 @@ name: Retroma Theme
 id: retroma-obsidian-theme
 settings:
     -
+        id: theme-color-scheme-selection
+        title: Theme Color Scheme Selection
+        type: class-select
+        description: For this to work correctly, you must first reset any modifications previously applied to the Main and Minor Accents within the Color Scheme Tuner (advance).
+        allowEmpty: false
+        default: "Analogous"
+        options:
+            -
+              label: Analogous (Default)
+              value: Analogous
+            -
+              label: Analogous (Reversed)
+              value: cs-analogous-colors-reversed
+            -
+              label: Split Complementary
+              value: cs-split-complementary-colors
+            -
+              label: Split Complementary (Reversed)
+              value: cs-split-complementary-colors-reversed
+            -
+              label: Triadic
+              value: cs-triadic-colors
+            -
+              label: Triadic (Reversed)
+              value: cs-triadic-colors-reversed
+            -
+              label: Monochromatic
+              value: cs-monochromatic-colors
+            -
+              label: Monochromatic (Reversed)
+              value: cs-monochromatic-colors-reversed
+
+    -
         id: theme-variant
         title: Theme Variant Selection
         type: class-select
@@ -2401,6 +2482,7 @@ settings:
         id: rotation-2
         title: Main Accents
         type: variable-number-slider
+        description: To use the Theme Color Scheme Selection, SPAM CLICK reset button 3 times.
         default: 330
         min: 0
         max: 360
@@ -2408,6 +2490,7 @@ settings:
     - 
         id: rotation-1
         title: Minor Accents 
+        description: To use the Theme Color Scheme Selection, SPAM CLICK reset button 3 times.
         type: variable-number-slider
         default: 30
         min: 0
