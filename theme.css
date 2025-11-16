@@ -661,9 +661,23 @@ body:not(.is-mobile)
 }
 
 /* --- Bases  ---*/
+.bases-view {
+  scrollbar-gutter: unset;
+}
+
 .bases-header .text-button-label,
 .bases-table-header-label {
   font-weight: var(--font-bold);
+  color: var(--text-normal);
+}
+
+.bases-thead .bases-table-header,
+.bases-table-header-sort {
+  background-color: oklch(from var(--accent-1) 50% c h / 20%);
+}
+
+.bases-table-header-sort {
+  --icon-size: unset;
 }
 
 .bases-cards-item {
@@ -737,6 +751,11 @@ body:not(.is-mobile)
 
 .bases-toolbar-menu-form .input-row .input-row-label {
   justify-content: center;
+}
+
+.bases-table-active-cell,
+.bases-table-selection {
+  background-color: oklch(from var(--base-accent) l c h / 10%);
 }
 
 .query-toolbar-menu .query-toolbar-section-header {
