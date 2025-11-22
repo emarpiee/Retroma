@@ -737,12 +737,6 @@ body:not(.is-mobile)
   border-radius: var(--window-border-radius);
 }
 
-.base-toolbar-sort-item {
-  padding-inline: var(--size-4-2);
-  margin-inline: var(--size-4-1);
-  border-radius: var(--window-border-radius);
-}
-
 .bases-toolbar-menu .bases-toolbar-section-header {
   background-color: oklch(from var(--background-tertiary) l c h / 30%);
 }
@@ -1117,7 +1111,7 @@ input[type="number"] {
 }
 
 .metadata-property {
-  box-shadow: 0 0 0 1px oklch(from var(--text-normal) l c h / 30%);
+  box-shadow: 0 0 0 1px oklch(from var(--text-normal) l c h / 30%) !important;
   border-radius: var(--window-border-radius);
 }
 
@@ -1558,7 +1552,6 @@ tr:last-child td:last-child {
 }
 
 .menu .menu-scroll {
-  /* background-color: oklch(from var(--background-secondary)); */
   border-radius: var(--window-border-radius);
 }
 
