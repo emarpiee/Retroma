@@ -811,6 +811,16 @@ body:not(.is-mobile)
   background-color: oklch(from var(--background-primary-alt) l c h);
 }
 
+.is-phone .bases-query-container .filter-lhs-container {
+  width: unset;
+  border: unset;
+}
+
+.conjunction.dropdown {
+  background-color: oklch(from black l c h / 10%) !important;
+  border: 1px solid var(--text-faint);
+}
+
 .markdown-rendered mark {
   border-radius: var(--window-border-radius);
   padding-inline: 6px !important;
