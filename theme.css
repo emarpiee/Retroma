@@ -2721,6 +2721,50 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: table-tuner
+        title:  Table Settings
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: table-border-spacing
+        title: Table Border Spacing
+        type: variable-number-slider
+        format: px
+        default: 2
+        min: 0
+        max: 12
+        step: 1
+    -
+        id: table-header-background
+        title: Table Header Color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: table-data-background
+        title: Table Background Color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: table-border-color
+        title: Table Border Color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: disable-table-border
+        title: Disable Table Border.
+        default: false
+        type: class-toggle
+    -
         id: misc
         title:  Miscellaneous
         type: heading
