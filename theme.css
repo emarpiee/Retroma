@@ -747,6 +747,11 @@ body:not(.is-mobile)
   font-weight: 900;
 }
 
+.bases-toolbar-menu .base-toolbar-sort-item, .bases-toolbar-menu .base-toolbar-groupby-item {
+  border-radius: var(--window-border-radius) !important;
+  padding-right: 4px;
+}
+
 .bases-query-container .filter-expression {
   border-radius: var(--window-border-radius);
   background-color: var(--background-paper);
