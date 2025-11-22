@@ -198,7 +198,7 @@ body {
 
   /* Blockquote Styling */
   --blockquote-background-color: oklch(
-    from var(--background-secondary) l c h / 50%
+    from var(--background-secondary) l c h / 40%
   );
   --blockquote-border-thickness: var(--size-2-2);
   --blockquote-border-color: oklch(from var(--base-accent) 50% c h / 75%);
