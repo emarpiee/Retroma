@@ -1521,10 +1521,6 @@ tr:last-child td:last-child {
   background: var(--background-primary-alt) !important;
 }
 
-.is-phone .menu {
-  margin-bottom: var(--mobile-nav-button-safe-area);
-}
-
 .is-phone .menu-item {
   margin-bottom: var(--size-4-1);
 }
