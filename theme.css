@@ -205,8 +205,10 @@ body {
 
   /* Table Styling */
   --table-header-background: oklch(from var(--accent-1) 50% c h / 30%);
+  --table-data-background: oklch(from var(--base-accent) l c h / 7%);
   --table-border-color: oklch(from var(--table-header-color) 50% c h / 50%);
   --table-border-width: 1px;
+  --table-border-spacing: 2px;
 
   /* Misc */
   --border-width: 1px;
@@ -1383,12 +1385,11 @@ strong i,
 
 table {
   border-collapse: unset !important;
-  gap: 0 !important;
-  /* border-spacing: 0; */
+  border-spacing: var(--table-border-spacing);
 }
 
 table td {
-  background-color: oklch(from var(--base-accent) l c h / 7%) !important;
+  background-color: var(--table-data-background) !important;
 }
 
 tr:first-child th:first-child {
@@ -1413,9 +1414,16 @@ tr:last-child td:last-child {
 .markdown-rendered td,
 .cm-html-embed th,
 .markdown-rendered th {
-  border: var(--table-border-width) solid
-    oklch(from var(--text-normal) l c h / 25%) !important;
-  /* border: unset !important; */
+  border: var(--table-border-width) solid var(--table-border-color) !important;
+}
+
+.disable-table-border {
+  .cm-html-embed td,
+  .markdown-rendered td,
+  .cm-html-embed th,
+  .markdown-rendered th {
+    border: unset !important;
+  }
 }
 
 /* Vim thick cursor */
