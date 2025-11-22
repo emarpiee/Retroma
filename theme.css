@@ -1581,6 +1581,10 @@ tr:last-child td:last-child {
   box-shadow: 0 0 12px 2px oklch(from black l c h / 40%) !important;
 }
 
+.is-phone .mod-settings.mod-sidebar-layout, .is-phone .modal.mod-lg, .is-phone .modal.mod-sidebar-layout {
+  background-color: var(--background-secondary) !important;
+}
+
 /*=============================================
 =             SEARCH & BACKLINKS              =
 =============================================*/
