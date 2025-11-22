@@ -223,6 +223,7 @@ body {
   --titlebar-background-focused: var(--titlebar-background);
   --slider-track-height: var(--size-2-3);
   --strong-emphasis: var(--italic-color);
+  --menu-background: var(--background-primary);
 
   /*** Metadata  ***/
   --metadata-background: oklch(from var(--background-secondary) l c h / 75%);
@@ -773,8 +774,6 @@ body:not(.is-mobile)
 
 .bases-toolbar-items .suggestion-group[data-group="views"],
 .bases-toolbar-items .suggestion-group[data-group="properties"] {
-  background-color: var(--background-paper);
-  padding: 4px;
   border-radius: var(--window-border-radius);
   gap: 2px;
 }
