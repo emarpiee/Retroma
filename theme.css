@@ -732,6 +732,10 @@ body:not(.is-mobile)
   --icon-size: unset;
 }
 
+.is-mobile .bases-table-header-sort {
+    --icon-size: var(--icon-s);
+}
+
 .bases-cards-item {
   /* border: 1px solid oklch(from var(--text-normal) l c h / 25%); */
   border: 1px ridge oklch(from var(--text-normal) l c h/ 50%);
