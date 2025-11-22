@@ -744,6 +744,7 @@ body:not(.is-mobile)
 
 .bases-toolbar-menu .bases-toolbar-section-header {
   background-color: oklch(from var(--background-tertiary) l c h / 30%);
+  font-weight: 900;
 }
 
 .bases-query-container .filter-expression {
