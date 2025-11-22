@@ -226,6 +226,7 @@ body {
   --slider-track-height: var(--size-2-3);
   --strong-emphasis: var(--italic-color);
   --menu-background: var(--background-primary);
+  --nav-tag-color: var(--text-muted);
 
   /*** Metadata  ***/
   --metadata-background: oklch(from var(--background-secondary) l c h / 75%);
