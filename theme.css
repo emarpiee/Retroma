@@ -421,7 +421,7 @@ body {
     inset 2px 2px oklch(from var(--background-secondary) 100% c h);
   --box-shadow-active:
     inset 2px 2px oklch(from var(--background-secondary) 50% c h),
-    inset 0 0 oklch(from var(--background-secondary) 100% c h);
+    inset -1px -1px oklch(from var(--background-secondary) 100% c h);
   --box-shadow-sm:
     inset -1px -1px oklch(from var(--background-secondary) 50% c h),
     inset 1px 1px oklch(from var(--background-secondary) 100% c h);
