@@ -1502,13 +1502,16 @@ tr:last-child td:last-child {
 
 .suggestion-container,
 .prompt,
-.popover,
 .modal,
 .menu,
 .is-mobile .prompt .is-phome .menu,
 .suggestion-container .mod-search-suggestion {
   border: var(--border-ridge) !important;
   border-radius: var(--window-border-radius) !important;
+  box-shadow: 0 0 12px 2px oklch(from black l c h / 40%);
+}
+
+.popover {
   box-shadow: 0 0 12px 2px oklch(from black l c h / 40%);
 }
 
@@ -1565,7 +1568,6 @@ tr:last-child td:last-child {
 
 .popover.hover-popover.is-editing {
   border-radius: var(--window-border-radius);
-  border: var(--border-solid);
 }
 
 .prompt-input-container input:not(input[type="checkbox"], input[type="range"]) {
