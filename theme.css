@@ -1151,7 +1151,7 @@ input[type="number"] {
 }
 
 .metadata-properties-heading .collapse-indicator {
-  inset-inline-start: -16px;
+  inset-inline-start: 7em;
 }
 
 /* --- Tags & Pills --- */
