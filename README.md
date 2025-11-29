@@ -31,10 +31,35 @@ I've also included three distinct variants to match your vibe:
 - **Simple:** A balanced variant that offers a clean, modern look while retaining the theme's core retro elements.
 - **Minimalist:** A stripped-down version that emphasizes simplicity and clarity, focusing on essential design elements.
 
+### 🎨 Color Scheme Selection
+
+Take control of your Obsidian aesthetic with **Retroma**'s brand new **Color Scheme Selection** feature, powered by the **Style Settings plugin**!
+
+![retroma-color-scheme](assets/screenshots/retroma-color-scheme.png)
+
+#### 🎨 Color Harmony Options
+
+Now you can easily generate a complete theme color palette based on a single **Base Accent Color**. Simply choose one color, and the theme will apply one of four classic color harmony rules to create a beautiful, cohesive look across your entire Obsidian workspace.
+
+| COLOR SCHEME | PRINCIPLE | VISUAL RESULT |
+| :--- | :--- | :--- |
+| **Analogous** | Colors adjacent to the base accent color. | **Harmonious and calm.** Delivers a cohesive, low-contrast visual field. |
+| **Split Complementary** | Base accent color, plus the two colors next to its opposite. | **Balanced contrast.** Achieves vibrancy without visual conflict. |
+| **Monochromatic** | Variations (shades/tints) of the single base accent color. | **Clean and unified.** Ensures maximum consistency and visual elegance. |
+| **Triadic** | Three colors equally spaced on the color wheel. | **Vibrant and dynamic.** Produces high contrast for an energetic interface. |
+
+Choose the harmony that fits your style and let one color rule your theme!
+
+### 🤹 Color Scheme Tuner (advance)
+
+Bored with classic color schemes? The **advanced Color Scheme Tuner** offers full customization, simply adjust the theme's main and minor accent values to create your own unique scheme.
+> Requries [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin
+
 ### ⭐️ Extra Features
 
-- Adjustable border radius, because yes, corners are a personality trait
-- Image settings (still wip...)
+- Adjustable border radius
+- Image settings
+- Table settings
 - Hide/show headings and footnote dividers
 - Custom highlighter colors for light and dark mode, because neon yellow isn’t always the vibe
 - Redesigned #tags with built-in options like:
