@@ -53,6 +53,9 @@ Choose the harmony that fits your style and let one color rule your theme!
 ### 🤹 Color Scheme Tuner (advance)
 
 Bored with classic color schemes? The **advanced Color Scheme Tuner** offers full customization, simply adjust the theme's main and minor accent values to create your own unique scheme.
+ 
+![retroma-color-scheme-tuner](assets/screenshots/retroma-color-scheme-tuner.png)
+
 > Requries [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin
 
 ### ⭐️ Extra Features
