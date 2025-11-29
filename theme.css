@@ -1114,6 +1114,11 @@ input[type="number"] {
   transform: unset; /* Fix spacing issue */
 }
 
+.metadata-property-key {
+  align-items: center;
+  padding: 2px;
+}
+
 .workspace
   > .workspace-split:not(.mod-root)
   .metadata-container
