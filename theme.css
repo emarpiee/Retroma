@@ -191,6 +191,7 @@ body {
 
   /* Component Styling */
   --tag-radius: var(--button-border-radius);
+  --tag-border-width: 1px;
   --background-modifier-border: oklch(from var(--background-secondary) l c h);
   --background-modifier-border-focus: oklch(
     from var(--background-primary) 70% c h
@@ -1151,7 +1152,6 @@ input[type="number"] {
 /* --- Tags & Pills --- */
 .cm-hashtag,
 a.tag {
-  --tag-border-width: 1px;
   --tag-border-color: var(--tag-color);
   --tag-background: oklch(from var(--tag-color) l c h / 10%);
   --tag-padding-y: 0;
@@ -1227,12 +1227,12 @@ a.tag:hover,
 
 .theme-dark .multi-select-pill {
   color: oklch(from var(--base-accent) 75% c h);
-  outline: var(--border-width) solid oklch(from var(--base-accent) 60% c h);
+  outline: var(--tag-border-width) solid oklch(from var(--base-accent) 60% c h);
 }
 
 .theme-light .multi-select-pill {
   color: oklch(from var(--base-accent) 45% c h);
-  outline: var(--border-width) solid oklch(from var(--base-accent) 50% c h);
+  outline: var(--tag-border-width) solid oklch(from var(--base-accent) 50% c h);
 }
 
 .metadata-property[data-property-key="tags"] .multi-select-pill {
