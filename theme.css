@@ -776,6 +776,10 @@ body:not(.is-mobile)
   border-radius: var(--window-border-radius);
 }
 
+.bases-toolbar-menu.bases-toolbar-filter-menu {
+  width: unset;
+}
+
 .combobox-button {
   background-color: var(--background-paper);
 }
