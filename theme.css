@@ -634,7 +634,7 @@ body {
 .workspace-tab-header::before,
 .workspace-tab-header::after,
 .workspace .mod-root .workspace-tab-header-inner::after {
-  content: unset;
+  content: unset !important;
 }
 
 .workspace-tabs.mod-stacked .workspace-leaf.mod-active {
