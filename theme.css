@@ -685,6 +685,15 @@ blockquote {
   border: 2px groove var(--background-primary-alt);
 }
 
+.footnotes-view .footnote-content .markdown-preview-view,
+.footnotes-view .footnote-content .markdown-source-view {
+  padding: var(--size-4-3);
+}
+
+.footnotes-view .footnote-list-item {
+  border: unset;
+}
+
 /* ------------------------------------------------------------------------------------ */
 /* HEADERS */
 .view-header {
