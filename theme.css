@@ -1464,7 +1464,7 @@ tr:last-child td:last-child {
 }
 
 .style-settings-heading .setting-item-name {
-  color: var(--background-paper) !important;
+  color: var(--text-normal) !important;
   font-weight: 700;
 }
 
