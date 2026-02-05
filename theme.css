@@ -1728,10 +1728,6 @@ tr:last-child td:last-child {
   background-color: transparent !important;
 }
 
-.excalidraw .Island {
-  border: 2px solid oklch(from gray l c h / 50%);
-}
-
 .excalidraw button:hover,
 .excalidraw .dropdown-menu .dropdown-menu-item:hover {
   background-color: unset !important;
