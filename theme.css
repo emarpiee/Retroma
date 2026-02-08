@@ -164,7 +164,7 @@ body {
 
   /* Layout & Sizing */
   --header-height: 48px;
-  --file-margins: var(--size-4-5) !important;
+  /* --file-margins: var(--size-4-5) !important; */
 
   /* Borders & Dividers */
   --hr-color: oklch(from var(--text-normal) l c h / 25%);
