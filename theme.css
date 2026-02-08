@@ -911,6 +911,8 @@ code:not(pre code) {
 table {
   border-collapse: unset !important;
   border-spacing: var(--table-border-spacing);
+  border: var(--border-ridge);
+  border-radius: var(--window-border-radius) !important;
 }
 
 table td {
