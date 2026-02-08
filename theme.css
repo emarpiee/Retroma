@@ -1268,9 +1268,13 @@ tr:last-child td:last-child {
 .workspace-leaf-content[data-type="markdown"] .block-language-base,
 .workspace-leaf-content[data-type="markdown"] .bases-embed {
   padding: 8px;
-  border: var(--border-ridge);
+  border: var(--border-ridge) !important;
   border-radius: var(--window-border-radius);
-  margin-block: 12px;
+}
+
+.bases-embed .bases-view {
+  border-radius: var(--window-border-radius) !important;
+  border: 1px solid var(--text-muted) !important;
 }
 
 .bases-toolbar-menu-container .search-input-container {
