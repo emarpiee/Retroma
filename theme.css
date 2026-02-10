@@ -285,6 +285,7 @@ body {
   --file-header-background-focused: var(--background-secondary) !important;
 
   --mobile-sidebar-width: 100% !important;
+  --nav-indentation-guide-width: 2px;
 }
 
 .theme-light {
