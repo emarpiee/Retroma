@@ -1234,7 +1234,7 @@ tr:last-child td:last-child {
 }
 
 .prompt-instructions {
-  background-color: var(--background-secondary) !important;
+  background-color: var(--background-primary-alt) !important;
 }
 
 .popover.hover-popover.is-editing {
