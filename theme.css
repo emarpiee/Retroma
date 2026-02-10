@@ -494,6 +494,7 @@ button:not(.excalidraw button),
 }
 
 button:not(.excalidraw button),
+.canvas-control-item,
 .clickable-icon,
 .text-icon-button,
 .metadata-add-button,
@@ -508,6 +509,7 @@ button:not(.excalidraw button),
 }
 
 button:not(.excalidraw button):hover,
+.canvas-control-item:hover,
 .clickable-icon:hover,
 .text-button-icon:hover,
 .metadata-add-button:hover,
@@ -518,6 +520,7 @@ button:not(.excalidraw button):hover,
 }
 
 button:not(.excalidraw button):active,
+.canvas-control-item:active,
 .clickable-icon.is-active,
 .clickable-icon:active,
 .text-button-icon.is-active,
@@ -604,7 +607,6 @@ input[type="number"] {
 .nav-files-container,
 .backlink-pane,
 .outgoing-link-pane,
-.workspace-leaf-content[data-type="canvas"] .view-content,
 .workspace-leaf-content[data-type="bases"] .view-content {
   border-radius: var(--window-border-radius);
   border: var(--border-ridge);
@@ -1134,10 +1136,16 @@ tr:last-child td:last-child {
 /* CANVAS */
 .canvas-control-group,
 .canvas-menu {
-  border: 1px solid var(--text-muted);
+  background-color: var(--background-secondary); 
+  border: 1px solid var(--text-muted) !important;
   border-radius: var(--button-border-radius);
   padding: 2px;
   gap: var(--size-2-1);
+}
+
+.canvas-control-group {
+  margin-top: var(--size-4-3);
+  margin-right: -8px;
 }
 
 .canvas-card-menu {
