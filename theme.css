@@ -1210,8 +1210,9 @@ tr:last-child td:last-child {
   border-radius: var(--window-border-radius);
 }
 
-.menu-item:hover {
+.menu-item:hover, .is-mobile .menu-item:hover {
   font-weight: var(--font-bold);
+  background-color: oklch(from var(--text-faint) l c h / 20%) !important;
 }
 
 .is-mobile .menu-item {
