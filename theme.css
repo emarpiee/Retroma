@@ -283,6 +283,8 @@ body {
   --settings-background: var(--background-paper) !important;
   --setting-items-background: var(--background-primary) !important;
   --file-header-background-focused: var(--background-secondary) !important;
+
+  --mobile-sidebar-width: 100% !important;
 }
 
 .theme-light {
