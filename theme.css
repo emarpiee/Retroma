@@ -284,9 +284,11 @@ body {
   --setting-items-background: var(--background-primary) !important;
   --file-header-background-focused: var(--background-secondary) !important;
   --mobile-sidebar-width: 100% !important;
+  --tab-switcher-preview-radius: var(--window-border-radius) !important;
+  --tab-switcher-preview-background-shadow: unset !important;
   --nav-indentation-guide-width: 2px;
   --raised-shadow: unset !important;
-  --raised-background: var(--background-secondary) !important;
+  --raised-background: unset !important;
 }
 
 .theme-light {
@@ -1188,7 +1190,6 @@ tr:last-child td:last-child {
   border: unset !important;
   background-color: unset !important;
   color: var(--text-normal) !important;
-  font-weight: 700;
 }
 
 .menu-item.is-label:hover {
@@ -1211,6 +1212,11 @@ tr:last-child td:last-child {
 
 .menu-item:hover {
   font-weight: var(--font-bold);
+}
+
+.is-mobile .menu-item {
+  border-radius: var(--button-border-radius) !important;
+  background-color: unset !important;
 }
 
 .prompt-instructions {
@@ -2111,6 +2117,39 @@ tr:last-child td:last-child {
   backdrop-filter: unset !important;
 }
 
+.mobile-tab-switcher-menubar {
+  border-top: var(--border-groove) !important;
+}
+
+.mobile-tab-switcher-inner-scroll {
+  background-color: var(--background-paper);
+}
+
+.mobile-tab {
+  gap: unset !important;
+}
+
+.mobile-tab-title {
+  border: 1px solid var(--text-muted);
+  background-color: var(--background-secondary);
+  font-weight: 900;
+}
+
+.mobile-tab-preview {
+  border: 1px solid var(--text-muted);
+}
+
+.mobile-tab.is-active .mobile-tab-preview {
+  border: var(--border-ridge) !important;
+}
+
+.mobile-toolbar {
+  border-top: var(--border-groove);
+}
+
+.mobile-toolbar-options-container {
+  background-color: unset !important;
+}
 /* ------------------------------------------------------------------------------------ */
 /* STYLE SETTINGS CUSTOM CSS */
 
