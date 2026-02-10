@@ -1246,7 +1246,9 @@ tr:last-child td:last-child {
 }
 
 .notice {
-  background-color: var(--background-tertiary) !important;
+  border-radius: var(--window-border-radius);
+  background-color: var(--background-paper) !important;
+  color: var(--text-normal);
   border: var(--border-ridge) !important;
   box-shadow: 0 0 12px 2px oklch(from black l c h / 40%) !important;
 }
@@ -1547,10 +1549,6 @@ tr:last-child td:last-child {
 
 .vertical-tab-header-group-title {
   color: oklch(from var(--text-normal) l c h / 50%) !important;
-}
-
-.modal-content {
-  background-color: var(--background-secondary) !important;
 }
 
 .vertical-tab-content .setting-item button,
