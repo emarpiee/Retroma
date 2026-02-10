@@ -959,6 +959,10 @@ tr:last-child td:last-child {
   border: var(--table-border-width) solid var(--table-border-color) !important;
 }
 
+.is-mobile .markdown-source-view.mod-cm6 .cm-table-widget {
+  --table-drag-handle-size: 0.5em;
+}
+
 /* ------------------------------------------------------------------------------------ */
 /* PDF */
 
