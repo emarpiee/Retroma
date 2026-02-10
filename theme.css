@@ -1320,9 +1320,15 @@ tr:last-child td:last-child {
 
 .workspace-leaf-content[data-type="markdown"] .block-language-base,
 .workspace-leaf-content[data-type="markdown"] .bases-embed {
+  background-color: var(--background-secondary-alt);
   padding: 8px;
   border: var(--border-ridge) !important;
   border-radius: var(--window-border-radius);
+}
+
+.markdown-reading-view .bases-embed, .cm-lang-base {
+  width: unset !important;
+  transform: unset !important;
 }
 
 .bases-embed .bases-view {
