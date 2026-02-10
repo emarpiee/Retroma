@@ -283,9 +283,10 @@ body {
   --settings-background: var(--background-paper) !important;
   --setting-items-background: var(--background-primary) !important;
   --file-header-background-focused: var(--background-secondary) !important;
-
   --mobile-sidebar-width: 100% !important;
   --nav-indentation-guide-width: 2px;
+  --raised-shadow: unset !important;
+  --raised-background: var(--background-secondary) !important;
 }
 
 .theme-light {
@@ -731,20 +732,21 @@ blockquote {
   font-weight: var(--font-bold);
 }
 
-.is-mobile .view-header {
+.is-phone .view-header {
   background-color: var(--background-secondary) !important;
-  height: 70px !important;
-  margin-left: -6px;
-  /* width: unset; */
-  /* position: unset; */
-  padding-top: unset !important;
-  margin-top: unset !important;
+  padding-bottom: var(--size-4-2) !important;
 }
 
-.is-mobile.is-floating-nav.is-phone .view-header {
-  padding-inline: 20px;
-  background-color: unset !important;
-  border: unset !important;
+.is-phone .view-header {
+  margin-left: -6px !important;
+}
+
+.is-phone.is-floating-nav.is-phone .view-header {
+  margin-inline: 8px !important;
+  width: unset;
+  padding-block: 8px;
+  /* background-color: unset !important; */
+  /* border: unset !important; */
 }
 
 .is-mobile .document-search-container {
@@ -2071,18 +2073,20 @@ tr:last-child td:last-child {
   border-radius: var(--window-border-radius) !important;
 }
 
-.is-mobile {
-  --view-top-fade-mask: unset !important;
-  --view-bottom-fade-mask: unset !important;
-}
-
 .is-floating-nav .mobile-navbar {
   backdrop-filter: unset !important;
-  background-color: unset !important;
+  border: var(--border-groove) !important;
+  /* background-color: unset !important; */
+}
+
+.is-mobile:not(.is-floating-nav) .mobile-navbar {
+  border: var(--border-groove);
+  margin-bottom: -8px;
 }
 
 .mobile-navbar-actions {
   gap: 8px;
+  margin-bottom: 8px;
 }
 
 .is-mobile .nav-buttons-container:after,
@@ -2091,10 +2095,12 @@ tr:last-child td:last-child {
   background: unset !important;
 }
 
+.is-mobile .mod-root .workspace-leaf-content[data-type="markdown"] {
+  --view-top-spacing: 1em;
+}
+
 .is-mobile.is-floating-nav .mod-raised {
-  /* background: unset !important; */
-  /* backdrop-filter: unset !important; */
-  /* box-shadow: unset !important; */
+  backdrop-filter: unset !important;
 }
 
 /* ------------------------------------------------------------------------------------ */
