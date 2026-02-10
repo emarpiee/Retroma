@@ -483,6 +483,8 @@ body {
 /* BUTTONS AND INPUTS */
 
 button:not(.excalidraw button),
+.close-button,
+.mobile-tab-pin,
 .canvas-control-item,
 .markdown-source-view.mod-cm6 .edit-block-button,
 .is-mobile .menu .suggestion-group .suggestion-item,
@@ -500,6 +502,8 @@ button:not(.excalidraw button),
 }
 
 button:not(.excalidraw button),
+.close-button,
+.mobile-tab-pin,
 .mobile-toolbar-option,
 .canvas-control-item,
 .clickable-icon,
@@ -516,6 +520,8 @@ button:not(.excalidraw button),
 }
 
 button:not(.excalidraw button):hover,
+.close-button:hover,
+.mobile-tab-pin:hover,
 .mobile-toolbar-option:hover,
 .canvas-control-item:hover,
 .clickable-icon:hover,
@@ -528,6 +534,8 @@ button:not(.excalidraw button):hover,
 }
 
 button:not(.excalidraw button):active,
+.close-button:active,
+.mobile-tab-pin:active,
 .mobile-toolbar-option:active,
 .canvas-control-item:active,
 .clickable-icon.is-active,
@@ -2135,19 +2143,17 @@ tr:last-child td:last-child {
 
 .mobile-tab {
   gap: unset !important;
+  border: 1px solid var(--text-faint);
+  /* box-shadow: 3px 3px 0 var(--text-faint); */
 }
 
 .mobile-tab-title {
-  border: 1px solid var(--text-muted);
+  /* border: 1px solid var(--text-muted); */
   background-color: var(--background-secondary);
   font-weight: 900;
 }
 
-.mobile-tab-preview {
-  border: 1px solid var(--text-muted);
-}
-
-.mobile-tab.is-active .mobile-tab-preview {
+.mobile-tab.is-active {
   border: var(--border-ridge) !important;
 }
 
@@ -2157,6 +2163,7 @@ tr:last-child td:last-child {
 }
 
 .mobile-toolbar-options-list {
+  gap: 4px;
 }
 /* ------------------------------------------------------------------------------------ */
 /* STYLE SETTINGS CUSTOM CSS */
