@@ -289,6 +289,10 @@ body {
   --nav-indentation-guide-width: 2px;
   --raised-shadow: unset !important;
   --raised-background: unset !important;
+  --touch-radius-m: var(--button-border-radius);
+  --touch-radius-s: var(--button-border-radius);
+  --touch-radius-xs: var(--button-border-radius);
+  --touch-radius-xxs: var(--button-border-radius);
 }
 
 .theme-light {
