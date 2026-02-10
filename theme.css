@@ -575,12 +575,25 @@ input[type="number"] {
 }
 
 .workspace-leaf {
-  margin: var(--size-4-2);
   padding: var(--size-2-3);
   border: var(--border-groove);
   border-radius: var(--window-border-radius);
   background-color: var(--background-primary) !important;
   height: 98% !important;
+}
+
+.workspace-leaf:not(.is-mobile .workspace-leaf) {
+  margin-block: var(--size-4-2);
+  margin-inline: 0 var(--size-4-2);
+}
+
+.is-mobile .workspace-leaf:not(.is-mobile .workspace-drawer-inner .workspace-leaf) {
+  border: unset;
+  height: 100% !important;
+}
+
+.is-mobile .workspace-leaf:is(.is-mobile .workspace-drawer-inner .workspace-leaf) {
+  margin: var(--size-4-2);
 }
 
 /* .markdown-source-view, */
@@ -643,7 +656,7 @@ input[type="number"] {
 }
 
 .is-mobile .workspace-tab-container {
-  padding-top: var(--safe-area-inset-top);
+  /* padding-top: var(--safe-area-inset-top); */
 }
 
 .is-mobile .workspace-drawer-active-tab-container,
