@@ -500,6 +500,7 @@ button:not(.excalidraw button),
 }
 
 button:not(.excalidraw button),
+.mobile-toolbar-option,
 .canvas-control-item,
 .clickable-icon,
 .text-icon-button,
@@ -515,6 +516,7 @@ button:not(.excalidraw button),
 }
 
 button:not(.excalidraw button):hover,
+.mobile-toolbar-option:hover,
 .canvas-control-item:hover,
 .clickable-icon:hover,
 .text-button-icon:hover,
@@ -526,6 +528,7 @@ button:not(.excalidraw button):hover,
 }
 
 button:not(.excalidraw button):active,
+.mobile-toolbar-option:active,
 .canvas-control-item:active,
 .clickable-icon.is-active,
 .clickable-icon:active,
@@ -2150,10 +2153,10 @@ tr:last-child td:last-child {
 
 .mobile-toolbar {
   border-top: var(--border-groove);
+  background-color: var(--background-secondary);
 }
 
-.mobile-toolbar-options-container {
-  background-color: unset !important;
+.mobile-toolbar-options-list {
 }
 /* ------------------------------------------------------------------------------------ */
 /* STYLE SETTINGS CUSTOM CSS */
