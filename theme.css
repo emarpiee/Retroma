@@ -1173,11 +1173,6 @@ tr:last-child td:last-child {
   margin: unset !important;
 }
 
-.canvas-node-container,
-.canvas-node-content-blocker {
-  border-radius: var(--window-border-radius) !important;
-}
-
 /* ------------------------------------------------------------------------------------ */
 /* MODAL, MENU, PROMPT */
 .suggestion-container,
