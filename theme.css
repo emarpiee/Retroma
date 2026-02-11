@@ -580,6 +580,21 @@ input[type="number"] {
   background-color: var(--background-paper) !important;
   border-radius: var(--window-border-radius) !important;
 }
+
+.checkbox-container {
+  box-shadow: var(--box-shadow-active);
+  border-radius: var(--button-border-radius);
+}
+
+.checkbox-container:after {
+  box-shadow: var(--box-shadow);
+  border-radius: var(--button-border-radius);
+}
+
+input[type='range'] {
+ border-radius: var(--button-border-radius); 
+}
+
 /* ------------------------------------------------------------------------------------ */
 /* WORKSPACE */
 
@@ -1553,14 +1568,6 @@ tr:last-child td:last-child {
 
 .vertical-tab-nav-item:not(.settings-search-input) {
   margin-bottom: 2px;
-}
-
-.theme-dark .checkbox-container.is-enabled {
-  background: oklch(from var(--base-accent) 80% c h / 50%);
-}
-
-.theme-light .checkbox-container.is-enabled {
-  background: oklch(from var(--base-accent) 20% c h / 75%);
 }
 
 .community-modal-search-results-wrapper {
