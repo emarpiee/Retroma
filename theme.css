@@ -645,9 +645,10 @@ input[type='range'] {
   z-index: 0;
 }
 
-.workspace-tab-container {
-  background-color: var(--background-secondary);
+.is-phone .workspace-tab-container {
+  background-color: unset;
 }
+
 
 .workspace-leaf-content .view-content {
   padding: unset;
@@ -765,18 +766,16 @@ blockquote {
 }
 
 .is-phone .view-header {
+  width: 102vw;
+  margin-left: -8px !important;
   background-color: var(--background-secondary) !important;
-  padding-bottom: var(--size-4-2) !important;
-}
-
-.is-phone .view-header {
-  margin-left: -6px !important;
+  padding-bottom: 6px;
 }
 
 .is-phone.is-floating-nav.is-phone .view-header {
-  margin-inline: 8px !important;
+  margin-inline: 24px !important;
   width: unset;
-  padding-block: 8px;
+  padding: var(--size-4-1) !important;
   /* background-color: unset !important; */
   /* border: unset !important; */
 }
@@ -2114,7 +2113,7 @@ tr:last-child td:last-child {
 }
 
 .is-mobile:not(.is-floating-nav) .mobile-navbar {
-  border: var(--border-groove);
+  border-top: var(--border-groove);
   margin-bottom: -8px;
 }
 
