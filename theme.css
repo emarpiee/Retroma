@@ -593,7 +593,7 @@ input[type="number"] {
   border-radius: var(--button-border-radius) !important;
 }
 
-.workspace-leaf {
+.workspace-leaf:not(.excalidraw__embeddable-container .workspace-leaf, .excalidraw__embeddable-container .workspace-leaf .view-content) {
   padding: var(--size-2-3);
   border: var(--border-groove);
   border-radius: var(--window-border-radius);
