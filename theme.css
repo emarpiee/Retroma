@@ -1187,6 +1187,10 @@ tr:last-child td:last-child {
   margin: unset !important;
 }
 
+.is-phone .canvas-menu .menu {
+  left: unset !important;
+}
+
 /* ------------------------------------------------------------------------------------ */
 /* MODAL, MENU, PROMPT */
 .suggestion-container,
