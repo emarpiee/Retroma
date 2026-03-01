@@ -188,6 +188,13 @@ body {
   /* Component Styling */
   --tag-radius: var(--button-border-radius);
   --tag-border-width: 1px;
+  --tag-border-color: var(--tag-color);
+  --tag-background: oklch(from var(--tag-color) l c h / 10%);
+  --tag-padding-y: 0;
+  --tag-padding-x: var(--size-4-1);
+  --tag-color-hover: var(--tag-color);
+  --tag-border-color-hover: var(--tag-border-color);
+  --tag-background-hover: oklch(from var(--tag-color) l c h / 30%);
   --background-modifier-border: oklch(from var(--background-secondary) l c h);
   --background-modifier-border-focus: oklch(
     from var(--background-primary) 70% c h
@@ -840,13 +847,6 @@ blockquote {
 /* TAGS AND PILL */
 .cm-hashtag,
 a.tag {
-  --tag-border-color: var(--tag-color);
-  --tag-background: oklch(from var(--tag-color) l c h / 10%);
-  --tag-padding-y: 0;
-  --tag-padding-x: var(--size-4-1);
-  --tag-color-hover: var(--tag-color);
-  --tag-border-color-hover: var(--tag-border-color);
-  --tag-background-hover: oklch(from var(--tag-color) l c h / 30%);
   font-weight: var(--font-bold);
 }
 
@@ -1811,38 +1811,6 @@ tr:last-child td:last-child {
 /* Notebook Navigator */
 .view-content.notebook-navigator {
   border-radius: var(--window-border-radius);
-}
-
-.nn-pane-header,
-.nn-mobile-toolbar {
-  border: var(--border-groove);
-  border-radius: var(--window-border-radius);
-  height: unset;
-  background-color: var(--background-secondary) !important;
-}
-
-.nn-navigation-pane {
-  background-color: var(--background-primary);
-}
-
-.nn-navigation-pane-scroller,
-.nn-list-pane-scroller {
-  border-radius: var(--window-border-radius);
-  border: var(--border-ridge);
-  background-color: var(--background-paper) !important;
-  box-shadow: inset 0 0 4px oklch(from black l c h / 50%);
-}
-
-.nn-file-content {
-  border: var(--border-width) solid var(--outline-color) !important;
-  box-shadow: var(--box-shadow);
-  background-color: var(--background-primary);
-  border-radius: var(--window-border-radius);
-  padding: 2px var(--size-4-1);
-}
-
-.nn-virtual-file-item:not(.nn-last-file)::after {
-  display: none;
 }
 
 /* ------------------------------------------------------------------------------------ */
