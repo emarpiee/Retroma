@@ -912,15 +912,6 @@ a.tag:hover,
   --pill-padding-y: unset;
   --pill-color: unset;
 }
-.theme-dark .multi-select-pill {
-  color: oklch(from var(--base-accent) 75% c h);
-  outline: var(--tag-border-width) solid oklch(from var(--base-accent) 60% c h);
-}
-
-.theme-light .multi-select-pill {
-  color: oklch(from var(--base-accent) 45% c h);
-  outline: var(--tag-border-width) solid oklch(from var(--base-accent) 50% c h);
-}
 
 /* ------------------------------------------------------------------------------------ */
 /* CODE */
