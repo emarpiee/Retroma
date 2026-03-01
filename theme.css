@@ -186,15 +186,8 @@ body {
   --button-text: var(--text-normal);
 
   /* Component Styling */
-  --tag-radius: var(--button-border-radius);
+    --tag-radius: var(--button-border-radius);
   --tag-border-width: 1px;
-  --tag-border-color: var(--tag-color);
-  --tag-background: oklch(from var(--tag-color) l c h / 10%);
-  --tag-padding-y: 0;
-  --tag-padding-x: var(--size-4-1);
-  --tag-color-hover: var(--tag-color);
-  --tag-border-color-hover: var(--tag-border-color);
-  --tag-background-hover: oklch(from var(--tag-color) l c h / 30%);
   --background-modifier-border: oklch(from var(--background-secondary) l c h);
   --background-modifier-border-focus: oklch(
     from var(--background-primary) 70% c h
@@ -873,6 +866,13 @@ blockquote {
 /* TAGS AND PILL */
 .cm-hashtag,
 a.tag {
+  --tag-border-color: var(--tag-color);
+  --tag-background: oklch(from var(--tag-color) l c h / 10%);
+  --tag-padding-y: 0;
+  --tag-padding-x: var(--size-4-1);
+  --tag-color-hover: var(--tag-color);
+  --tag-border-color-hover: var(--tag-border-color);
+  --tag-background-hover: oklch(from var(--tag-color) l c h / 30%);
   font-weight: var(--font-bold);
 }
 
@@ -927,16 +927,17 @@ a.tag:hover,
   --tag-color: var(--color-teal) !important;
 }
 
-.multi-select-pill {
-  --pill-radius: var(--tag-radius);
-  gap: var(--size-4-1);
-  line-height: unset;
-}
-
 .metadata-property-value .multi-select-pill {
   --pill-padding-x: unset;
   --pill-padding-y: unset;
   --pill-color: unset;
+  --pill-radius: var(--tag-radius);
+  gap: var(--size-4-1);
+  outline: var(--tag-border-width) solid var(--tag-color);
+}
+
+.multi-select-pill-content {
+  overflow: unset;
 }
 
 /* ------------------------------------------------------------------------------------ */
