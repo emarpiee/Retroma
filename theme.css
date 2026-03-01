@@ -507,7 +507,8 @@ body {
 .text-icon-button.is-active .text-button-icon,
 .text-icon-button.is-active .text-button-label,
 .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.workspace-tab-header:active .workspace-tab-header-inner-icon {
+.workspace-tab-header:active .workspace-tab-header-inner-icon,
+.mod-cta:active {
   transform: translateY(1px) translateX(1px);
 }
 
@@ -1556,6 +1557,22 @@ tr:last-child td:last-child {
 
 .is-mobile .search-params {
   background-color: unset;
+}
+/* ------------------------------------------------------------------------------------ */
+/* GRAPH */
+
+.graph-controls {
+  border-radius: var(--window-border-radius);
+  border: var(--border-ridge) !important;
+  background-color: oklch(from var(--background-secondary) 90% c h);
+}
+
+.graph-controls.is-close {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--text-muted) !important;
+  border-radius: var(--button-border-radius);
+  padding: 2px;
+  gap: var(--size-2-1);
 }
 
 /* ------------------------------------------------------------------------------------ */
