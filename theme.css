@@ -224,6 +224,7 @@ body {
   --strong-emphasis: var(--italic-color);
   --menu-background: var(--background-paper);
   --nav-tag-color: var(--text-muted);
+  --nav-item-radius: var(--button-border-radius);
 
   /*** Metadata  ***/
   --metadata-background: oklch(from var(--background-secondary) l c h / 75%);
@@ -293,6 +294,10 @@ body {
   --touch-radius-s: var(--button-border-radius);
   --touch-radius-xs: var(--button-border-radius);
   --touch-radius-xxs: var(--button-border-radius);
+  --radius-m: var(--button-border-radius);
+  --radius-s: var(--button-border-radius);
+  --radius-xs: var(--button-border-radius);
+  --radius-xxs: var(--button-border-radius);
 }
 
 .theme-light {
@@ -499,6 +504,8 @@ body {
 .vertical-tab-nav-item:not(.settings-search-input).is-active .vertical-tab-nav-item-title,
 .text-icon-button:active .text-button-icon,
 .text-icon-button:active .text-button-label,
+.text-icon-button.is-active .text-button-icon,
+.text-icon-button.is-active .text-button-label,
 .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
 .workspace-tab-header:active .workspace-tab-header-inner-icon {
   transform: translateY(1px) translateX(1px);
@@ -547,7 +554,7 @@ button:not(.excalidraw button):hover,
 .mobile-toolbar-option:hover,
 .canvas-control-item:hover,
 .clickable-icon:hover,
-.text-button-icon:hover,
+.text-icon-button:hover,
 .metadata-add-button:hover,
 .markdown-source-view.mod-cm6 .edit-block-button:hover,
 .vertical-tab-nav-item:not(.settings-search-input):hover,
@@ -562,7 +569,8 @@ button:not(.excalidraw button):active,
 .canvas-control-item:active,
 .clickable-icon.is-active,
 .clickable-icon:active,
-.text-button-icon.is-active,
+.text-icon-button.is-active,
+.text-icon-button:active,
 .metadata-add-button:active,
 .markdown-source-view.mod-cm6 .edit-block-button:active,
 .vertical-tab-nav-item:not(.settings-search-input):active,
