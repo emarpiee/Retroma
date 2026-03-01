@@ -488,16 +488,19 @@ body {
 /* BUTTONS AND INPUTS */
 
 .clickable-icon svg,
+.canvas-control-item svg,
 .vertical-tab-nav-item-icon,
 .vertical-tab-nav-item-title,
 .text-icon-button .text-button-icon,
 .text-icon-button .text-button-label,
-.workspace-tab-header-inner-icon {
+.workspace-tab-header-inner-icon,
+.workspace-tab-header-inner-title {
   transform: translateY(-1px) translateX(-1px);
 }
 
 .clickable-icon.is-active svg,
 .clickable-icon:active svg,
+.canvas-control-item:active svg,
 .vertical-tab-nav-item:not(.settings-search-input):active .vertical-tab-nav-item-icon,
 .vertical-tab-nav-item:not(.settings-search-input):active .vertical-tab-nav-item-title,
 .vertical-tab-nav-item:not(.settings-search-input).is-active .vertical-tab-nav-item-icon,
@@ -508,6 +511,8 @@ body {
 .text-icon-button.is-active .text-button-label,
 .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
 .workspace-tab-header:active .workspace-tab-header-inner-icon,
+.workspace-tab-header.is-active .workspace-tab-header-inner-title,
+.workspace-tab-header:active .workspace-tab-header-inner-title,
 .mod-cta:active {
   transform: translateY(1px) translateX(1px);
 }
