@@ -495,6 +495,8 @@ body {
 .clickable-icon:active svg,
 .vertical-tab-nav-item:not(.settings-search-input):active .vertical-tab-nav-item-icon,
 .vertical-tab-nav-item:not(.settings-search-input):active .vertical-tab-nav-item-title,
+.vertical-tab-nav-item:not(.settings-search-input).is-active .vertical-tab-nav-item-icon,
+.vertical-tab-nav-item:not(.settings-search-input).is-active .vertical-tab-nav-item-title,
 .text-icon-button:active .text-button-icon,
 .text-icon-button:active .text-button-label,
 .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
