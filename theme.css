@@ -1036,7 +1036,10 @@ tr:last-child td:last-child {
 .pdf-toolbar {
   border-bottom: unset;
   border-radius: var(--window-border-radius);
-  margin-bottom: var(--size-4-2);
+}
+
+.is-phone .pdf-toolbar {
+  margin-top: var(--size-4-3);
 }
 
 .pdf-toolbar input[type="number"] {
