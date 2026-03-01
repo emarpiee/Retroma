@@ -489,6 +489,15 @@ body {
 /* ------------------------------------------------------------------------------------ */
 /* BUTTONS AND INPUTS */
 
+.clickable-icon svg {
+  transform: translateY(-1px) translateX(-1px);
+}
+
+.clickable-icon:active svg {
+  transform: translateY(1px) translateX(1px);
+}
+
+
 button:not(.excalidraw button),
 .close-button,
 .mobile-tab-pin,
