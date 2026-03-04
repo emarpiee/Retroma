@@ -847,12 +847,8 @@ blockquote {
 }
 
 .metadata-property {
-  box-shadow: 0 0 0 1px oklch(from var(--text-normal) l c h / 30%) !important;
+  border: 1px solid var(--text-faint);
   border-radius: var(--window-border-radius);
-}
-
-.metadata-property:hover {
-  box-shadow: 0 0 0 2px oklch(from var(--base-accent) 70% c h / 75%) !important;
 }
 
 .metadata-properties-heading .collapse-indicator {
