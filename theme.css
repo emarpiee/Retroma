@@ -186,7 +186,7 @@ body {
   --button-text: var(--text-normal);
 
   /* Component Styling */
-    --tag-radius: var(--button-border-radius);
+  --tag-radius: var(--button-border-radius);
   --tag-border-width: 1px;
   --background-modifier-border: oklch(from var(--background-secondary) l c h);
   --background-modifier-border-focus: oklch(
@@ -501,10 +501,14 @@ body {
 .clickable-icon.is-active svg,
 .clickable-icon:active svg,
 .canvas-control-item:active svg,
-.vertical-tab-nav-item:not(.settings-search-input):active .vertical-tab-nav-item-icon,
-.vertical-tab-nav-item:not(.settings-search-input):active .vertical-tab-nav-item-title,
-.vertical-tab-nav-item:not(.settings-search-input).is-active .vertical-tab-nav-item-icon,
-.vertical-tab-nav-item:not(.settings-search-input).is-active .vertical-tab-nav-item-title,
+.vertical-tab-nav-item:not(.settings-search-input):active
+  .vertical-tab-nav-item-icon,
+.vertical-tab-nav-item:not(.settings-search-input):active
+  .vertical-tab-nav-item-title,
+.vertical-tab-nav-item:not(.settings-search-input).is-active
+  .vertical-tab-nav-item-icon,
+.vertical-tab-nav-item:not(.settings-search-input).is-active
+  .vertical-tab-nav-item-title,
 .text-icon-button:active .text-button-icon,
 .text-icon-button:active .text-button-label,
 .text-icon-button.is-active .text-button-icon,
@@ -1661,178 +1665,6 @@ tr:last-child td:last-child {
 /* ------------------------------------------------------------------------------------ */
 /* PLUGIN SPECIFIC STYLING*/
 
-/* --- Calendar Plugin --- */
-#calendar-container {
-  margin: 8px;
-  border-radius: var(--window-border-radius);
-  --color-dot: oklch(from var(--base-accent) 60% c h);
-  --color-text-today: oklch(from var(--base-accent) 90% c h) !important;
-  --color-text-heading: oklch(from var(--background-primary) 100% c h);
-}
-
-#calendar-container table {
-  background-color: var(--background-paper);
-  border-radius: var(--window-border-radius);
-  border: 2px solid oklch(from var(--text-normal) l c h / 25%);
-  box-shadow: -3px 3px 0px var(--background-tertiary);
-}
-
-#calendar-container .year {
-  color: oklch(from var(--base-accent) 65% c h);
-}
-
-#calendar-container .title,
-#calendar-container .week-num {
-  font-weight: var(--font-bold);
-}
-
-#calendar-container thead {
-  background-color: oklch(from var(--background-secondary) 50% c h / 75%);
-}
-
-#calendar-container th,
-#calendar-container td {
-  border: 1px solid oklch(from var(--text-normal) l c h / 25%) !important;
-  padding: 0px;
-}
-
-#calendar-container th {
-  padding-top: var(--size-2-1);
-}
-
-#calendar-container td:first-child {
-  background-color: oklch(from var(--background-secondary) l c h);
-}
-
-#calendar-container .day,
-#calendar-container .week-num {
-  border: var(--border-width) solid transparent;
-  border-radius: unset;
-}
-
-#calendar-container .day:hover,
-#calendar-container .week-num:hover,
-#calendar-container .active {
-  color: var(--text-normal);
-  background-color: transparent;
-  border-color: oklch(from var(--base-accent) 50% c h);
-  font-weight: var(--font-bold);
-}
-
-#calendar-container .today {
-  background-color: oklch(from var(--base-accent) 50% c h / 25%);
-  font-weight: var(--font-bold);
-  color: var(--text-normal);
-  border-radius: unset;
-}
-
-/* --- Kanban Plugin --- */
-.kanban-plugin__lane {
-  border: var(--border-groove);
-  border-radius: var(--window-border-radius);
-  box-shadow: -3px 3px 0px var(--background-tertiary);
-  overflow: overlay;
-  scrollbar-width: none;
-}
-
-.kanban-plugin__item {
-  border-radius: var(--window-border-radius);
-}
-
-.kanban-plugin__lane-header-wrapper {
-  flex-wrap: wrap;
-  gap: unset;
-}
-
-.kanban-plugin__lane-title {
-  order: 1;
-  margin-block: var(--size-4-2);
-  border-radius: var(--window-border-radius);
-  background-color: var(--background-paper);
-  border: var(--border-groove);
-}
-
-.kanban-plugin__lane-wrapper.collapse-horizontal .kanban-plugin__lane-title {
-  margin-block: unset !important;
-}
-
-.kanban-plugin_table-wraper .kanban-plugin__meta-value .markdown-preview-view,
-.kanban-plugin__markdown-preview-wrapper .markdown-preview-view {
-  margin-inline: 8px;
-}
-
-.kanban-plugin__lane-items {
-  border-radius: var(--window-border-radius);
-  /* box-shadow: inset 0 0 12px oklch(from black l c h / 50%); */
-  margin-bottom: var(--size-4-3);
-}
-
-.kanban-plugin__item-title-wrapper {
-  background-color: var(--background-paper);
-  border-radius: var(--window-border-radius);
-  border: var(--border-groove);
-}
-
-.kanban-plugin__item-input-wrapper {
-  padding: 8px;
-}
-
-/* Remove any border of view in preview/editing mode */
-.kanban-plugin .markdown-source-view,
-.kanban-plugin__meta-value .markdown-preview-view,
-.kanban-plugin__markdown-preview-wrapper .markdown-preview-view {
-  border: 0 !important;
-  box-shadow: unset;
-}
-
-/* Add border to active text input */
-.kanban-plugin__item:has(.markdown-source-view),
-.kanban-plugin__lane-input:has(.markdown-source-view) {
-  outline: unset;
-  border: var(--border-solid) !important;
-  border-radius: var(--window-border-radius);
-  background-color: var(--background-paper);
-}
-
-.kanban-plugin__lane-settings-button-wrapper,
-.kanban-plugin__search-wrapper {
-  gap: var(--size-2-3);
-  position: relative;
-  right: -56%;
-}
-
-.kanban-plugin__item-postfix-button-wrapper .clickable-icon {
-  box-shadow: unset !important;
-  border: unset !important;
-  background-color: unset !important;
-  border-radius: var(--window-border-radius) !important;
-  margin: unset !important;
-}
-
-.kanban-plugin__item-postfix-button-wrapper .clickable-icon:hover {
-  background-color: var(--background-primary) !important;
-}
-
-.kanban-plugin__table-wrapper table {
-  box-shadow: unset;
-}
-
-.kanban-plugin__table-wrapper table th {
-  background-color: oklch(from var(--text-normal) l c h / 0%) !important;
-}
-
-.kanban-plugin__meta-value .kanban-plugin__markdown-preview-view > *:last-child,
-.kanban-plugin__markdown-preview-wrapper
-  .kanban-plugin__markdown-preview-view
-  > *:last-child {
-  margin-block-end: var(--size-4-2);
-}
-
-.kanban-plugin__lane-grip,
-.kanban-plugin__icon {
-  color: var(--text-muted);
-}
-
 /* Excalidraw */
 .excalidraw {
   border-radius: var(--window-border-radius);
@@ -1862,6 +1694,307 @@ tr:last-child td:last-child {
 /* Notebook Navigator */
 .view-content.notebook-navigator {
   border-radius: var(--window-border-radius);
+}
+
+/* --- Calendar Plugin --- */
+.retroma-with-calendar-plugin {
+  #calendar-container {
+    margin: 8px;
+    border-radius: var(--window-border-radius);
+    --color-dot: oklch(from var(--base-accent) 60% c h);
+    --color-text-today: oklch(from var(--base-accent) 90% c h) !important;
+    --color-text-heading: oklch(from var(--background-primary) 100% c h);
+  }
+
+  #calendar-container table {
+    background-color: var(--background-paper);
+    border-radius: var(--window-border-radius);
+    border: 2px solid oklch(from var(--text-normal) l c h / 25%);
+    box-shadow: -3px 3px 0px var(--background-tertiary);
+  }
+
+  #calendar-container .year {
+    color: oklch(from var(--base-accent) 65% c h);
+  }
+
+  #calendar-container .title,
+  #calendar-container .week-num {
+    font-weight: var(--font-bold);
+  }
+
+  #calendar-container thead {
+    background-color: oklch(from var(--background-secondary) 50% c h / 75%);
+  }
+
+  #calendar-container th,
+  #calendar-container td {
+    border: 1px solid oklch(from var(--text-normal) l c h / 25%) !important;
+    padding: 0px;
+  }
+
+  #calendar-container th {
+    padding-top: var(--size-2-1);
+  }
+
+  #calendar-container td:first-child {
+    background-color: oklch(from var(--background-secondary) l c h);
+  }
+
+  #calendar-container .day,
+  #calendar-container .week-num {
+    border: var(--border-width) solid transparent;
+    border-radius: unset;
+  }
+
+  #calendar-container .day:hover,
+  #calendar-container .week-num:hover,
+  #calendar-container .active {
+    color: var(--text-normal);
+    background-color: transparent;
+    border-color: oklch(from var(--base-accent) 50% c h);
+    font-weight: var(--font-bold);
+  }
+
+  #calendar-container .today {
+    background-color: oklch(from var(--base-accent) 50% c h / 25%);
+    font-weight: var(--font-bold);
+    color: var(--text-normal);
+    border-radius: unset;
+  }
+}
+
+/* --- Kanban Plugin --- */
+.retroma-with-kanban-plugin {
+  .kanban-plugin__lane {
+    border: var(--border-groove);
+    border-radius: var(--window-border-radius);
+    box-shadow: -3px 3px 0px var(--background-tertiary);
+    overflow: overlay;
+    scrollbar-width: none;
+  }
+
+  .kanban-plugin__item {
+    border-radius: var(--window-border-radius);
+  }
+
+  .kanban-plugin__lane-header-wrapper {
+    flex-wrap: wrap;
+    gap: unset;
+  }
+
+  .kanban-plugin__lane-title {
+    order: 1;
+    margin-block: var(--size-4-2);
+    border-radius: var(--window-border-radius);
+    background-color: var(--background-paper);
+    border: var(--border-groove);
+  }
+
+  .kanban-plugin__lane-wrapper.collapse-horizontal .kanban-plugin__lane-title {
+    margin-block: unset !important;
+  }
+
+  .kanban-plugin_table-wraper .kanban-plugin__meta-value .markdown-preview-view,
+  .kanban-plugin__markdown-preview-wrapper .markdown-preview-view {
+    margin-inline: 8px;
+  }
+
+  .kanban-plugin__lane-items {
+    border-radius: var(--window-border-radius);
+    /* box-shadow: inset 0 0 12px oklch(from black l c h / 50%); */
+    margin-bottom: var(--size-4-3);
+  }
+
+  .kanban-plugin__item-title-wrapper {
+    background-color: var(--background-paper);
+    border-radius: var(--window-border-radius);
+    border: var(--border-groove);
+  }
+
+  .kanban-plugin__item-input-wrapper {
+    padding: 8px;
+  }
+
+  /* Remove any border of view in preview/editing mode */
+  .kanban-plugin .markdown-source-view,
+  .kanban-plugin__meta-value .markdown-preview-view,
+  .kanban-plugin__markdown-preview-wrapper .markdown-preview-view {
+    border: 0 !important;
+    box-shadow: unset;
+  }
+
+  /* Add border to active text input */
+  .kanban-plugin__item:has(.markdown-source-view),
+  .kanban-plugin__lane-input:has(.markdown-source-view) {
+    outline: unset;
+    border: var(--border-solid) !important;
+    border-radius: var(--window-border-radius);
+    background-color: var(--background-paper);
+  }
+
+  .kanban-plugin__lane-settings-button-wrapper,
+  .kanban-plugin__search-wrapper {
+    gap: var(--size-2-3);
+    position: relative;
+    right: -56%;
+  }
+
+  .kanban-plugin__item-postfix-button-wrapper .clickable-icon {
+    box-shadow: unset !important;
+    border: unset !important;
+    background-color: unset !important;
+    border-radius: var(--window-border-radius) !important;
+    margin: unset !important;
+  }
+
+  .kanban-plugin__item-postfix-button-wrapper .clickable-icon:hover {
+    background-color: var(--background-primary) !important;
+  }
+
+  .kanban-plugin__table-wrapper table {
+    box-shadow: unset;
+  }
+
+  .kanban-plugin__table-wrapper table th {
+    background-color: oklch(from var(--text-normal) l c h / 0%) !important;
+  }
+
+  .kanban-plugin__meta-value
+    .kanban-plugin__markdown-preview-view
+    > *:last-child,
+  .kanban-plugin__markdown-preview-wrapper
+    .kanban-plugin__markdown-preview-view
+    > *:last-child {
+    margin-block-end: var(--size-4-2);
+  }
+
+  .kanban-plugin__lane-grip,
+  .kanban-plugin__icon {
+    color: var(--text-muted);
+  }
+}
+
+/* TaskNotes */
+.retroma-with-tasknotes-plugin {
+  .tasknotes-plugin {
+    --tn-radius-xs: var(--window-border-radius);
+    --tn-radius-s: var(--window-border-radius);
+    --tn-radius-md: var(--window-border-radius);
+    --tn-radius-lg: var(--window-border-radius);
+    --tn-radius-xl: var(--window-border-radius);
+    --tn-radius-full: var(--window-border-radius);
+  }
+
+  .theme-light .tasknotes-plugin {
+    --interactive-accent: oklch(from var(--base-accent) 50% c h) !important;
+    --interactive-accent-hover: oklch(
+      from var(--base-accent) 40% c h
+    ) !important;
+  }
+
+  .theme-dark .tasknotes-plugin {
+    --interactive-accent: oklch(from var(--base-accent) 60% c h) !important;
+    --interactive-accent-hover: oklch(
+      from var(--base-accent) 70% c h
+    ) !important;
+  }
+
+  .tasknotes-plugin .fc-event {
+    border-radius: var(--window-border-radius) !important;
+    color: var(--text-muted);
+  }
+
+  .fc-event-main {
+    color: unset !important;
+  }
+
+  /* tasknotes kanban view */
+  .tasknotes-plugin .kanban-view__board {
+    background-color: var(--background-paper);
+    padding: 8px;
+  }
+
+  .tasknotes-plugin .kanban-view__column {
+    border: var(--border-ridge);
+    box-shadow: -3px 3px 0px var(--background-tertiary);
+  }
+
+  .tasknotes-plugin .task-card:not(.task-card-note-widget .task-card) {
+    border-bottom: 1px solid var(--text-faint);
+  }
+
+  .fc-multimonth-header-table {
+    border-bottom-style: none;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    background-color: oklch(
+      from var(--background-secondary) 50% c h
+    ) !important;
+    font-weight: var(--font-bold);
+  }
+
+  .advanced-calendar-view .fc-multimonth-header {
+    border-bottom: unset;
+  }
+
+  .fc .fc-multimonth-daygrid {
+    border-radius: var(--window-border-radius) !important;
+  }
+
+  .fc .fc-multimonth-daygrid-table {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+
+  /* tasknotes mini calendar view */
+  .tasknotes-plugin .mini-calendar-bases-view {
+    padding: 4px 16px;
+  }
+
+  .tasknotes-plugin .mini-calendar-view__grid,
+  .fc .fc-multimonth-daygrid-table,
+  .fc .fc-multimonth-header-table {
+    background-color: var(--background-primary);
+    border-radius: var(--window-border-radius);
+    border: 2px solid oklch(from var(--text-normal) l c h / 25%);
+    box-shadow: -3px 3px 0px var(--background-tertiary);
+  }
+
+  .tasknotes-plugin .mini-calendar-view__week-header,
+  .tasknotes-plugin .mini-calendar-view__day-header,
+  .fc .fc-col-header-cell-cushion {
+    background-color: oklch(from var(--background-secondary) 50% c h);
+    color: oklch(from var(--background-primary) 100% c h);
+    font-weight: var(--font-bold);
+  }
+
+  .tasknotes-plugin .mini-calendar-view__day,
+  .fc-theme-standard td,
+  .fc-theme-standard th {
+    border: 1px solid oklch(from var(--text-normal) l c h / 25%) !important;
+    border-radius: 0;
+  }
+
+  .tasknotes-plugin .mini-calendar-view__day:hover {
+    color: var(--text-normal) !important;
+    background-color: transparent !important;
+    border-color: oklch(from var(--base-accent) 50% c h) !important;
+    font-weight: var(--font-bold) !important;
+    border: 2px solid oklch(from var(--background-secondary) 60% c h) !important;
+  }
+
+  .tasknotes-plugin .mini-calendar-view__day--today {
+    background-color: oklch(from var(--base-accent) 50% c h / 25%) !important;
+    border: 2px solid oklch(from var(--background-secondary) 60% c h) !important;
+  }
+
+  .tasknotes-plugin
+    .calendar-view__day--selected:not(.calendar-view__day--today),
+  .tasknotes-plugin
+    .mini-calendar-view__day--selected:not(.mini-calendar-view__day--today) {
+    background: transparent !important;
+    border: 2px solid oklch(from var(--background-secondary) 60% c h) !important;
+  }
 }
 
 /* ------------------------------------------------------------------------------------ */
@@ -2872,6 +3005,54 @@ settings:
             -
               label: Right
               value: text-right
+    -
+        id: plugin-integration-toggle
+        title: Plugin Integrations Toggle
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: retroma-with-tasknotes-plugin
+        title: TaskNotes by Callum Alpass
+        type: class-select
+        description: https://github.com/callumalpass/tasknotes
+        allowEmpty: false
+        default: "retroma-with-tasknotes-plugin"
+        options:
+            -
+              label: Enable
+              value: retroma-with-tasknotes-plugin
+            -
+              label: Disable
+              value:
+    -
+        id: retroma-with-kanban-plugin
+        title: Kanban by mgmeyers
+        type: class-select
+        description: https://github.com/mgmeyers/obsidian-kanban
+        allowEmpty: false
+        default: "retroma-with-kanban-plugin"
+        options:
+            -
+              label: Enable
+              value: retroma-with-kanban-plugin
+            -
+              label: Disable
+              value:
+    -
+        id: retroma-with-calendar-plugin
+        title: Calendar by Liam Cain
+        type: class-select
+        description: https://github.com/liamcain/obsidian-calendar-plugin
+        allowEmpty: false
+        default: "retroma-with-calendar-plugin"
+        options:
+            -
+              label: Enable
+              value: retroma-with-calendar-plugin
+            -
+              label: Disable
+              value:
     -
         id: author
         title: SUPPORT THE DEVELOPMENT
