@@ -1321,6 +1321,7 @@ tr:last-child td:last-child {
 /* BASES */
 
 .bases-view {
+  padding: unset !important;
   scrollbar-gutter: unset;
 }
 
