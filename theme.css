@@ -498,6 +498,7 @@ body {
   transform: translateY(-1px) translateX(-1px);
 }
 
+button:active,
 .clickable-icon.is-active svg,
 .clickable-icon:active svg,
 .canvas-control-item:active svg,
