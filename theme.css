@@ -1632,9 +1632,10 @@ tr:last-child td:last-child {
 .style-settings-heading {
   border-bottom: unset;
   padding: 2px 4px;
-  background: var(--background-tertiary);
+  background: oklch(from var(--background-tertiary) l c h / 50%);
   border-radius: var(--button-border-radius) !important;
   margin-bottom: -16px !important;
+  border:var(--border-ridge);
 }
 
 .style-settings-heading .setting-item-name {
@@ -1643,6 +1644,7 @@ tr:last-child td:last-child {
 }
 
 .style-settings-container {
+  margin-top: 14px;
   padding-inline: 16px !important;
   padding-block: 24px;
   background: oklch(from var(--background-tertiary) l c h / 25%);
