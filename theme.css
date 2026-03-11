@@ -1653,9 +1653,25 @@ tr:last-child td:last-child {
   border-bottom: unset;
   padding: 2px 4px;
   background: oklch(from var(--background-tertiary) l c h / 50%);
-  border-radius: var(--button-border-radius) !important;
-  margin-bottom: -16px !important;
+  border-radius: var(--window-border-radius) !important;
+  margin-bottom: -14px !important;
   border:var(--border-ridge);
+}
+
+.style-settings-heading .setting-item-name {
+  color: var(--text-normal) !important;
+  font-weight: 700;
+}
+
+.style-settings-container {
+  margin-top: 14px;
+  margin-left: 2px;
+  padding-inline: 16px !important;
+  padding-block: 24px;
+  background: oklch(from var(--background-tertiary) l c h / 25%);
+  border-radius: var(--window-border-radius);
+  border-left: 4px solid var(--background-tertiary);
+  border-bottom: 4px solid var(--background-tertiary);
 }
 
 .style-settings-heading .setting-item-name {
