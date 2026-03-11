@@ -254,6 +254,8 @@ body {
   --metadata-label-text-color-hover: var(--text-muted);
   --metadata-label-font-weight: var(--font-bold);
 
+  --nav-item-background-selected: var(--text-selection);
+
   /*** Images  ***/
   --img-border-width: 0px;
   --img-border-color: oklch(from var(--background-tertiary) l var(--chroma) h);
@@ -871,9 +873,18 @@ blockquote {
   background: unset !important;
 }
 
+.metadata-add-button:focus {
+  /* box-shadow: 2px 2px 2px solid oklch(from var(--background-secondary) l c h) !important; */
+  background: var(--button-active) !important;
+  box-shadow: var(--box-shadow-active) !important;
+}
+
 .metadata-property {
   border: 1px solid var(--text-faint);
   border-radius: var(--window-border-radius);
+}
+.metadata-container:focus-within .metadata-property.is-selected {
+  outline: 2px solid var(--text-faint) !important;
 }
 
 .metadata-properties-heading .collapse-indicator {
