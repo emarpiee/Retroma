@@ -640,6 +640,15 @@ input[type="number"] {
   border-radius: var(--button-border-radius);
 }
 
+.checkbox-container.is-enabled {
+  background: var(--interactive-active);
+}
+
+.checkbox-container:hover {
+  box-shadow: var(--box-shadow-active);
+  border-radius: var(--button-border-radius);
+}
+
 .checkbox-container:after {
   box-shadow: var(--box-shadow);
   border-radius: var(--button-border-radius);
