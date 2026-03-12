@@ -271,6 +271,7 @@ body {
   --callout-border-width: var(--size-4-1);
   --callout-radius: var(--window-border-radius);
 
+  --canvas-background: var(--background-paper);
   --canvas-dot-pattern: oklch(from var(--text-normal) l c h / var(--retroma-canvas-dot-opacity));
   --retroma-canvas-dot-opacity: 0.30;
   --retroma-canvas-card-border-width: 3px;
