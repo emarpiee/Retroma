@@ -285,6 +285,8 @@ body {
   --code-radius: var(--window-border-radius);
   --code-size: var(--font-smaller);
 
+  --checkbox-color: var(--background-secondary);
+  --checkbox-color-hover: var(--background-secondary-alt);
   --checkbox-radius: var(--window-border-radius);
   --checkbox-marker-color: var(--background-paper);
 
