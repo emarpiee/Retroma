@@ -619,23 +619,15 @@ button.mod-warning {
   --text-color: unset;
 }
 
-input:not(
-  input[type="checkbox"],
-  input[type="range"],
-  :not(
-    .bases-view .metadata-property input[type="text"],
-    .bases-view .metadata-property input[type="datetime-local"]
-  )
-),
-input[type="search"],
-.setting-item-control select,
-.formula-editor,
-textarea,
-input[type="text"],
-input[type="number"] {
-  border: 2px solid oklch(from var(--text-muted) l c h / 50%) !important;
+ input:not(.metadata-property input, input[type="checkbox"]), select, textarea {
   background-color: var(--background-paper) !important;
   border-radius: var(--window-border-radius) !important;
+  box-shadow: var(--box-shadow-active) !important;
+  border: var(--border-width) solid var(--outline-color) !important;
+}
+
+input:not(.metadata-property input, input[type="checkbox"]):focus-within, select:focus-within {
+  outline: 2px solid var(--text-faint) !important;
 }
 
 .checkbox-container {
@@ -654,10 +646,6 @@ input[type="number"] {
 
 .checkbox-container:after {
   box-shadow: var(--box-shadow);
-  border-radius: var(--button-border-radius);
-}
-
-input[type="range"] {
   border-radius: var(--button-border-radius);
 }
 
@@ -701,17 +689,13 @@ input[type="range"] {
   margin: var(--size-4-2);
 }
 
-/* .markdown-source-view, */
-/* .markdown-preview-view, */
-.view-content.webviewer-content,
+.view-content,
 .search-result-container.mod-global-search,
 .nav-files-container,
-.backlink-pane,
-.outgoing-link-pane,
-.workspace-leaf-content[data-type="bases"] .view-content {
+.tag-container {
   border-radius: var(--window-border-radius);
   border: var(--border-ridge);
-  background-color: var(--background-paper);
+  background-color: var(--background-paper) !important;
   box-shadow: inset 0 0 4px oklch(from black l c h / 50%);
   z-index: 0;
 }
@@ -794,6 +778,10 @@ input[type="range"] {
 body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   border-top: unset;
 } 
+
+.workspace-leaf-content[data-type="webviewer-history"] .tree-item {
+  border-bottom: 1px solid var(--text-faint) !important;
+}
 
 /* ------------------------------------------------------------------------------------ */
 /* EDITOR CONTENTS */
@@ -1240,9 +1228,6 @@ tr:last-child td:last-child {
 
 .canvas-wrapper {
   --shadow-stationary: unset;
-  border-radius: var(--window-border-radius);
-  border: var(--border-ridge);
-  box-shadow: inset 0 0 4px oklch(from black l c h / 50%);
 }
 
 .canvas-group-label {
@@ -1752,11 +1737,6 @@ tr:last-child td:last-child {
 /* PLUGIN SPECIFIC STYLING*/
 
 /* Excalidraw */
-.excalidraw {
-  border-radius: var(--window-border-radius);
-  border: var(--border-ridge);
-}
-
 .excalidraw .color-picker-input {
   background-color: transparent !important;
 }
@@ -1775,11 +1755,6 @@ tr:last-child td:last-child {
 .cm-s-obsidian .templater-command-bg,
 .cm-s-obsidian .templater-inline .cm-templater-command {
   background-color: var(--code-background);
-}
-
-/* Notebook Navigator */
-.view-content.notebook-navigator {
-  border-radius: var(--window-border-radius);
 }
 
 /* --- Calendar Plugin --- */
