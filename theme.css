@@ -791,6 +791,10 @@ input[type="range"] {
   background-color: unset;
 }
 
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  border-top: unset;
+} 
+
 /* ------------------------------------------------------------------------------------ */
 /* EDITOR CONTENTS */
 
