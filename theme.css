@@ -693,6 +693,8 @@ input:not(.metadata-property input, input[type="checkbox"]):focus-within, select
 
 .view-content,
 .search-result-container.mod-global-search,
+.markdown-reading-view .backlink-pane,
+.markdown-source-view .backlink-pane,
 .nav-files-container,
 .tag-container {
   border-radius: var(--window-border-radius);
