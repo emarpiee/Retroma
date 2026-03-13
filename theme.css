@@ -2377,14 +2377,26 @@ tr:last-child td:last-child {
 }
 
 .mobile-tab {
+  background-color: var(--background-primary);
   gap: unset !important;
   border: 1px solid var(--text-faint);
-  /* box-shadow: 3px 3px 0 var(--text-faint); */
+  border-radius: var(--window-border-radius);
+}
+
+.mobile-tab.is-active .mobile-tab-preview-empty, .mobile-tab.is-active .mobile-tab-preview-embed {
+  box-shadow: unset;
+}
+
+.mobile-tab-preview {
+  border-bottom-left-radius: var(--window-border-radius);
+  border-bottom-right-radius: var(--window-border-radius);
 }
 
 .mobile-tab-title {
-  /* border: 1px solid var(--text-muted); */
   background-color: var(--background-secondary);
+  border-radius: var(--window-border-radius);
+  border-top-left-radius: unset;
+  border-top-right-radius: unset;
   font-weight: 900;
 }
 
