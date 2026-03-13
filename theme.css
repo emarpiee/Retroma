@@ -1734,6 +1734,18 @@ tr:last-child td:last-child {
   border-bottom: 4px solid var(--background-tertiary);
 }
 
+.themed-color-wrapper > div {
+  border-radius: var(--window-border-radius) !important;
+  padding: 2px;
+}
+
+.themed-color-wrapper .pickr-reset > button {
+  color: var(--text-muted) !important;
+  height: unset !important;
+  padding: 4px !important;
+  line-height: unset !important;
+}
+
 .is-mobile .mod-settings.mod-sidebar-layout,
 .is-mobile .modal.mod-lg,
 .is-mobile .modal.mod-sidebar-layout {
