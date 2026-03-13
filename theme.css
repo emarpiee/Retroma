@@ -1690,6 +1690,11 @@ tr:last-child td:last-child {
   background-color: var(--background-secondary);
 }
 
+
+.is-phone .modal.mod-settings .vertical-tab-nav-item {
+  height: var(--touch-size-xs); 
+}
+
 .vertical-tab-header-group-title {
   color: oklch(from var(--text-normal) l c h / 50%) !important;
 }
