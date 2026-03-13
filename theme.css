@@ -507,6 +507,7 @@ body {
 /* BUTTONS AND INPUTS */
 
 .clickable-icon svg,
+.mobile-toolbar-option svg,
 .is-mobile .empty-state-action,
 .canvas-wrapper .collapse-button svg,
 .canvas-control-item svg,
@@ -520,6 +521,7 @@ body {
 }
 
 button:active,
+.mobile-toolbar-option:active svg,
 .is-mobile .empty-state-action:active,
 .canvas-wrapper .collapse-button:active svg,
 .clickable-icon.is-active svg,
@@ -546,6 +548,7 @@ button:active,
 }
 
 button:not(.excalidraw button),
+.mobile-toolbar-option:active,
 .is-mobile .empty-state-action,
 .canvas-wrapper .collapse-button,
 .close-button,
@@ -1489,7 +1492,8 @@ tr:last-child td:last-child {
 }
 
 .markdown-reading-view .bases-embed,
-.cm-lang-base {
+.cm-lang-base, 
+.is-phone .markdown-source-view.mod-cm6 .cm-content > .bases-embed, .is-phone .markdown-source-view.mod-cm6 .cm-content > .cm-lang-base {
   width: unset !important;
   transform: unset !important;
 }
@@ -2448,17 +2452,21 @@ tr:last-child td:last-child {
   font-weight: 900;
 }
 
-.mobile-tab.is-active {
-  border: var(--border-ridge) !important;
+.mobile-toolbar {
+  margin-bottom: var(--size-4-1) !important;
 }
 
-.mobile-toolbar {
-  border-top: var(--border-groove);
-  background-color: var(--background-secondary);
+.mobile-toolbar-options-list-container {
+  border-radius: 0 !important;
 }
 
 .mobile-toolbar-options-list {
-  gap: 4px;
+  border-radius: 0 !important;
+  gap: var(--size-4-1);
+}
+
+.mobile-toolbar-option {
+  height: unset !important;
 }
 /* ------------------------------------------------------------------------------------ */
 /* STYLE SETTINGS CUSTOM CSS */
