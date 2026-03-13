@@ -1716,7 +1716,7 @@ tr:last-child td:last-child {
 }
 
 
-.is-phone .modal.mod-settings .vertical-tab-nav-item {
+.is-phone .modal.mod-settings .vertical-tab-nav-item:not(.vertical-tab-nav-item:has(input[type="search"])) {
   height: var(--touch-size-xs); 
 }
 
