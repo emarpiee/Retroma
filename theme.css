@@ -1970,6 +1970,21 @@ tr:last-child td:last-child {
 }
 
 /* TaskNotes */
+
+.theme-light .tasknotes-plugin {
+  --interactive-accent: oklch(from var(--base-accent) 50% c h) !important;
+  --interactive-accent-hover: oklch(
+    from var(--base-accent) 40% c h
+  ) !important;
+}
+
+.theme-dark .tasknotes-plugin {
+  --interactive-accent: oklch(from var(--base-accent) 60% c h) !important;
+  --interactive-accent-hover: oklch(
+    from var(--base-accent) 70% c h
+  ) !important;
+}
+
 .retroma-with-tasknotes-plugin {
   .tasknotes-plugin {
     --tn-radius-xs: var(--window-border-radius);
@@ -1978,20 +1993,6 @@ tr:last-child td:last-child {
     --tn-radius-lg: var(--window-border-radius);
     --tn-radius-xl: var(--window-border-radius);
     --tn-radius-full: var(--window-border-radius);
-  }
-
-  .theme-light .tasknotes-plugin {
-    --interactive-accent: oklch(from var(--base-accent) 50% c h) !important;
-    --interactive-accent-hover: oklch(
-      from var(--base-accent) 40% c h
-    ) !important;
-  }
-
-  .theme-dark .tasknotes-plugin {
-    --interactive-accent: oklch(from var(--base-accent) 60% c h) !important;
-    --interactive-accent-hover: oklch(
-      from var(--base-accent) 70% c h
-    ) !important;
   }
 
   .tasknotes-plugin .fc-event {
