@@ -715,7 +715,7 @@ input:not(.metadata-property input, input[type="checkbox"]):focus-within, select
 .nav-files-container,
 .tag-container {
   border-radius: var(--window-border-radius) !important;
-  border: var(--border-ridge) !important;
+  border: var(--border-ridge);
   background-color: var(--background-paper) !important;
   box-shadow: inset 0 0 4px oklch(from black l c h / 50%) !important;
   z-index: 0;
@@ -1264,12 +1264,21 @@ tr:last-child td:last-child {
   border: 1px solid var(--text-muted);
 }
 
+.is-phone .canvas-controls {
+  right: 0;
+}
+
+.is-phone .canvas-control-group {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
 .canvas-control-group,
 .canvas-menu {
   background-color: var(--background-secondary) !important;
   border: 1px solid var(--text-muted) !important;
   border-radius: var(--button-border-radius);
-  padding: 2px;
+  padding: 4px;
   gap: var(--size-2-1);
 }
 
@@ -1307,6 +1316,19 @@ tr:last-child td:last-child {
 
 .canvas-wrapper, .canvas-wrapper .markdown-preview-view {
   font-family: var(--retroma-canvas-custom-font);
+}
+
+.is-phone .workspace-leaf:has(.canvas-wrapper) {
+  --view-top-spacing: 0 !important;
+  padding: 6px 0 0 0 !important;
+}
+
+.is-phone .view-content:has(.canvas-wrapper) {
+  border: unset !important;
+}
+
+.is-phone .canvas-controls{
+  top: calc(4 * var(--safe-area-inset-top));
 }
 
 /* ------------------------------------------------------------------------------------ */
