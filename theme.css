@@ -771,6 +771,10 @@ input:not(.metadata-property input, input[type="checkbox"]):focus-within, select
   margin-bottom: 8px;
 }
 
+.is-mobile .workspace-drawer .nav-header {
+  padding: var(--size-4-2);
+}
+
 .is-mobile .workspace-drawer .nav-buttons-container {
   /* position: unset; */
   border-radius: var(--window-border-radius);
