@@ -1991,6 +1991,7 @@ tr:last-child td:last-child {
   .tasknotes-plugin .kanban-view__column {
     border: var(--border-ridge);
     box-shadow: -3px 3px 0px var(--background-tertiary);
+    margin-inline: var(--size-4-1);
   }
 
   .tasknotes-plugin .task-card:not(.task-card-note-widget .task-card) {
