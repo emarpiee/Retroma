@@ -2413,6 +2413,11 @@ tr:last-child td:last-child {
 
 .mobile-tab-switcher-menubar {
   border-top: var(--border-groove) !important;
+  position: unset;
+}
+
+.mobile-tab-switcher-scroll {
+  padding-bottom: unset;
 }
 
 .mobile-tab-switcher-inner-scroll {
