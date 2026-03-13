@@ -308,6 +308,9 @@ body {
   --radius-s: var(--button-border-radius);
   --radius-xs: var(--button-border-radius);
   --radius-xxs: var(--button-border-radius);
+
+  --view-top-fade-mask: unset !important;
+  --view-bottom-fade-mask: unset !important;
 }
 
 .theme-light {
