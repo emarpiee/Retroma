@@ -293,13 +293,16 @@ body {
 
   --settings-background: var(--background-paper) !important;
   --setting-items-background: var(--background-primary) !important;
+
   --file-header-background-focused: var(--background-secondary) !important;
   --mobile-sidebar-width: 100% !important;
   --tab-switcher-preview-radius: var(--window-border-radius) !important;
   --tab-switcher-preview-background-shadow: unset !important;
   --nav-indentation-guide-width: 2px;
+
   --raised-shadow: unset !important;
   --raised-background: unset !important;
+
   --touch-radius-m: var(--button-border-radius);
   --touch-radius-s: var(--button-border-radius);
   --touch-radius-xs: var(--button-border-radius);
@@ -308,6 +311,9 @@ body {
   --radius-s: var(--button-border-radius);
   --radius-xs: var(--button-border-radius);
   --radius-xxs: var(--button-border-radius);
+
+  --collapse-icon-color: var(--text-muted);
+  --collapse-icon-color-collapsed: var(--text-faint);
 
   --view-top-fade-mask: unset !important;
   --view-bottom-fade-mask: unset !important;
