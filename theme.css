@@ -498,6 +498,7 @@ body {
 /* BUTTONS AND INPUTS */
 
 .clickable-icon svg,
+.is-mobile .empty-state-action,
 .canvas-wrapper .collapse-button svg,
 .canvas-control-item svg,
 .vertical-tab-nav-item-icon,
@@ -510,6 +511,7 @@ body {
 }
 
 button:active,
+.is-mobile .empty-state-action:active,
 .canvas-wrapper .collapse-button:active svg,
 .clickable-icon.is-active svg,
 .clickable-icon:active svg,
@@ -535,6 +537,7 @@ button:active,
 }
 
 button:not(.excalidraw button),
+.is-mobile .empty-state-action,
 .canvas-wrapper .collapse-button,
 .close-button,
 .mobile-tab-pin,
@@ -555,6 +558,7 @@ button:not(.excalidraw button),
 }
 
 button:not(.excalidraw button),
+.is-mobile .empty-state-action,
 .collapse-button,
 .close-button,
 .mobile-tab-pin,
@@ -574,6 +578,7 @@ button:not(.excalidraw button),
 }
 
 button:not(.excalidraw button):hover,
+.is-mobile .empty-state-action:hover,
 .canvas-wrapper .collapse-button:hover,
 .close-button:hover,
 .mobile-tab-pin:hover,
@@ -589,6 +594,7 @@ button:not(.excalidraw button):hover,
 }
 
 button:not(.excalidraw button):active,
+.is-mobile .empty-state-action:active,
 .canvas-wrapper .collapse-button:active,
 .collapse-button:active,
 .close-button:active,
