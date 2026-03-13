@@ -640,7 +640,7 @@ button.mod-warning {
   --text-color: unset;
 }
 
- input:not(.metadata-property input, input[type="checkbox"], .bases-view input), select, textarea {
+ input:not(.metadata-property input, input[type="checkbox"], .bases-view input, .pcr-app input), select, textarea {
   background-color: var(--background-paper) !important;
   border-radius: var(--window-border-radius) !important;
   box-shadow: var(--box-shadow-active) !important;
@@ -1743,7 +1743,7 @@ tr:last-child td:last-child {
 
 
 .is-phone .modal.mod-settings .vertical-tab-nav-item:not(.vertical-tab-nav-item:has(input[type="search"])) {
-  height: var(--touch-size-xs); 
+  height: var(--touch-size-s); 
 }
 
 .vertical-tab-header-group-title {
