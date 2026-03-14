@@ -407,6 +407,7 @@ body {
 
 .theme-dark {
   --lightness: 70%;
+  --lightness-accent: 0.24;
 
   /*Chroma for Typography*/
   --chroma: 20%;
@@ -416,25 +417,25 @@ body {
 
   /* Background Colors */
   --background-paper: oklch(
-    from var(--accent-2) 32% calc(c * var(--chroma-accent)) h
+    from var(--accent-2) var(--lightness-accent) calc(c * var(--chroma-accent)) h
   );
   --background-primary: oklch(
-    from var(--accent-2) 28% calc(c * var(--chroma-accent)) h
+    from var(--accent-2) calc(var(--lightness-accent) - 0.02) calc(c * var(--chroma-accent)) h
   );
   --background-primary-alt: oklch(
-    from var(--base-accent) 26% calc(c * var(--chroma-accent)) h
+    from var(--base-accent) calc(var(--lightness-accent) - 0.04) calc(c * var(--chroma-accent)) h
   );
   --background-secondary: oklch(
-    from var(--base-accent) 24% calc(c * var(--chroma-accent)) h
+    from var(--base-accent) calc(var(--lightness-accent) - 0.06) calc(c * var(--chroma-accent)) h
   );
   --background-secondary-alt: oklch(
-    from var(--accent-1) 22% calc(c * var(--chroma-accent)) h
+    from var(--accent-1) calc(var(--lightness-accent) - 0.08) calc(c * var(--chroma-accent)) h
   );
   --background-tertiary: oklch(
-    from var(--accent-2) 20% calc(c * var(--chroma-accent)) h
+    from var(--accent-2) calc(var(--lightness-accent) - 0.10) calc(c * var(--chroma-accent)) h
   );
   --titlebar-background: oklch(
-    from var(--accent-1) 18% calc(c * var(--chroma-accent)) h
+    from var(--accent-1) calc(var(--lightness-accent) - 0.12) calc(c * var(--chroma-accent)) h
   );
 
   /*** Typography  ***/
@@ -2822,6 +2823,14 @@ settings:
             - 
                 label: Sharp
                 value: 0px
+    -
+        id: lightness-accent
+        title: Dark Mode Lightness 
+        type: variable-number-slider
+        default: 0.24
+        min: 0
+        max: 0.32
+        step: 0.02
     -
         id: color-scheme
         title: Color Scheme Tuner (advance)
