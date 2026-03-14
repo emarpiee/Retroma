@@ -2866,14 +2866,6 @@ settings:
         max: 360
         step: 1
     -
-        id: chroma
-        title: Typography Chroma/Saturation
-        type: variable-number-slider
-        default: 0.1
-        min: 0
-        max: 0.2
-        step: 0.001
-    -
         id: chroma-folder
         title: Folder Chroma/Saturation
         type: variable-number-slider
@@ -2887,6 +2879,14 @@ settings:
         type: heading
         level: 2
         collapsed: true
+    -
+        id: chroma
+        title: Typography Chroma/Saturation
+        type: variable-number-slider
+        default: 0.1
+        min: 0
+        max: 0.2
+        step: 0.001
     -
         id: heading-colors
         title:  Heading Colors
