@@ -3031,7 +3031,7 @@ settings:
         collapsed: true
     -
         id: text-highlight-bg
-        title: Highlighter Color
+        title: Highlighter (marker)
         description: ""
         format: hex
         type: variable-themed-color
@@ -3040,7 +3040,7 @@ settings:
         default-dark: '#FFFFFF00'
     -
         id: text-selection
-        title: Text Selection Colors
+        title: Text Selection
         type: variable-themed-color
         format: hex
         opacity: false
