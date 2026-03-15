@@ -14,14 +14,6 @@ Retroma gives you the best of both worlds, taking inspiration from classic and n
 
 The magic starts with Retroma's advanced color algorithm so advanced, it probably has a Ph.D. in aesthetics. You pick one accent color, and Retroma's algorithm does the rest, creating a complete and harmonious palette. It’s like hiring a personal color consultant who works for free, doesn’t sleep, and never judges your questionable font choices.
 
-### ⚙️ Extensive Customization
-
-![retroma-style-settings.webp](assets/screenshots/retroma-style-settings.webp)
-
-Think you’ve got an eye for design? Prove it. Thanks to full integration with the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin, Retroma gives you near-total control. Rotate your color scheme, fine-tune folder icon saturation to match your mood, or adjust typography until it feels “just right.” No judgment here, this is your chance to show the world your inner perfectionist.
-
-> Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin from the community plugins to access all of Retroma's extensive customization, theme variations, and extra features.
-
 ### 🎭️ Theme Variations
 
 ![retroma-theme-variant.gif](assets/screenshots/retroma-theme-variant.gif)
@@ -58,26 +50,23 @@ Bored with classic color schemes? The **advanced Color Scheme Tuner** offers ful
 
 > Requries [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin
 
-### ⭐️ Extra Features
+### ⚙️ Extensive Customization
 
-- Adjustable border radius
-- Image settings
-- Table settings
-- Hide/show headings and footnote dividers
-- Custom highlighter colors for light and dark mode, because neon yellow isn’t always the vibe
-- Redesigned #tags with built-in options like:
-    - #todo (spoiler: you won’t do it)
-    - #home
-    - #work
-    - #high
-    - #medium
-    - #low (the tag where most tasks end up)
-- …more coming soon, because I’m indecisive 😝
+Think you’ve got an eye for design? Prove it. Thanks to full integration with the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin, Retroma gives you near-total control. Rotate your color scheme, fine-tune folder saturation to match your mood, or adjust typography until it feels “just right.” No judgment here, this is your chance to show the world your inner perfectionist.
+
+![retroma-style-settings.webp](assets/screenshots/retroma-style-settings.webp)
+
+> Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin from the community plugins to access all of Retroma's extensive customization, theme variations, and extra features.
 
 ## 🗃️ Resources
 
-- Font featured in the screenshots: [iA Fonts](https://github.com/iaolo/iA-Fonts)
-- ...
+**Fonts used in the theme:**
+
+- [Cascadia Code](https://fonts.google.com/specimen/Cascadia+Code)
+- [W95font](https://arnesava.github.io/w95font/)
+- [iA Writer Mono](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Mono)
+- [Excalifont](https://plus.excalidraw.com/excalifont)
+- [Caveat](https://fonts.google.com/specimen/Caveat)
 
 ---
 
