@@ -116,10 +116,11 @@ body {
   --h6-color: var(--color-indigo);
 
   /* Folder Color Palette */
-  --folder-accent-1: oklch(
+  --folder-accent: var(--base-accent);
+  --folder-color-1: oklch(
     from var(--hue-red) var(--lightness) var(--chroma-folder) h
   );
-  --folder-accent-2: oklch(
+  --folder-color-2: oklch(
     from var(--hue-orange) var(--lightness) var(--chroma-folder) h
   );
   --folder-color-3: oklch(
@@ -143,24 +144,29 @@ body {
   --folder-color-9: oklch(
     from var(--hue-amber) var(--lightness) var(--chroma-folder) h
   );
-  --folder-accent-10: oklch(
+  --folder-color-10: oklch(
     from var(--hue-lime) var(--lightness) var(--chroma-folder) h
   );
-  --folder-accent-11: oklch(
+  --folder-color-11: oklch(
     from var(--hue-teal) var(--lightness) var(--chroma-folder) h
   );
-  --folder-accent-12: oklch(
+  --folder-color-12: oklch(
     from var(--hue-purple) var(--lightness) var(--chroma-folder) h
   );
-  --folder-accent-13: oklch(
+  --folder-color-13: oklch(
     from var(--hue-magenta) var(--lightness) var(--chroma-folder) h
   );
-  --folder-accent-14: oklch(
+  --folder-color-14: oklch(
     from var(--hue-rose) var(--lightness) var(--chroma-folder) h
   );
-  --folder-accent-15: oklch(
+  --folder-color-15: oklch(
     from var(--hue-cyan) var(--lightness) var(--chroma-folder) h
   );
+
+  --retroma-folder-bg-color: var(--background-primary);
+  --retroma-folder-border: 1px solid oklch(from var(--accent-2) 55% var(--chroma-folder) h / 50%);
+  --retroma-folder-box-shadow: -1px 1px 0px var(--background-tertiary);
+  --retroma-folder-scrollbar: unset;
 
   /* Layout & Sizing */
   --header-height: 48px;
@@ -1135,9 +1141,9 @@ tr:last-child td:last-child {
 .nav-files-container > div > .nav-folder {
   margin-block: 6px;
   border-radius: var(--button-border-radius);
-  background-color: oklch(from var(--background-primary) l c h) !important;
-  border: 2px solid oklch(from var(--accent-2) 55% var(--chroma-folder) h / 50%);
-  box-shadow: -1px 1px 0px var(--background-tertiary);
+  background: var(--retroma-folder-bg-color);
+  border: var(--retroma-folder-border);
+  box-shadow: var(--retroma-folder-box-shadow);
 }
 
 .nav-file-title-content {
@@ -1149,7 +1155,7 @@ tr:last-child td:last-child {
 }
 
 .nav-files-container::-webkit-scrollbar {
-  display: none !important;
+  display: var(--retroma-folder-scrollbar) !important;
 }
 
 .nav-files-container > div > .nav-folder:not(.is-collapsed) {
@@ -1197,63 +1203,63 @@ tr:last-child td:last-child {
 
 /* --- Folder Color Cycling --- */
 .nav-files-container > div > .nav-folder:nth-child(15n + 1) {
-  --folder-color: var(--folder-accent-1);
+  --folder-color: var(--folder-color-15);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 2) {
-  --folder-color: var(--folder-accent-2);
+  --folder-color: var(--folder-color-1);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 3) {
-  --folder-color: var(--folder-color-3);
+  --folder-color: var(--folder-color-2);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 4) {
-  --folder-color: var(--folder-color-4);
+  --folder-color: var(--folder-color-3);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 5) {
-  --folder-color: var(--folder-color-5);
+  --folder-color: var(--folder-color-4);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 6) {
-  --folder-color: var(--folder-color-6);
+  --folder-color: var(--folder-color-5);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 7) {
-  --folder-color: var(--folder-color-7);
+  --folder-color: var(--folder-color-6);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 8) {
-  --folder-color: var(--folder-color-8);
+  --folder-color: var(--folder-color-7);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 9) {
-  --folder-color: var(--folder-color-9);
+  --folder-color: var(--folder-color-8);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 10) {
-  --folder-color: var(--folder-accent-10);
+  --folder-color: var(--folder-color-9);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 11) {
-  --folder-color: var(--folder-accent-11);
+  --folder-color: var(--folder-color-10);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 12) {
-  --folder-color: var(--folder-accent-12);
+  --folder-color: var(--folder-color-11);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 13) {
-  --folder-color: var(--folder-accent-13);
+  --folder-color: var(--folder-color-12);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 14) {
-  --folder-color: var(--folder-accent-14);
+  --folder-color: var(--folder-color-13);
 }
 
 .nav-files-container > div > .nav-folder:nth-child(15n + 15) {
-  --folder-color: var(--folder-accent-15);
+  --folder-color: var(--folder-color-14);
 }
 
 /* ------------------------------------------------------------------------------------ */
@@ -2543,6 +2549,59 @@ tr:last-child td:last-child {
   --rotation-2: 5;
 }
 
+/* Folder colors */
+.retroma-folder-colors-accent {
+  --folder-color-1: var(--folder-accent)!important;
+  --folder-color-2: var(--folder-accent) !important;
+  --folder-color-3: var(--folder-accent) !important;
+  --folder-color-4: var(--folder-accent) !important;
+  --folder-color-5: var(--folder-accent) !important;
+  --folder-color-6: var(--folder-accent) !important;
+  --folder-color-7: var(--folder-accent) !important;
+  --folder-color-8: var(--folder-accent) !important;
+  --folder-color-9: var(--folder-accent) !important;
+  --folder-color-10: var(--folder-accent) !important;
+  --folder-color-11: var(--folder-accent) !important;
+  --folder-color-12: var(--folder-accent) !important;
+  --folder-color-13: var(--folder-accent) !important;
+  --folder-color-14: var(--folder-accent) !important;
+  --folder-color-15: var(--folder-accent) !important;
+}
+
+.retroma-folder-colors-disable {
+  --chroma-folder: 0 !important;
+  --folder-color-1: var(--text-muted)!important;
+  --folder-color-2: var(--text-muted) !important;
+  --folder-color-3: var(--text-muted) !important;
+  --folder-color-4: var(--text-muted) !important;
+  --folder-color-5: var(--text-muted) !important;
+  --folder-color-6: var(--text-muted) !important;
+  --folder-color-7: var(--text-muted) !important;
+  --folder-color-8: var(--text-muted) !important;
+  --folder-color-9: var(--text-muted) !important;
+  --folder-color-10: var(--text-muted) !important;
+  --folder-color-11: var(--text-muted) !important;
+  --folder-color-12: var(--text-muted) !important;
+  --folder-color-13: var(--text-muted) !important;
+  --folder-color-14: var(--text-muted) !important;
+  --folder-color-15: var(--text-muted) !important;
+}
+
+/* folder border style*/
+.retroma-folder-border-hide {
+  --retroma-folder-border: unset !important;
+  --retroma-folder-box-shadow: unset !important;
+}
+
+.retroma-folder-border-style-1 {
+  --retroma-folder-box-shadow: unset !important;
+}
+
+.retroma-folder-border-style-2 {
+  --retroma-folder-border: 1px solid oklch(from var(--accent-2) 55% var(--chroma-folder) h / 50%);
+  --retroma-folder-box-shadow: var(--box-shadow);
+}
+
 .heading-divider-show {
   .markdown-preview-view h1,
   .markdown-preview-view h2,
@@ -2713,7 +2772,7 @@ img {
 
 /* @settings
 
-name: Retroma Theme
+name: 🎨 Retroma Theme
 id: retroma-obsidian-theme
 settings:
     -
@@ -2721,8 +2780,11 @@ settings:
         title: Theme Font Selection
         description: Fonts that complement the theme.
         type: class-select
-        default: ""
+        default: default
         options:
+            - 
+                label: Default
+                value: default
             - 
                 label: W95font
                 value: retroma-font-w95font
@@ -2833,7 +2895,7 @@ settings:
         step: 0.02
     -
         id: color-scheme
-        title: Color Scheme Tuner (advance)
+        title: 🎨 Color Scheme Tuner (advance)
         type: heading
         level: 2
         collapsed: true
@@ -2866,22 +2928,15 @@ settings:
         max: 360
         step: 1
     -
-        id: chroma-folder
-        title: Folder Chroma/Saturation
-        type: variable-number-slider
-        default: 0.1
-        min: 0
-        max: 0.2
-        step: 0.001
-    -
         id: typography
-        title:  Typography Tuner (advance)
+        title: 🔤 Typography Tuner (advance)
         type: heading
         level: 2
         collapsed: true
     -
         id: chroma
         title: Typography Chroma/Saturation
+        description: This setting may be ignored if you have applied any manual customizations below.
         type: variable-number-slider
         default: 0.1
         min: 0
@@ -3047,8 +3102,206 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: folder-settings
+        title: 📂 Folder Settings
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: folder-border-stlye
+        title: Folder Border Stlye
+        type: class-select
+        default: "default"
+        options:
+            -
+              label: Default
+              value: default
+            -
+              label: Style 1
+              value: retroma-folder-border-style-1
+            -
+              label: Style 2
+              value: retroma-folder-border-style-2
+            -
+              label: Hide
+              value: retroma-folder-border-hide
+    -
+        id: retroma-folder-scrollbar
+        title: Folder Scrollbar
+        type: variable-select
+        format: text
+        default: unset
+        options:
+            - 
+                label: Show
+                value: unset
+            - 
+                label: Hide
+                value: none
+    -
+        id: folder-colors
+        title:  Folder Colors
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: chroma-folder
+        title: Folder Chroma/Saturation
+        description: This setting may be ignored if you have applied any manual customizations below.
+        type: variable-number-slider
+        default: 0.1
+        min: 0
+        max: 0.2
+        step: 0.001
+    -
+        id: folder-color-toggle
+        title: Folder Color Toggle
+        type: class-select
+        default: "default"
+        options:
+            -
+              label: Rainbow (Default)
+              value: default
+            -
+              label: Folder Custom Accent Color
+              value: retroma-folder-colors-accent
+            -
+              label: Per Folder Color
+              value: default
+            -
+              label: Disable
+              value: retroma-folder-colors-disable
+    -
+        id: folder-accent
+        title: Folder Custom Accent Color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-1
+        title: Folder 1
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-2
+        title: Folder 2
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-3
+        title: Folder 3
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-4
+        title: Folder 4
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-5
+        title: Folder 5
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-6
+        title: Folder 6
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-7
+        title: Folder 7
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-8
+        title: Folder 8
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-9
+        title: Folder 9
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-10
+        title: Folder 10
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-11
+        title: Folder 11
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-12
+        title: Folder 12
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-13
+        title: Folder 13
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-14
+        title: Folder 14
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: folder-color-15
+        title: Folder 15
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
         id: image-tuner
-        title:  Image Settings
+        title: 🖼️ Image Settings
         type: heading
         level: 2
         collapsed: true
@@ -3093,7 +3346,7 @@ settings:
         default-dark: '#'
     -
         id: table-tuner
-        title:  Table Settings
+        title: 📊  Table Settings
         type: heading
         level: 2
         collapsed: true
@@ -3137,7 +3390,7 @@ settings:
         type: class-toggle
     -
         id: canvas-settings
-        title:  Canvas Settings
+        title: ✏️ Canvas Settings
         type: heading
         level: 2
         collapsed: true
@@ -3197,7 +3450,7 @@ settings:
         step: 0.5
     -
         id: misc
-        title:  Miscellaneous
+        title: ⚙️ Miscellaneous
         type: heading
         level: 2
         collapsed: true
@@ -3259,7 +3512,7 @@ settings:
               value: text-right
     -
         id: plugin-integration-toggle
-        title: Plugin Integrations Toggle
+        title: 🧪 Plugin Integrations Toggle
         type: heading
         level: 2
         collapsed: true
@@ -3307,7 +3560,7 @@ settings:
               value:
     -
         id: author
-        title: SUPPORT THE DEVELOPMENT
+        title: 🌱  SUPPORT THE DEVELOPMENT
         type: heading
         level: 2
     -
