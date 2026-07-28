@@ -1,7 +1,11 @@
 {
 	"name": "Retroma",
-	"version": "2.7.0",
-	"minAppVersion": "1.0.0",
+	"version": "3.0.0",
+	"minAppVersion": "1.13.0",
 	"author": "emarpiee",
-	"authorUrl": "https://github.com/emarpiee"
+	"authorUrl": "https://github.com/emarpiee",
+	"fundingUrl": {
+		"Ko-fi": "https://ko-fi.com/emarpiee",
+		"PayPal": "https://paypal.me/emarpiee"
+	}
 }
