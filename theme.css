@@ -1328,21 +1328,18 @@ tr:last-child td:last-child {
 }
 
 .canvas-node-container {
-  border: var(--retroma-canvas-card-border-width) solid rgb(var(--canvas-color));
+  border: var(--retroma-canvas-card-border-width) solid var(--canvas-color);
   background: var(--canvas-color);
 }
 
 .canvas-node-container:has(.markdown-embed-link),
 .canvas-node-container:has(.image-embed) {
   border: var(--retroma-canvas-card-embed-border-width) solid
-    rgb(var(--canvas-color)) !important;
+    var(--canvas-color) !important;
 }
 
 .canvas-node.is-themed .canvas-node-content {
-  background: rgba(
-    var(--canvas-color),
-    var(--retroma-canvas-node-content-bg-opacity)
-  );
+  background: color-mix(in srgb, var(--canvas-color) calc(var(--retroma-canvas-node-content-bg-opacity) * 100%), transparent);
 }
 
 .canvas .markdown-preview-view {
