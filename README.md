@@ -246,7 +246,7 @@ Add `+` (open by default) or `-` (closed by default) after the name:
 
 ### Quick Reference Cheat Sheet
 
-A ready-to-use file with one complete, copy-pasteable example of every callout is here.
+A ready-to-use file with one complete, copy-pasteable example of every callout is [here](https://github.com/emarpiee/Retroma/blob/main/assets/examples/retroma-retro-callouts.md).
 
 ---
 
