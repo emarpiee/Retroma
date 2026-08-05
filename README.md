@@ -1,7 +1,7 @@
 
 # Retroma Theme
 
-![retroma-banner-high.png](assets/screenshots/retroma-banner-high.png)
+![retroma-banner.png](assets/screenshots/retroma-banner.png)
 
 Your notes are chaotic, your vault is a mess, and every modern theme looks the same. Retroma fixes that. It **draws inspiration from retro arcade machines, vintage software, and the early web**, bringing back actual tactile designs and personality. You don't need design skills to make it look good, either. Simply pick a single accent color and Retroma handles the rest of the palette automatically, protecting you from your own worst styling instincts.
 
