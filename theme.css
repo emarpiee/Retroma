@@ -1485,8 +1485,8 @@ body.theme-dark {
 		inset var(--s-x-darkmode-active) var(--s-y-darkmode-active) var(--rtm-btn-darkmode-3d-shadow-blur-active) oklch(from var(--rtm-btn-darkmode-3d-shadow-color-active) var(--rtm-btn-darkmode-3d-shadow-lightness-active) c h / var(--rtm-btn-darkmode-3d-shadow-opacity-active)),
 		inset var(--h-x-darkmode-active) var(--h-y-darkmode-active) var(--rtm-btn-darkmode-3d-light-blur-active) oklch(from var(--rtm-btn-darkmode-3d-light-color-active) var(--rtm-btn-darkmode-3d-light-lightness-active) calc(c * var(--rtm-c-accent) * 16) h / var(--rtm-btn-darkmode-3d-light-opacity-active));
 
-		/* 3D TABS */
-			/* Thickness */
+	/* 3D TABS */
+	/* Thickness */
 	--rtm-tab-darkmode-3d-light-thickness: 2px;
 	/* Normal State */
 	--rtm-tab-darkmode-3d-light-color: var(--rtm-workspace-bg);
@@ -3426,7 +3426,7 @@ mark,
 .is-mobile .workspace-leaf-content[data-type='canvas'] .canvas-card-menu,
 .workspace-leaf-content[data-type='canvas'] .canvas-card-menu,
 .workspace-leaf-content[data-type='canvas'] .view-header,
-.is-mobile .mobile-navbar {
+body.is-mobile:has(.workspace-leaf.mod-active .workspace-leaf-content[data-type='canvas']) .mobile-navbar {
 	opacity: 1;
 	visibility: visible;
 	pointer-events: auto;
@@ -3462,14 +3462,14 @@ mark,
 .workspace-leaf-content[data-type='canvas']:has(.is-panning) .view-header,
 .workspace-leaf-content[data-type='canvas']:has(.is-dragging) .view-header,
 
-/* 4. Hide Mobile Navbar */
-body:has(.workspace-leaf-content[data-type='canvas'] .cm-editor:focus-within) .mobile-navbar,
-body:has(.workspace-leaf-content[data-type='canvas'] .is-editing) .mobile-navbar,
-body:has(.workspace-leaf-content[data-type='canvas'] .canvas-node-editing) .mobile-navbar,
-body:has(.workspace-leaf-content[data-type='canvas'] .canvas-wrapper:active) .mobile-navbar,
-body:has(.workspace-leaf-content[data-type='canvas'] .canvas:active) .mobile-navbar,
-body:has(.workspace-leaf-content[data-type='canvas'] .is-panning) .mobile-navbar,
-body:has(.workspace-leaf-content[data-type='canvas'] .is-dragging) .mobile-navbar {
+/* 4. Hide Mobile Navbar (Only when Active Leaf is Canvas) */
+body.is-mobile:has(.workspace-leaf.mod-active .workspace-leaf-content[data-type='canvas'] .cm-editor:focus-within) .mobile-navbar,
+body.is-mobile:has(.workspace-leaf.mod-active .workspace-leaf-content[data-type='canvas'] .is-editing) .mobile-navbar,
+body.is-mobile:has(.workspace-leaf.mod-active .workspace-leaf-content[data-type='canvas'] .canvas-node-editing) .mobile-navbar,
+body.is-mobile:has(.workspace-leaf.mod-active .workspace-leaf-content[data-type='canvas'] .canvas-wrapper:active) .mobile-navbar,
+body.is-mobile:has(.workspace-leaf.mod-active .workspace-leaf-content[data-type='canvas'] .canvas:active) .mobile-navbar,
+body.is-mobile:has(.workspace-leaf.mod-active .workspace-leaf-content[data-type='canvas'] .is-panning) .mobile-navbar,
+body.is-mobile:has(.workspace-leaf.mod-active .workspace-leaf-content[data-type='canvas'] .is-dragging) .mobile-navbar {
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
@@ -3741,6 +3741,7 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 	background: var(--rtm-mobile-sidebar-bg);
 	padding: var(--rtm-mobile-sidebar-padding);
 }
+
 .is-phone .workspace-drawer {
 	width: var(--rtm-mobile-sidebar-width);
 }
