@@ -410,7 +410,6 @@ body {
 	--rtm-markdown-editor-font: inherit;
 	--line-height-normal: var(--rtm-p-line-height);
 	--rtm-p-line-height: 1.5;
-	--rtm-markdown-editor-font-size: 16px;
 	--rtm-markdown-editor-overlay-pattern: radial-gradient(var(--rtm-markdown-editor-pattern-color) 0px, transparent var(--rtm-markdown-editor-pattern-thickness));
 	--rtm-markdown-editor-pattern-thickness: 1px;
 	--rtm-markdown-editor-pattern-zoom: 15px;
@@ -1928,12 +1927,6 @@ body:not(.is-phone) .workspace-leaf-content[data-type="markdown"] .view-content 
 	border: var(--rtm-markdown-editor-border);
 	background: var(--rtm-markdown-editor-bg);
 	box-shadow: var(--rtm-markdown-editor-shadow);
-}
-
-.markdown-preview-view,
-.markdown-source-view {
-	--font-text-size: var(--rtm-markdown-editor-font-size);
-	--sidebar-markdown-font-size: var(--rtm-markdown-editor-font-size);
 }
 
 .markdown-source-view {
@@ -12348,16 +12341,6 @@ settings:
         opacity: false
         default-light: '#'
         default-dark: '#'
-    -
-        id: rtm-markdown-editor-font-size
-        title: Markdown editor font size
-        description: "Adjust the text size inside your notes. This only affects the markdown editor and will not change font sizes for UI menus, folders, or sidebar navigation."
-        type: variable-number-slider
-        format: px
-        default: 16
-        min: 10
-        max: 32
-        step: 1
     -
         id: rtm-ss-markdown-editor-header-simple
         title: Simple markdown editor header
