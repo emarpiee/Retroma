@@ -3740,6 +3740,8 @@ code:not(pre code) {
 .is-mobile .workspace-drawer {
 	background: var(--rtm-mobile-sidebar-bg);
 	padding: var(--rtm-mobile-sidebar-padding);
+}
+.is-phone .workspace-drawer {
 	width: var(--rtm-mobile-sidebar-width);
 }
 
