@@ -3299,6 +3299,10 @@ a.tag:hover,
 	background: var(--rtm-bg-paper);
 }
 
+.bases-view[data-view-type="cards"] {
+  scrollbar-gutter: stable both-edges;
+}
+
 .bases-view .maplibregl-popup-content {
 	background: var(--rtm-bases-maps-popup-bg);
 	border: var(--rtm-embed-border);
