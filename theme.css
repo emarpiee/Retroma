@@ -178,11 +178,12 @@ body {
 	--tab-text-color-focused-active: var(--rtm-tab-txt-color-focused-active);
 	--tab-divider-color: unset;
 	--tab-outline-color: var(--rtm-tab-outline-color);
-	--tab-outline-width: 2px;
+	--tab-outline-width: var(--rtm-tab-outline-width);
 	--tab-radius-active: var(--rtm-tab-radius);
 	--tab-radius: var(--rtm-tab-radius);
 	--tab-curve: var(--rtm-tab-radius);
 	--tab-font-weight: var(--font-bold);
+	--rtm-tab-outline-width: 2px;
 	--rtm-tab-bg-active: var(--rtm-workspace-bg);
 	--rtm-tab-inactive-bg: oklch(from var(--background-secondary) l c h / 0.5);
 	--rtm-tab-inactive-bg-hover: var(--background-primary-alt);
@@ -192,6 +193,10 @@ body {
 	--rtm-tab-txt-color-focused: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
 	--rtm-tab-txt-color-focused-active: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
 	--rtm-tab-txt-color-focused-active-current: oklch(from var(--rtm-interactive-accent) var(--rtm-l-low) calc(c * var(--rtm-c-accent)) h);
+	--rtm-tab-outline: var(--rtm-tab-outline-width) solid var(--rtm-tab-outline-color);
+
+	--rtm-tab-light-angle: 135deg;
+
 
 	/* -- STATUS BAR */
 	--status-bar-background: var(--rtm-statusbar-bg);
@@ -212,7 +217,7 @@ body {
 	--rtm-workspace-tab-sidebar-bottom-padding: 0;
 	--rtm-workspace-bg: var(--rtm-workspace-root-bg);
 	--rtm-workspace-root-bg: var(--rtm-bg-secondary);
-	--rtm-workspace-tab-height: 45px;
+	--rtm-workspace-tab-height: 50px;
 
 	--rtm-workspace-primary-border-width: 4px;
 	--rtm-workspace-secondary-border-width: 4px;
@@ -876,7 +881,7 @@ body {
 
 	--rtm-statusbar-bg: oklch(from var(--rtm-primary-accent) var(--rtm-l-statusbar-bg) calc(c * var(--rtm-c-accent)) h);
 
-	--rtm-tab-outline-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-tab-outline-color) calc(c * var(--rtm-c-accent)) h / 0.5);
+	--rtm-tab-outline-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
 
 	/* ICON */
 	--rtm-icon-accent: oklch(from var(--rtm-interactive-accent) var(--rtm-l-btn) calc(c * var(--rtm-c-accent) * 2) h);
@@ -1308,6 +1313,22 @@ body.theme-light {
 		inset var(--s-x-active) var(--s-y-active) var(--rtm-btn-3d-shadow-blur-active) oklch(from var(--rtm-btn-3d-shadow-color-active) var(--rtm-btn-3d-shadow-lightness-active) c h / var(--rtm-btn-3d-shadow-opacity-active)),
 		inset var(--h-x-active) var(--h-y-active) var(--rtm-btn-3d-light-blur-active) oklch(from var(--rtm-btn-3d-light-color-active) var(--rtm-btn-3d-light-lightness-active) c h / var(--rtm-btn-3d-light-opacity-active));
 
+	/* 3D TABS */
+	/* Thickness */
+	--rtm-tab-3d-light-thickness: 3px;
+	/* Normal State */
+	--rtm-tab-3d-light-color: var(--rtm-workspace-bg);
+	--rtm-tab-3d-light-lightness: 1;
+	--rtm-tab-3d-light-opacity: 0.8;
+	--rtm-tab-3d-light-blur: 0px;
+
+	--tab-h-x: calc(cos(var(--rtm-tab-light-angle)) * -1 * var(--rtm-tab-3d-light-thickness));
+	--tab-h-y: calc(sin(var(--rtm-tab-light-angle)) * var(--rtm-tab-3d-light-thickness));
+
+	--rtm-tab-3d-normal:
+		inset var(--tab-h-x) var(--tab-h-y) var(--rtm-tab-3d-light-blur) oklch(from var(--rtm-tab-3d-light-color) var(--rtm-tab-3d-light-lightness) calc(c * var(--rtm-c-accent) * 4) h / var(--rtm-tab-3d-light-opacity));
+	/* ---- */
+
 	/* -- CRT EFFECT */
 	--rtm-crt-overlay-scanline-1-color: oklch(0 0 0 / 0.25);
 	--rtm-crt-overlay-scanline-2-color: oklch(1 0 0 / 0.1);
@@ -1463,6 +1484,22 @@ body.theme-dark {
 	--rtm-btn-3d-active:
 		inset var(--s-x-darkmode-active) var(--s-y-darkmode-active) var(--rtm-btn-darkmode-3d-shadow-blur-active) oklch(from var(--rtm-btn-darkmode-3d-shadow-color-active) var(--rtm-btn-darkmode-3d-shadow-lightness-active) c h / var(--rtm-btn-darkmode-3d-shadow-opacity-active)),
 		inset var(--h-x-darkmode-active) var(--h-y-darkmode-active) var(--rtm-btn-darkmode-3d-light-blur-active) oklch(from var(--rtm-btn-darkmode-3d-light-color-active) var(--rtm-btn-darkmode-3d-light-lightness-active) calc(c * var(--rtm-c-accent) * 16) h / var(--rtm-btn-darkmode-3d-light-opacity-active));
+
+		/* 3D TABS */
+			/* Thickness */
+	--rtm-tab-darkmode-3d-light-thickness: 2px;
+	/* Normal State */
+	--rtm-tab-darkmode-3d-light-color: var(--rtm-workspace-bg);
+	--rtm-tab-darkmode-3d-light-lightness: 1;
+	--rtm-tab-darkmode-3d-light-opacity: 0.3;
+	--rtm-tab-darkmode-3d-light-blur: 0px;
+
+	--tab-h-x-darkmode: calc(cos(var(--rtm-tab-light-angle)) * -1 * var(--rtm-tab-darkmode-3d-light-thickness));
+	--tab-h-y-darkmode: calc(sin(var(--rtm-tab-light-angle)) * var(--rtm-tab-darkmode-3d-light-thickness));
+
+	--rtm-tab-3d-normal:
+		inset var(--tab-h-x-darkmode) var(--tab-h-y-darkmode) var(--rtm-tab-darkmode-3d-light-blur) oklch(from var(--rtm-tab-darkmode-3d-light-color) var(--rtm-tab-darkmode-3d-light-lightness) calc(c * var(--rtm-c-accent) * 4) h / var(--rtm-tab-darkmode-3d-light-opacity));
+	/* --- */
 
 	/* -- CRT EFFECT */
 	--rtm-crt-overlay-scanline-1-color: oklch(0 0 0 / 0.5);
@@ -1854,6 +1891,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 }
 
 
+/* NOTE: TABS */
 /* NOTE: Target top/middle stacked panes in a horizontal split (top/bottom layout) */
 .workspace-split.mod-horizontal> :not(:last-child) .workspace-tab-container {
 	padding-bottom: 0;
@@ -1863,6 +1901,14 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 .mod-root .workspace-tab-header-inner:not(.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner) {
 	border-radius: calc(var(--rtm-tab-radius) - 2px);
 }
+
+.workspace-tab-header-container .workspace-tab-header.is-active {
+	border-inline: var(--rtm-tab-outline);
+	border-top: var(--rtm-tab-outline);
+	box-shadow: var(--rtm-tab-3d-normal);
+}
+
+
 
 .mod-root .workspace-tab-header-inner:not(.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner):hover {
 	background: var(--rtm-tab-inactive-bg-hover);
@@ -16999,7 +17045,7 @@ settings:
     -
         id: rtm-ss-hue-rotate
         title: ??
-        description: "If you’re not a little fruity, this isn't for you."
+        description: "TW flashing lights. If you’re not a little fruity, this isn't for you."
         type: class-toggle
         default: false
         addCommand: true
