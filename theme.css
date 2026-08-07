@@ -2306,6 +2306,7 @@ blockquote p,
 /* # CALLOUT */
 .callout .callout-content {
 	margin-left: 8px;
+	overflow-x: visible;
 }
 
 .callout[data-callout="default"] {
