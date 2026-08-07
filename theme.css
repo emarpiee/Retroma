@@ -1139,11 +1139,12 @@ body {
 	--rtm-list-marker-color-collapsed: var(--rtm-txt-accent-mute);
 	--rtm-list-marker-gap: max(0.01em, var(--rtm-list-bullet-size) * 0.3);
 
-	/* -- EMBED */
+	/* -- EMBEDS */
 	--bases-embed-hight: var(--rtm-bases-embed-height);
 	--bases-embed-width: var(--rtm-bases-embed-width);
 	--bases-embed-transform: unset;
 	--embed-max-height: var(--rtm-embed-max-height);
+	--rtm-embed-title-display: flex;
 	--rtm-embed-margin-left: 0;
 	--rtm-embed-margin-right: auto;
 	--rtm-embed-bg: var(--rtm-bg-primary);
@@ -1157,6 +1158,15 @@ body {
 	--rtm-bases-embed-height: 1000px;
 	--rtm-bases-embed-width-percent: 100;
 	--rtm-bases-embed-width: calc(var(--rtm-bases-embed-width-percent) * 1%);
+
+	--rtm-pdf-embed-height: 1000px;
+	--rtm-pdf-embed-width-percent: 100;
+	--rtm-pdf-embed-width: calc(var(--rtm-pdf-embed-width-percent) * 1%);
+
+	--rtm-internal-query-embed-title-display: flex;
+	--rtm-internal-query-embed-height: 1000px;
+	--rtm-internal-query-embed-width-percent: 100;
+	--rtm-internal-query-embed-width: calc(var(--rtm-internal-query-embed-width-percent) * 1%);
 
 	/* -- PDF */
 	--rtm-pdf-container-border-width: 4px;
@@ -2438,15 +2448,19 @@ blockquote p,
 	color: var(--rtm-callout-cite-txt-color);
 }
 
-/* # EMBEd */
+/* # EMBEDS */
 
 .file-embed.mod-generic,
 .file-embed.mod-empty {
 	margin-block: 4px;
 }
 
+.inline-embed > .markdown-embed-title {
+	display: var(--rtm-embed-title-display);
+}
 
-.pdf-embed,
+
+.pdf-embed, .pdf-embed:not(.canvas-node-content),
 .workspace-leaf-content[data-type="markdown"] .block-language-base,
 .workspace-leaf-content[data-type="markdown"] .bases-embed,
 .markdown-embed:not(.canvas .markdown-embed, .workspace-leaf-content[data-type="footnotes"] .markdown-embed),
@@ -2479,6 +2493,27 @@ blockquote p,
 .block-language-base .bases-view, 
 .bases-embed .bases-view {
 	max-height: var(--rtm-bases-embed-height);
+}
+
+/* NOTE: pdf embed height and width */
+.pdf-embed, .markdown-source-view .pdf-embed, .markdown-source-view.mod-cm6 .cm-content > .pdf-embed, .internal-embed.pdf-embed:not(.image-embed) {
+	width: var(--rtm-pdf-embed-width);
+	min-height: var(--rtm-pdf-embed-height);
+	max-height: var(--rtm-pdf-embed-height);
+}
+
+/* NOTE: internal search query embed height and width */
+.internal-query {
+	width: var(--rtm-internal-query-embed-width);
+}
+
+.internal-query .search-result-container {
+	min-height: var(--rtm-internal-query-embed-height);
+	max-height: var(--rtm-internal-query-embed-height);
+}
+
+.internal-query .internal-query-header {
+	display: var(--rtm-internal-query-embed-title-display);
 }
 
 .markdown-embed-content:not(.canvas .markdown-embed .markdown-embed-content, .workspace-leaf-content[data-type="footnotes"] .markdown-embed .markdown-embed-content),
@@ -5283,6 +5318,15 @@ body.rtm-ss-embed-align-center {
 body.rtm-ss-embed-align-right {
 	--rtm-embed-margin-left: auto;
 	--rtm-embed-margin-right: 0;
+}
+
+/* NOTE: EMBED SIMPLE VIEW */
+body.rtm-ss-embed-simple {
+	--rtm-embed-bg: unset;
+	--rtm-embed-border: unset;
+	--rtm-embed-box-shadow: unset;
+	--rtm-embed-padding: 0;
+
 }
 
 /* # CUSTOM CALLOUTS */
@@ -13483,9 +13527,41 @@ settings:
                 label: Right
                 value: rtm-ss-embed-align-right
     -
+        id: rtm-embed-title-display
+        title: Note embed title
+        description: "Choose whether to show or hide the note title within embedded blocks."
+        type: variable-select
+        default: flex
+        options:
+            -
+            	label: Show
+            	value: flex
+            -
+            	label: Hide
+            	value: none
+    -
+        id: rtm-internal-query-embed-title-display
+        title: Internal search query embed title
+        description: "Choose whether to show or hide the internal search query title within embedded blocks."
+        type: variable-select
+        default: flex
+        options:
+            -
+            	label: Show
+            	value: flex
+            -
+            	label: Hide
+            	value: none
+    -
+        id: rtm-ss-embed-simple
+        title: Simple embed block
+        description: "Remove border, extra padding and background colors of all embedded blocks."
+        type: class-toggle
+        default: false
+    -
         id: rtm-embed-width-percent
         title: Note embed width (%)
-        description: Controls how wide embedded notes are inside the editor (10% to 100%).
+        description: "Sets the width of embedded notes as a percentage of the editor's readable line."
         type: variable-number-slider
         default: 100
         min: 10
@@ -13498,13 +13574,13 @@ settings:
         type: variable-number-slider
         format: px
         default: 1000
-        min: 50
+        min: 100
         max: 1000
         step: 50
     -
         id: rtm-bases-embed-width-percent
         title: Bases embed width (%)
-        description: Controls how wide embedded bases are inside the editor (10% to 100%).
+        description: "Sets the width of embedded bases as a percentage of the editor's readable line."
         type: variable-number-slider
         default: 100
         min: 10
@@ -13518,6 +13594,44 @@ settings:
         format: px
         default: 1000
         min: 50
+        max: 1000
+        step: 50
+    -
+        id: rtm-pdf-embed-width-percent
+        title: PDF embed width (%)
+        description: "Sets the width of embedded PDF as a percentage of the editor's readable line."
+        type: variable-number-slider
+        default: 100
+        min: 10
+        max: 100
+        step: 5
+    -
+        id: rtm-pdf-embed-height
+        title: PDF embed height (px)
+        description: "Limits how tall embedded PDF can grow before scrolling."
+        type: variable-number-slider
+        format: px
+        default: 1000
+        min: 100
+        max: 1000
+        step: 50
+    -
+        id: rtm-internal-query-embed-width-percent
+        title: Internal search query embed width (%)
+        description: "Sets the width of embedded internal search query as a percentage of the editor's readable line."
+        type: variable-number-slider
+        default: 100
+        min: 10
+        max: 100
+        step: 5
+    -
+        id: rtm-internal-query-embed-height
+        title: Internal search query embed height (px)
+        description: "Limits how tall embedded internal search query can grow before scrolling."
+        type: variable-number-slider
+        format: px
+        default: 1000
+        min: 100
         max: 1000
         step: 50
     -
@@ -15835,7 +15949,6 @@ settings:
         id: rtm-bases-theader-icon-display
         title: Header icon display
         type: variable-select
-        format: text
         default: flex
         options:
             -
@@ -15969,7 +16082,6 @@ settings:
         id: rtm-bases-cards-corner-shape
         title: Corner shape
         type: variable-select
-        format: text
         default: round
         options:
             - round
@@ -15981,7 +16093,6 @@ settings:
         id: rtm-bases-cards-border-style
         title: Outline style
         type: variable-select
-        format: text
         default: solid
         options:
             - solid
@@ -16030,7 +16141,6 @@ settings:
         title: Canvas font
         description: "Change the font family used specifically inside Canvas."
         type: variable-select
-        format: text
         default: default
         options:
             -
@@ -17050,7 +17160,6 @@ settings:
         id: rtm-tab-corner-shape
         title: Corner shape
         type: variable-select
-        format: text
         default: round
         options:
             - round
