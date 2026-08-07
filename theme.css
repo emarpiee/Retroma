@@ -1720,14 +1720,14 @@ select.mouse-focus:focus-visible,
 	box-shadow: var(--rtm-dropdown-box-shadow);
 }
 
-:is(textarea, .multi-select-container, input.metadata-input-text, input[type='date'], input[type='datetime-local'], input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']):not(.metadata-content *, .bases-view *) {
+:is(textarea, .multi-select-container, input.metadata-input-text, input[type='date'], input[type='datetime-local'], input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']):not(.metadata-property *, .bases-view *) {
 	border: var(--rtm-input-outline);
 	box-shadow: var(--rtm-input-shadow);
 	border-radius: var(--rtm-input-radius);
 	background: var(--rtm-input-txt-bg);
 }
 
-:is(textarea:hover, .multi-select-container:hover, input.metadata-input-text:hover, input[type='date']:hover, input[type='datetime-local']:hover, input[type='text']:hover, input[type='search']:hover, input[type='email']:hover, input[type='password']:hover, input[type='number']:hover, textarea:active, .multi-select-container:active, input.metadata-input-text:active, input[type='date']:active, input[type='datetime-local']:active, input[type='text']:active, input[type='search']:active, input[type='email']:active, input[type='password']:active, input[type='number']:active, textarea:focus, .multi-select-container:focus, input.metadata-input-text:focus, input[type='date']:focus, input[type='datetime-local']:focus, input[type='text']:focus, input[type='search']:focus, input[type='email']:focus, input[type='password']:focus, input[type='number']:focus, textarea:focus-visible, .multi-select-container:focus-visible, input.metadata-input-text:focus-visible, input[type='date']:focus-visible, input[type='datetime-local']:focus-visible, input[type='text']:focus-visible, input[type='search']:focus-visible, input[type='email']:focus-visible, input[type='password']:focus-visible, input[type='number']:focus-visible):not(.metadata-content *, .bases-view *) {
+:is(textarea:hover, .multi-select-container:hover, input.metadata-input-text:hover, input[type='date']:hover, input[type='datetime-local']:hover, input[type='text']:hover, input[type='search']:hover, input[type='email']:hover, input[type='password']:hover, input[type='number']:hover, textarea:active, .multi-select-container:active, input.metadata-input-text:active, input[type='date']:active, input[type='datetime-local']:active, input[type='text']:active, input[type='search']:active, input[type='email']:active, input[type='password']:active, input[type='number']:active, textarea:focus, .multi-select-container:focus, input.metadata-input-text:focus, input[type='date']:focus, input[type='datetime-local']:focus, input[type='text']:focus, input[type='search']:focus, input[type='email']:focus, input[type='password']:focus, input[type='number']:focus, textarea:focus-visible, .multi-select-container:focus-visible, input.metadata-input-text:focus-visible, input[type='date']:focus-visible, input[type='datetime-local']:focus-visible, input[type='text']:focus-visible, input[type='search']:focus-visible, input[type='email']:focus-visible, input[type='password']:focus-visible, input[type='number']:focus-visible):not(.metadata-property *, .bases-view *) {
 	outline: var(--rtm-input-outline-focus);
 	border: var(--rtm-input-outline);
 	box-shadow: var(--rtm-input-shadow);
@@ -3315,16 +3315,12 @@ a.tag:hover,
 	--tag-color: var(--rtm-color-yellow);
 }
 
-.metadata-property-value[data-property-type="multitext"] .multi-select-pill {
+.metadata-property-value .multi-select-pill {
 	--pill-padding-x: unset;
+	--pill-padding-y: 1px;
 	--pill-color: unset;
 	--pill-radius: var(--tag-radius);
 	gap: var(--size-4-1);
-	outline: var(--tag-border-width) solid var(--tag-color);
-}
-
-.multi-select-pill-content {
-	overflow: unset;
 }
 
 .metadata-container .metadata-show-source-button,
