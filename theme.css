@@ -196,6 +196,7 @@ body {
 	--rtm-tab-outline: var(--rtm-tab-outline-width) solid var(--rtm-tab-outline-color);
 	--rtm-tab-corner-shape: bevel;
 	--rtm-tab-light-angle: 135deg;
+	--rtm-tab-split-sidebar-padding: 0;
 
 
 	/* -- STATUS BAR */
@@ -1865,7 +1866,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 /* NOTE: Targets ONLY workspace tab containers that come BELOW another workspace tab bar in the sidebars */
 .workspace-split.mod-left-split>.workspace-tabs~.workspace-tabs .workspace-tab-container,
 .workspace-split.mod-right-split>.workspace-tabs~.workspace-tabs .workspace-tab-container {
-	padding-top: 0;
+	padding-top: var(--rtm-tab-split-sidebar-padding);
 }
 
 .workspace-tabs .mod-active .workspace-tab-container {
@@ -1913,11 +1914,13 @@ body:not(.rtm-ss-tab-style-btn) .mod-root .workspace-tab-header:not(.is-active) 
 	margin-bottom: var(--rtm-tab-outline-width);
 }
 
-.workspace-split.mod-root .workspace-tab-header-container .workspace-tab-header.is-active::before, .workspace-split.mod-root .workspace-tab-header-container .workspace-tab-header.is-active::after {
-		corner-shape: var(--rtm-tab-corner-shape);
+.workspace-split.mod-root .workspace-tab-header-container .workspace-tab-header.is-active::before,
+.workspace-split.mod-root .workspace-tab-header-container .workspace-tab-header.is-active::after {
+	corner-shape: var(--rtm-tab-corner-shape);
 }
 
-.workspace-tab-header-container .workspace-tab-header.is-active {	border-inline: var(--rtm-tab-outline);
+.workspace-tab-header-container .workspace-tab-header.is-active {
+	border-inline: var(--rtm-tab-outline);
 	border-top: var(--rtm-tab-outline);
 	box-shadow: var(--rtm-tab-3d-normal);
 	corner-shape: var(--rtm-tab-corner-shape);
@@ -4643,8 +4646,13 @@ body.rtm-ss-checkbox-decoration {
 
 
 /* ## Hide icons of lower tab groups */
-body.rtm-ss-workspace-tab-lower-group-icon .workspace-tabs .workspace-tab-header-container:not(.mod-top .workspace-tab-header-container, .mod-root .workspace-tab-header-container) {
-	display: none;
+
+body.rtm-ss-workspace-tab-lower-group-icon {
+	--rtm-tab-split-sidebar-padding: var(--rtm-workspace-tab-padding);
+	.workspace-tabs .workspace-tab-header-container:not(.mod-top .workspace-tab-header-container, .mod-root .workspace-tab-header-container) {
+		--rtm-tab-split-sidebar-padding: var(--rtm-workspace-tab-padding);
+		display: none;
+	}
 }
 
 body.rtm-ss-workspace-vault-profile-container {
