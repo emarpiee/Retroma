@@ -15967,13 +15967,12 @@ settings:
     -
         id: rtm-canvas-ui-fade-out-delay
         title: Floating UI fade-out delay
-        description: "Delay before floating UI elements begin hiding when editing text, panning, or dragging nodes."
-        type: variable-number-slider
+        description: "Delay before floating UI elements begin hiding when editing text, panning, or dragging nodes. Set to 999 to keep them visible."
+        type: variable-number
         format: s
-        default: 0
+        default: 0.15
         min: 0
         max: 1
-        step: 0.01
     -
         id: rtm-canvas-ui-fade-in-delay
         title: Floating UI fade-in delay
