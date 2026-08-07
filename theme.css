@@ -1179,6 +1179,9 @@ body {
 	--rtm-pdf-container-bg: var(--rtm-bg-paper);
 	--rtm-pdf-thumbnail-view-bg: oklch(from var(--rtm-pdf-container-bg) calc(l - 0.1) c h / 0.5);
 	--rtm-pdf-thumbnail-radius: var(--rtm-interface-radius);
+
+	/* NOTE: FOOTNOTES */
+	--rtm-footnotes-view-item-radius: var(--rtm-interface-radius);
 }
 
 body.theme-light {
@@ -2207,7 +2210,7 @@ em,
 	font-family: var(--rtm-em-font);
 }
 
-/* # FOOTNOTE */
+/* NOTE: FOOTNOTES */
 
 .footnotes-view .footnote .footnote-content .markdown-embed .markdown-preview-view,
 .workspace-leaf-content[data-type="footnotes"] {
@@ -2221,7 +2224,10 @@ em,
 
 .footnotes-view .footnote {
 	border-bottom: 1px solid var(--rtm-txt-accent-faint);
-	border-radius: 0;
+}
+
+.footnotes-view .footnote-list-item.is-editing .footnote {
+	border-radius: var(--rtm-interface-radius);
 }
 
 
