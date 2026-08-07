@@ -194,7 +194,7 @@ body {
 	--rtm-tab-txt-color-focused-active: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
 	--rtm-tab-txt-color-focused-active-current: oklch(from var(--rtm-interactive-accent) var(--rtm-l-low) calc(c * var(--rtm-c-accent)) h);
 	--rtm-tab-outline: var(--rtm-tab-outline-width) solid var(--rtm-tab-outline-color);
-
+	--rtm-tab-corner-shape: bevel;
 	--rtm-tab-light-angle: 135deg;
 
 
@@ -1897,18 +1897,31 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 	padding-bottom: 0;
 }
 
+.mod-root .workspace-tab-header-inner {
+	padding-inline: 8px;
+}
+
+
 /* NOTE: unfocused / inactive tab */
 .mod-root .workspace-tab-header-inner:not(.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner) {
 	border-radius: calc(var(--rtm-tab-radius) - 2px);
+	corner-shape: var(--rtm-tab-corner-shape);
+	border-color: var(--rtm-tab-outline-color);
 }
 
-.workspace-tab-header-container .workspace-tab-header.is-active {
-	border-inline: var(--rtm-tab-outline);
+body:not(.rtm-ss-tab-style-btn) .mod-root .workspace-tab-header:not(.is-active) {
+	margin-bottom: var(--rtm-tab-outline-width);
+}
+
+.workspace-split.mod-root .workspace-tab-header-container .workspace-tab-header.is-active::before, .workspace-split.mod-root .workspace-tab-header-container .workspace-tab-header.is-active::after {
+		corner-shape: var(--rtm-tab-corner-shape);
+}
+
+.workspace-tab-header-container .workspace-tab-header.is-active {	border-inline: var(--rtm-tab-outline);
 	border-top: var(--rtm-tab-outline);
 	box-shadow: var(--rtm-tab-3d-normal);
+	corner-shape: var(--rtm-tab-corner-shape);
 }
-
-
 
 .mod-root .workspace-tab-header-inner:not(.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner):hover {
 	background: var(--rtm-tab-inactive-bg-hover);
@@ -5154,6 +5167,71 @@ body.rtm-ss-nav-folder-icon-hide:not(.mod-rtl) {
 	.workspace-leaf-content[data-type="file-explorer"] .tree-item-self.nav-folder-title .nav-folder-title-content {
 		margin-inline-start: -16px;
 	}
+}
+
+/* NOTE: TAB STYLES */
+/* NOTE:unsetting default, we will target inner container later; */
+body.rtm-ss-tab-style-btn .workspace-tab-header-container .workspace-tab-header.is-active {
+	border-radius: var(--rtm-tab-radius);
+	border: unset;
+	box-shadow: unset;
+	background: unset;
+	transition: unset;
+}
+
+/* NOTE: targets tab inner container*/
+body.rtm-ss-tab-style-btn .mod-root .workspace-tab-header-container .workspace-tab-header.is-active .workspace-tab-header-inner {
+	border-radius: var(--rtm-tab-radius);
+	border-inline: unset;
+	border: var(--rtm-btn-outline-width) solid var(--rtm-btn-outline-color);
+	box-shadow: var(--rtm-btn-3d-active);
+	background: var(--rtm-btn-bg-active);
+	transition: var(--rtm-btn-state-transition);
+	corner-shape: var(--rtm-tab-corner-shape);
+}
+
+body.rtm-ss-tab-style-btn {
+
+	/* NOTE: add this spacing to compensate for removed tab outline width and tab inner container size*/
+	.workspace-tab-header {
+		margin: 0 0 4px;
+	}
+
+	/* NOTE: removed initial calc declaration*/
+	.mod-root .workspace-tab-header-inner:not(.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner) {
+		border-radius: var(--rtm-tab-radius);
+	}
+
+
+	/* NOTE: Removes the default tab curve */
+	.workspace-tab-header::before,
+	.workspace-tab-header::after,
+	.workspace .mod-root .workspace-tab-header-inner::after {
+		content: unset !important;
+	}
+
+	/* NOTE: Target ALL stacked bottom tab HEADER containers in main workspace (2nd, 3rd, 4th pane, etc.) */
+	.mod-root .workspace-split.mod-horizontal>div.workspace-tabs:not(:first-of-type) .workspace-tab-header-container,
+	.mod-root .workspace-split.mod-horizontal>div.workspace-split:not(:first-of-type) .workspace-tabs .workspace-tab-header-container {
+		border-bottom-color: transparent;
+	}
+
+	.mod-root .workspace-tab-header-inner {
+		padding-top: var(--rtm-tab-outline-width);
+	}
+
+	/* NOTE: Target ALL stacked bottom tab containers in main workspace (2nd, 3rd, 4th pane, etc.) */
+	.mod-root .workspace-split.mod-horizontal>div.workspace-tabs:not(:first-of-type) .workspace-tab-container,
+	.mod-root .workspace-split.mod-horizontal>div.workspace-split:not(:first-of-type) .workspace-tabs .workspace-tab-container {
+		padding-top: 0;
+	}
+
+}
+
+body.rtm-ss-tab-style-minimal .workspace-tab-header-container .workspace-tab-header.is-active {
+	border-inline: var(--rtm-tab-outline);
+	border-top: var(--rtm-tab-outline);
+	box-shadow: unset;
 }
 
 /* # CUSTOM CALLOUTS */
@@ -16840,6 +16918,31 @@ settings:
         type: heading
         level: 2
         collapsed: true
+    -
+        id: workspace-tab-style-selection
+        title: Active tab style
+        type: class-select
+        default: default
+        allowEmpty: false
+        options:
+            -
+                label: Highlighted
+                value: default
+            -
+                label: Flat
+                value: rtm-ss-tab-style-minimal
+            -
+                label: Button
+                value: rtm-ss-tab-style-btn
+    -
+        id: rtm-tab-corner-shape
+        title: Corner shape
+        type: variable-select
+        format: text
+        default: round
+        options:
+            - round
+            - bevel
     -
         id: rtm-tab-radius
         title: Border-radius
