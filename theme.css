@@ -1140,11 +1140,18 @@ body {
 	--rtm-list-marker-gap: max(0.01em, var(--rtm-list-bullet-size) * 0.3);
 
 	/* -- EMBED */
+	--embed-max-height: var(--rtm-embed-max-height);
+
+	--rtm-embed-margin-left: 0;
+	--rtm-embed-margin-right: auto;
 	--rtm-embed-bg: var(--rtm-bg-primary);
 	--rtm-embed-radius: var(--rtm-interface-radius);
 	--rtm-embed-border: 1px solid var(--rtm-txt-faint);
 	--rtm-embed-box-shadow: 0 0 4px oklch(from var(--rtm-txt-accent) l calc(c * var(--rtm-c-accent) * 4) h);
 	--rtm-embed-padding: 8px;
+	--rtm-embed-width-percent: 100;
+	--rtm-embed-width: calc(var(--rtm-embed-width-percent) * 1%);
+	--rtm-embed-max-height: 1000px;
 
 	/* -- PDF */
 	--rtm-pdf-container-border-width: 4px;
@@ -2444,6 +2451,16 @@ blockquote p,
 	border-radius: var(--rtm-embed-radius);
 	box-shadow: var(--rtm-embed-box-shadow);
 	border: var(--rtm-embed-border);
+}
+
+.markdown-embed:not(.canvas .markdown-embed,
+	.workspace-leaf-content[data-type="footnotes"] .markdown-embed,
+	.popover .markdown-embed) {
+	width: var(--rtm-embed-width);
+	max-width: 100%;
+	box-sizing: border-box;
+	margin-left: var(--rtm-embed-margin-left);
+	margin-right: var(--rtm-embed-margin-right);
 }
 
 .markdown-embed-content:not(.canvas .markdown-embed .markdown-embed-content, .workspace-leaf-content[data-type="footnotes"] .markdown-embed .markdown-embed-content),
@@ -4649,6 +4666,7 @@ body.rtm-ss-checkbox-decoration {
 
 body.rtm-ss-workspace-tab-lower-group-icon {
 	--rtm-tab-split-sidebar-padding: var(--rtm-workspace-tab-padding);
+
 	.workspace-tabs .workspace-tab-header-container:not(.mod-top .workspace-tab-header-container, .mod-root .workspace-tab-header-container) {
 		--rtm-tab-split-sidebar-padding: var(--rtm-workspace-tab-padding);
 		display: none;
@@ -5240,6 +5258,22 @@ body.rtm-ss-tab-style-minimal .workspace-tab-header-container .workspace-tab-hea
 	border-inline: var(--rtm-tab-outline);
 	border-top: var(--rtm-tab-outline);
 	box-shadow: unset;
+}
+
+/* NOTE: EMBEDS ALiGNMENT*/
+body.rtm-ss-embed-align-left {
+	--rtm-embed-margin-left: 0;
+	--rtm-embed-margin-right: auto;
+}
+
+body.rtm-ss-embed-align-center {
+	--rtm-embed-margin-left: auto;
+	--rtm-embed-margin-right: auto;
+}
+
+body.rtm-ss-embed-align-right {
+	--rtm-embed-margin-left: auto;
+	--rtm-embed-margin-right: 0;
 }
 
 /* # CUSTOM CALLOUTS */
@@ -13415,6 +13449,49 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: embeds
+        title: Embeds
+        description: "Customize the width, layout, and appearance of embedded blocks."
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: embeds-alignment
+        title: Embeds alignment
+        description: "Choose how all embedded blocks align horizontally when width is reduced."
+        type: class-select
+        default: rtm-ss-embed-align-left
+        allowEmpty: false
+        options:
+            -
+                label: Left
+                value: rtm-ss-embed-align-left
+            -
+                label: Center
+                value: rtm-ss-embed-align-center
+            -
+                label: Right
+                value: rtm-ss-embed-align-right
+    -
+        id: rtm-embed-width-percent
+        title: Note embed width (%)
+        description: Controls how wide embedded notes are inside the editor (10% to 100%).
+        type: variable-number-slider
+        default: 100
+        min: 10
+        max: 100
+        step: 5
+    -
+        id: rtm-embed-max-height
+        title: Note embed height (px)
+        description: "Limits how tall embedded notes can grow before scrolling."
+        type: variable-number-slider
+        format: px
+        default: 1000
+        min: 50
+        max: 1000
+        step: 50
     -
         id: footnote
         title: Footnote
