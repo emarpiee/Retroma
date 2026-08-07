@@ -5222,7 +5222,7 @@ body.rtm-ss-tab-style-btn .workspace-tab-header-container .workspace-tab-header.
 body.rtm-ss-tab-style-btn .mod-root .workspace-tab-header-container .workspace-tab-header.is-active .workspace-tab-header-inner {
 	border-radius: var(--rtm-tab-radius);
 	border-inline: unset;
-	border: var(--rtm-btn-outline-width) solid var(--rtm-btn-outline-color);
+	border: var(--rtm-btn-outline-width) solid var(--rtm-tab-outline-color);
 	box-shadow: var(--rtm-btn-3d-active);
 	background: var(--rtm-btn-bg-active);
 	transition: var(--rtm-btn-state-transition);
