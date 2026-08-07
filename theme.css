@@ -1140,8 +1140,10 @@ body {
 	--rtm-list-marker-gap: max(0.01em, var(--rtm-list-bullet-size) * 0.3);
 
 	/* -- EMBED */
+	--bases-embed-hight: var(--rtm-bases-embed-height);
+	--bases-embed-width: var(--rtm-bases-embed-width);
+	--bases-embed-transform: unset;
 	--embed-max-height: var(--rtm-embed-max-height);
-
 	--rtm-embed-margin-left: 0;
 	--rtm-embed-margin-right: auto;
 	--rtm-embed-bg: var(--rtm-bg-primary);
@@ -1152,6 +1154,9 @@ body {
 	--rtm-embed-width-percent: 100;
 	--rtm-embed-width: calc(var(--rtm-embed-width-percent) * 1%);
 	--rtm-embed-max-height: 1000px;
+	--rtm-bases-embed-height: 1000px;
+	--rtm-bases-embed-width-percent: 100;
+	--rtm-bases-embed-width: calc(var(--rtm-bases-embed-width-percent) * 1%);
 
 	/* -- PDF */
 	--rtm-pdf-container-border-width: 4px;
@@ -2451,16 +2456,29 @@ blockquote p,
 	border-radius: var(--rtm-embed-radius);
 	box-shadow: var(--rtm-embed-box-shadow);
 	border: var(--rtm-embed-border);
+	margin-left: var(--rtm-embed-margin-left);
+	margin-right: var(--rtm-embed-margin-right);
 }
 
+/* NOTE: regular markdown note embed height and width*/
 .markdown-embed:not(.canvas .markdown-embed,
 	.workspace-leaf-content[data-type="footnotes"] .markdown-embed,
 	.popover .markdown-embed) {
 	width: var(--rtm-embed-width);
 	max-width: 100%;
 	box-sizing: border-box;
-	margin-left: var(--rtm-embed-margin-left);
-	margin-right: var(--rtm-embed-margin-right);
+}
+
+/* NOTE: bases embed height and width */
+.block-language-base, 
+.bases-embed {
+	min-height: var(--rtm-bases-embed-height);
+	height: auto;
+}
+
+.block-language-base .bases-view, 
+.bases-embed .bases-view {
+	max-height: var(--rtm-bases-embed-height);
 }
 
 .markdown-embed-content:not(.canvas .markdown-embed .markdown-embed-content, .workspace-leaf-content[data-type="footnotes"] .markdown-embed .markdown-embed-content),
@@ -2480,15 +2498,6 @@ iframe {
 .workspace-leaf-content[data-type="markdown"] .block-language-base .bases-view,
 .workspace-leaf-content[data-type="markdown"] .bases-embed .bases-view {
 	border: var(--rtm-workspace-secondary-border);
-}
-
-.markdown-reading-view .bases-embed,
-.cm-lang-base,
-.is-phone .markdown-source-view.mod-cm6 .cm-content>.bases-embed,
-.is-phone .markdown-source-view.mod-cm6 .cm-content>.cm-lang-base {
-	/* NOTE: should center bases-embed with proper inline spacing*/
-	width: revert;
-	transform: revert;
 }
 
 /* NOTE: FILE EXPLORER HEADER */
@@ -5237,7 +5246,7 @@ body.rtm-ss-tab-style-btn {
 	.workspace-tab-header::before,
 	.workspace-tab-header::after,
 	.workspace .mod-root .workspace-tab-header-inner::after {
-		content: unset !important;
+		content: unset;
 	}
 
 	/* NOTE: Target ALL stacked bottom tab HEADER containers in main workspace (2nd, 3rd, 4th pane, etc.) */
@@ -13490,6 +13499,25 @@ settings:
         id: rtm-embed-max-height
         title: Note embed height (px)
         description: "Limits how tall embedded notes can grow before scrolling."
+        type: variable-number-slider
+        format: px
+        default: 1000
+        min: 50
+        max: 1000
+        step: 50
+    -
+        id: rtm-bases-embed-width-percent
+        title: Bases embed width (%)
+        description: Controls how wide embedded bases are inside the editor (10% to 100%).
+        type: variable-number-slider
+        default: 100
+        min: 10
+        max: 100
+        step: 5
+    -
+        id: rtm-bases-embed-height
+        title: Bases embed height (px)
+        description: "Limits how tall embedded bases can grow before scrolling."
         type: variable-number-slider
         format: px
         default: 1000
