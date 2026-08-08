@@ -22,6 +22,9 @@
 	--rtm-interface-radius: 10px;
 	--rtm-btn-radius: 6px;
 
+
+	--rtm-btn-outline-width: 1px;
+
 	/* CANVAS */
 	--rtm-canvas-ui-fade-out-delay: 0s;
 	--rtm-canvas-ui-fade-in-delay: 0.25s;
@@ -213,8 +216,8 @@ body {
 	--rtm-workspace-vault-profile-display: flex;
 	--rtm-workspace-leaf-bg: var(--rtm-bg-primary);
 	--rtm-workspace-tab-padding: 12px;
-	--rtm-workspace-leaf-padding: 12px;
-	--rtm-workspace-leaf-content-gap: 8px;
+	--rtm-workspace-leaf-padding: 8px;
+	--rtm-workspace-leaf-content-gap: var(--rtm-workspace-leaf-padding);
 	--rtm-workspace-leaf-radius: var(--rtm-interface-radius);
 	--rtm-workspace-tab-sidebar-bottom-padding: 0;
 	--rtm-workspace-bg: var(--rtm-workspace-root-bg);
@@ -357,7 +360,6 @@ body {
 
 	/* -- BUTTONS */
 	--rtm-btn-gap: 4px;
-	--rtm-btn-outline-width: 1px;
 	--rtm-btn-outline-focus: 3px solid var(--rtm-txt-accent-faint);
 	--rtm-3d-light-angle: 135deg;
 	--rtm-btn-bg-normal: oklch(from var(--rtm-bg-paper) l c h);
@@ -12381,7 +12383,7 @@ settings:
         title: Pane inner-spacing (desktop / tablet)
         type: variable-number-slider
         format: px
-        default: 12
+        default: 8
         min: 0
         max: 32
         step: 1
