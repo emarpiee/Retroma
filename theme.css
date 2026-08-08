@@ -197,7 +197,7 @@ body {
 	--rtm-tab-txt-color-focused-active: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
 	--rtm-tab-txt-color-focused-active-current: oklch(from var(--rtm-interactive-accent) var(--rtm-l-low) calc(c * var(--rtm-c-accent)) h);
 	--rtm-tab-outline: var(--rtm-tab-outline-width) solid var(--rtm-tab-outline-color);
-	--rtm-tab-corner-shape: bevel;
+	--rtm-tab-corner-shape: round;
 	--rtm-tab-light-angle: 135deg;
 	--rtm-tab-split-sidebar-padding: 0;
 
@@ -513,8 +513,10 @@ body {
 	/* PAGE PREVIEW */
 	--popover-height: var(--rtm-page-preview-height);
 	--popover-width: var(--rtm-page-preview-width);
-	--rtm-page-preview-height: 25vh;
-	--rtm-page-preview-width: 25vw;
+	--popover-pdf-height: var(--rtm-page-preview-height);
+	--popover-pdf-width: var(--rtm-page-preview-width);
+	--rtm-page-preview-height: 50vh;
+	--rtm-page-preview-width: 35vh;
 
 	/* -- FLAIR */
 	--flair-background: var(--rtm-flair-bg);
@@ -1030,7 +1032,7 @@ body {
 	--rtm-nav-folder-pane-content-border-radius: var(--rtm-interface-radius);
 	--rtm-nav-folder-pane-content-box-shadow: inset 0 0 4px oklch(from var(--rtm-interactive-shadow-accent-normal) l c h / 0.5);
 	--rtm-nav-folder-gap: 8px;
-	--rtm-nav-folder-border-width: 1px;
+	--rtm-nav-folder-border-width: 2px;
 	--rtm-nav-folder-font: inherit;
 	--rtm-nav-file-font: inherit;
 	--rtm-nav-folder-icon-display: inline-block;
@@ -1431,9 +1433,9 @@ body.theme-dark {
 	--rtm-lightness-darkmode-txt-mute: calc(var(--rtm-lightness-darkmode-txt-normal) * (14 / 15));
 
 	--rtm-lightness-darkmode-txt-faint: calc(var(--rtm-lightness-darkmode-txt-normal) * (2 / 3));
-	--rtm-lightness-darkmode-btn: 0.9;
+	--rtm-lightness-darkmode-btn: 1;
 	--rtm-lightness-darkmode-folder: 0.75;
-	--rtm-chroma-darkmode-accent: 0.4;
+	--rtm-chroma-darkmode-accent: 0.3;
 	--rtm-chroma-darkmode-txt: 0.15;
 	--rtm-chroma-darkmode-btn: 0.1;
 	--rtm-chroma-darkmode-btn-icon: 0.2;
@@ -2507,8 +2509,8 @@ blockquote p,
 }
 
 /* NOTE: bases embed height and width */
-.block-language-base,
-.bases-embed {
+:is(.block-language-base,
+.bases-embed):not(.popover *) {
 	min-height: var(--rtm-bases-embed-height);
 	height: auto;
 }
@@ -2519,10 +2521,12 @@ blockquote p,
 }
 
 /* NOTE: pdf embed height and width */
-.pdf-embed,
-.markdown-source-view .pdf-embed,
-.markdown-source-view.mod-cm6 .cm-content>.pdf-embed,
-.internal-embed.pdf-embed:not(.image-embed) {
+:is(
+  .pdf-embed,
+  .markdown-source-view .pdf-embed,
+  .markdown-source-view.mod-cm6 .cm-content > .pdf-embed,
+  .internal-embed.pdf-embed:not(.image-embed)
+):not(.popover *) {
 	width: var(--rtm-pdf-embed-width);
 	min-height: var(--rtm-pdf-embed-height);
 	max-height: var(--rtm-pdf-embed-height);
@@ -3022,8 +3026,9 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 	border-radius: unset;
 }
 
-.suggestion-item.mod-complex .suggestion-content {
-	/* overflow: visible; */
+.popover:has(.bases-embed) {
+	padding: var(--rtm-embed-padding);
+	box-shadow: var(--rtm-embed-box-shadow);
 }
 
 .prompt .suggestion-prefix {
@@ -5434,7 +5439,6 @@ body.rtm-ss-embed-simple {
 	--rtm-embed-border: unset;
 	--rtm-embed-box-shadow: unset;
 	--rtm-embed-padding: 0;
-
 }
 
 /* # CUSTOM CALLOUTS */
@@ -16470,7 +16474,7 @@ settings:
         title: Border-radius 
         type: variable-number-slider
         format: px
-        default: 10
+        default: 6
         min: 0
         max: 16
         step: 1
@@ -16598,7 +16602,7 @@ settings:
         step: 1
     -
         id: rtm-nav-folder-gap
-        title: Vertical  spacing
+        title: Vertical spacing
         type: variable-number-slider
         format: px
         default: 8
@@ -16868,7 +16872,7 @@ settings:
         title: Width
         type: variable-number-slider
         format: vw
-        default: 25
+        default: 35
         min: 15
         max: 100
         step: 5
