@@ -214,6 +214,7 @@ body {
 	--rtm-workspace-leaf-bg: var(--rtm-bg-primary);
 	--rtm-workspace-tab-padding: 12px;
 	--rtm-workspace-leaf-padding: 12px;
+	--rtm-workspace-leaf-content-gap: 8px;
 	--rtm-workspace-leaf-radius: var(--rtm-interface-radius);
 	--rtm-workspace-tab-sidebar-bottom-padding: 0;
 	--rtm-workspace-bg: var(--rtm-workspace-root-bg);
@@ -388,6 +389,7 @@ body {
 	--blur-radius-m: unset;
 	--blur-radius-l: unset;
 	--blur-s: unset;
+	--file-margins-y: var(--rtm-markdown-editor-margin-block);
 	--file-header-background: var(--rtm-file-header-bg);
 	--file-header-background-focused: var(--rtm-file-header-bg);
 	--file-header-font-weight: var(--font-bold);
@@ -412,6 +414,7 @@ body {
 	--rtm-markdown-editor-shadow: inset 0 0 4px oklch(from var(--rtm-interactive-shadow-accent-normal) l c h / 0.5);
 	--rtm-markdown-editor-leaf-bg: var(--rtm-workspace-leaf-bg);
 
+	--rtm-markdown-editor-margin-block: 16px;
 	--rtm-markdown-editor-color: var(--rtm-txt-accent);
 	--rtm-markdown-editor-font: inherit;
 	--line-height-normal: var(--rtm-p-line-height);
@@ -1092,10 +1095,6 @@ body {
 
 	--rtm-nav-folder-opened-mask-image: url("data:image/svg+xml,%3Csvg id='Flat' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M241.88 110.64a16 16 0 0 0-12.98-6.64H216V88a16 16 0 0 0-16-16h-69.33L102.94 51.2A16.1 16.1 0 0 0 93.33 48H40a16 16 0 0 0-16 16v144a8.06 8.06 0 0 0 .05.85 7.87 7.87 0 0 0 .14.82c0 .07.04.14.06.21a8 8 0 0 0 1.22 2.37 8 8 0 0 0 1.01 1.5c0 .07.13.14.19.21a8 8 0 0 0 1.43 1.25c.03.01.05.02.08.04a7.86 7.86 0 0 0 .74.34c.07.03.14.05.22.08q.31.11.64.2c.09.03.17.05.26.07a8 8 0 0 0 1.57.16H208a8 8 0 0 0 7.59-5.47l28.49-85.47a16 16 0 0 0-2.2-14.83ZM93.33 64l27.74 20.8A16.1 16.1 0 0 0 130.67 88H200v16h-53.58a15.95 15.95 0 0 0-8.87 2.69L117.58 120H69.42a15.92 15.92 0 0 0-14.86 10.06L40 166.46V64Zm108.9 136H43.82L69.42 136h48.16a15.95 15.95 0 0 0 8.87-2.69L146.42 120h82.48Z'/%3E%3C/svg%3E");
 
-	/* -- FILE / OPENED FILE */
-	--view-top-spacing-markdown: calc(var(--safe-area-inset-top) + var(--view-header-height) + var(--rtm-markdown-padding-top));
-	--rtm-markdown-padding-top: 32px;
-
 	/* -- IMAGE - IMG */
 	--rtm-img-radius: 4px;
 	--rtm-img-border-width: 0;
@@ -1169,6 +1168,7 @@ body {
 	--rtm-internal-query-embed-width: calc(var(--rtm-internal-query-embed-width-percent) * 1%);
 
 	/* -- PDF */
+	--pdf-background: unset;
 	--rtm-pdf-container-border-width: 4px;
 	--rtm-pdf-container-border-style: ridge;
 	--rtm-pdf-container-border-color: var(--rtm-workspace-secondary-border-color);
@@ -1994,6 +1994,11 @@ body:not(.rtm-ss-tab-style-btn) .mod-root .workspace-tab-header:not(.is-active) 
 
 /* NOTE: MARKDOWN EDITOR*/
 /* NOTE: markdown editor leaf must have the ff properties */
+
+body.is-phone .markdown-source-view .cm-sizer,
+body.is-phone .markdown-rendered .markdown-preview-sizer {
+	margin-top: var(--rtm-markdown-editor-margin-block);
+}
 .workspace-leaf-content[data-type="markdown"] {
 	background: var(--rtm-markdown-editor-bg);
 	color: var(--rtm-markdown-editor-color);
@@ -2102,6 +2107,7 @@ body:not(.is-phone) .workspace-leaf-content[data-type="markdown"] .view-content 
 .is-phone:not(.is-floating-nav) .workspace-leaf .workspace-leaf-content .view-header {
 	border-radius: 0;
 	border-inline-width: 0;
+	padding-bottom: 16px;
 }
 
 .is-phone:not(.is-floating-nav) .view-header {
@@ -2167,8 +2173,12 @@ body:not(.is-phone) .workspace-leaf-content[data-type="markdown"] .view-content 
 /* NOTE: WORKSPACE LEAF / VIEW CONTENT */
 /* NOTE: some views are bare leaf content most are view-content */
 .workspace-leaf-content:not([data-type="bases"]),
-.view-content:not(.workspace-leaf-content:is([data-type="bases"], [data-type="webviewer"]) .view-content) {
-	gap: 8px;
+.workspace-leaf-content:not([data-type="webviewer"], [data-type="markdown"], [data-type="bases"]) .view-content {
+	gap: var(--rtm-workspace-leaf-content-gap);
+}
+
+body.is-phone .workspace-leaf-content[data-type="markdown"] {
+	gap: 0;
 }
 
 .view-content:not(.workspace-leaf-content:is([data-type="markdown"], [data-type="canvas"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="file-properties"], [data-type="footnotes"], [data-type="calendar"], [data-type="bases"], [data-type="pdf"], [data-type="style-manager-view"], [data-type="file-explorer"]) .view-content),
@@ -2268,12 +2278,7 @@ blockquote p,
 
 .pdf-toolbar {
 	background: transparent;
-	padding-top: revert;
 	border-bottom: unset;
-}
-
-.is-phone .pdf-toolbar {
-	margin-top: var(--size-4-3);
 }
 
 .pdf-thumbnail-view {
@@ -2301,12 +2306,18 @@ blockquote p,
 
 .is-mobile input[type="number"].pdf-page-input {
 	height: revert;
-	padding: 0;
+	padding: 2px 8px;
 }
 
 .pdf-sidebar-container {
 	background-color: var(--rtm-bg-paper);
-	box-shadow: 0 0 12px oklch(from black l c h / 50%);
+	box-shadow: 4px 0px 12px oklch(from black l c h / 50%);
+	border-top-left-radius: calc(var(--rtm-interface-radius) * 0.8);
+	border-bottom-left-radius: calc(var(--rtm-interface-radius) * 0.8);
+}
+
+.is-mobile .pdf-sidebar-container[data-view="1"], .pdf-embed .pdf-sidebar-container[data-view="1"] {
+	width: 150px;
 }
 
 /* # CALLOUT */
@@ -2462,12 +2473,13 @@ blockquote p,
 	margin-block: 4px;
 }
 
-.inline-embed > .markdown-embed-title {
+.inline-embed>.markdown-embed-title {
 	display: var(--rtm-embed-title-display);
 }
 
 
-.pdf-embed, .pdf-embed:not(.canvas-node-content),
+.pdf-embed,
+.pdf-embed:not(.canvas-node-content),
 .workspace-leaf-content[data-type="markdown"] .block-language-base,
 .workspace-leaf-content[data-type="markdown"] .bases-embed,
 .markdown-embed:not(.canvas .markdown-embed, .workspace-leaf-content[data-type="footnotes"] .markdown-embed),
@@ -2491,19 +2503,22 @@ blockquote p,
 }
 
 /* NOTE: bases embed height and width */
-.block-language-base, 
+.block-language-base,
 .bases-embed {
 	min-height: var(--rtm-bases-embed-height);
 	height: auto;
 }
 
-.block-language-base .bases-view, 
+.block-language-base .bases-view,
 .bases-embed .bases-view {
 	max-height: var(--rtm-bases-embed-height);
 }
 
 /* NOTE: pdf embed height and width */
-.pdf-embed, .markdown-source-view .pdf-embed, .markdown-source-view.mod-cm6 .cm-content > .pdf-embed, .internal-embed.pdf-embed:not(.image-embed) {
+.pdf-embed,
+.markdown-source-view .pdf-embed,
+.markdown-source-view.mod-cm6 .cm-content>.pdf-embed,
+.internal-embed.pdf-embed:not(.image-embed) {
 	width: var(--rtm-pdf-embed-width);
 	min-height: var(--rtm-pdf-embed-height);
 	max-height: var(--rtm-pdf-embed-height);
@@ -3426,7 +3441,7 @@ a.tag:hover,
 }
 
 .bases-view[data-view-type="cards"] {
-  scrollbar-gutter: stable both-edges;
+	scrollbar-gutter: stable both-edges;
 }
 
 .bases-view .maplibregl-popup-content {
@@ -3455,10 +3470,6 @@ a.tag:hover,
 	border: var(--rtm-workspace-primary-border);
 	border-radius: var(--rtm-interface-radius);
 	padding: var(--rtm-workspace-leaf-padding);
-}
-
-.is-phone .workspace-tabs .workspace-leaf-content[data-type="bases"] {
-	padding: 0;
 }
 
 /* # MARK */
@@ -3672,7 +3683,7 @@ p:not(blockquote p) {
 }
 
 /* # IMAGE - IMG */
-img:not(.canvas img, .mobile-tab-preview img),
+img:not(.canvas img, .mobile-tab-preview img, .banner-image img),
 video:not(.canvas video) {
 	border-radius: var(--rtm-img-radius);
 	border: var(--rtm-img-border-width) solid var(--rtm-img-border-color);
@@ -3707,16 +3718,6 @@ code:not(pre code) {
 	font-family: var(--rtm-code-font);
 }
 
-
-/* # MOBILE SPECIFIC */
-.is-phone {
-	/* NOTE: keep these properties to fix the spacing */
-	--navbar-position: fixed;
-	--view-header-position: fixed;
-	--view-top-spacing: calc(var(--safe-area-inset-top) + var(--view-header-height) + 8px);
-	--view-top-spacing-markdown: calc(var(--safe-area-inset-top) + var(--view-header-height) + 16px);
-	--view-bottom-spacing: calc(var(--safe-area-inset-bottom) - var(--keyboard-height) + var(--navbar-height));
-}
 
 /* # MOBILE NAVBAR */
 .is-mobile.is-floating-nav .mobile-navbar {
@@ -3814,7 +3815,7 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 	height: auto;
 }
 
-/* # MOBILE VIEW CONTENT / FILE EDITOR */
+/* # MOBILE PANE CONTENT*/
 .is-phone .mod-root .view-content {
 	border: unset;
 	margin-top: var(--view-top-spacing);
@@ -3857,12 +3858,23 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 	padding-block: unset;
 }
 
+/* Applies ALWAYS to Markdown on phones (regardless of floating nav) */
 .is-phone :is(.mod-root) .workspace-tabs .workspace-leaf-content[data-type="markdown"],
-.is-phone :is(.mod-root) .workspace-tabs .workspace-leaf-content[data-type="canvas"],
-.is-phone :is(.mod-root) .workspace-tabs .workspace-leaf-content[data-type="pdf"] {
-	/* NOTE: should maximize small phone screens */
+
+/* Applies ONLY when nav is NOT floating for Canvas, Bases, and PDF */
+.is-phone:not(.is-floating-nav) :is(.mod-root) .workspace-tabs :is(.workspace-leaf-content[data-type="canvas"],
+	.workspace-leaf-content[data-type="bases"],
+	.workspace-leaf-content[data-type="pdf"]) {
+	/* NOTE: Maximize small phone screens */
+	border-radius: 0;
 	border: unset;
 	padding: 0;
+}
+
+
+.is-phone:not(.is-floating-nav) :is(.mod-root) .workspace-tabs :is(.bases-view, .pdf-container) {
+	margin-inline: var(--rtm-workspace-leaf-padding);
+	margin-bottom: var(--rtm-workspace-leaf-padding);
 }
 
 .is-phone :is(.mod-root) .workspace-tabs .workspace-leaf-content {
@@ -4016,6 +4028,11 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 
 .theme-dark .themed-color-wrapper>.theme-dark {
 	background: oklch(from var(--rtm-interactive-accent) 0.1 0 h);
+}
+
+/* NOTE: PRETTY PROPERTIES */
+.view-content.has-banner .markdown-source-view {
+	padding-top: 0;
 }
 
 /* ## NOTEBOOK NAVIGATOR */
@@ -4548,10 +4565,11 @@ body.rtm-ss-pdf-simple-view {
 		background: var(--rtm-pdf-container-bg);
 	}
 
-	.workspace-leaf-content[data-type="pdf"] .view-content .pdf-container {
-
+	.workspace-leaf-content[data-type="pdf"] .view-content .pdf-content-container, .pdf-container {
+		/* border-radius: 0; */
 		border: unset;
 		box-shadow: unset;
+		margin: 0;
 	}
 
 	.workspace-tab-container .workspace-leaf .workspace-leaf-content[data-type="pdf"] .view-content {
@@ -12595,6 +12613,16 @@ settings:
         max: 2000
         step: 10
     -
+        id: rtm-markdown-editor-margin-block
+        title: Top margin
+        description: "Adjust top spacing above editor content."
+        type: variable-number-slider
+        format: px
+        default: 16
+        min: 0
+        max: 128
+        step: 1
+    -
         id: filter-markdown-editor-pattern
         title: Editor pattern
         description: "Apply a background pattern for the markdown editor."
@@ -17379,7 +17407,7 @@ settings:
     -
         id: rtm-ss-hue-rotate
         title: ??
-        description: "TW flashing lights. If you’re not a little fruity, this isn't for you."
+        description: "⚠️ TW flashing lights. If you’re not a little fruity, this isn't for you."
         type: class-toggle
         default: false
         addCommand: true
