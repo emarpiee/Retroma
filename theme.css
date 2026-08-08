@@ -2302,6 +2302,7 @@ blockquote p,
 	border: var(--rtm-pdf-container-border);
 	background: var(--rtm-pdf-container-bg);
 	box-shadow: var(--rtm-pdf-container-shadow);
+	min-width: unset;
 }
 
 .is-mobile input[type="number"].pdf-page-input {
@@ -3872,7 +3873,7 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 }
 
 
-.is-phone:not(.is-floating-nav) :is(.mod-root) .workspace-tabs :is(.bases-view, .pdf-container) {
+.is-phone:not(.is-floating-nav) :is(.mod-root) .workspace-tabs :is(.bases-view, .pdf-container:not(.pdf-embed .pdf-container)) {
 	margin-inline: var(--rtm-workspace-leaf-padding);
 	margin-bottom: var(--rtm-workspace-leaf-padding);
 }
