@@ -663,7 +663,7 @@ body {
 	--rtm-tag-border-color: currentColor;
 	--rtm-tag-bg: oklch(from currentColor l c h / 0.1);
 	--rtm-tag-bg-hover: oklch(from var(--rtm-tag-bg) l c h / 0);
-	--rtm-tag-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-normal) c h);
+	--rtm-tag-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-normal) var(--rtm-c-txt) h);
 
 	--rtm-tag-size: 0.875em;
 	--rtm-tag-border-left-width: 4px;
@@ -1639,7 +1639,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 
 :is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button):focus-visible,
 	.mobile-toolbar-option:focus-visible,
-	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu):focus-visible,
+	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu).selected,
 	.clickable-icon:focus-visible,
 	.text-icon-button:focus-visible,
 	.is-mobile .workspace-drawer-tab-select .workspace-tab-header-inner:focus-visible,
@@ -2095,6 +2095,7 @@ body:not(.is-phone) .workspace-leaf-content[data-type="markdown"] .view-content 
 
 .is-phone:not(.is-floating-nav) .view-header {
 	padding-bottom: 8px;
+	border-top: 0;
 }
 
 .is-mobile.is-floating-nav.is-phone .view-header {
@@ -2172,8 +2173,8 @@ body:not(.is-phone) .workspace-leaf-content[data-type="markdown"] .view-content 
 
 /* NOTE: WORKSPACE LEAF / VIEW CONTENT */
 /* NOTE: some views are bare leaf content most are view-content */
-.workspace-leaf-content:not([data-type="bases"]),
-.workspace-leaf-content:not([data-type="webviewer"], [data-type="markdown"], [data-type="bases"]) .view-content {
+.workspace-leaf-content:not([data-type="bases"], [data-type="pdf"]),
+.workspace-leaf-content:not([data-type="webviewer"], [data-type="markdown"], [data-type="bases"], [data-type="pdf"]) .view-content {
 	gap: var(--rtm-workspace-leaf-content-gap);
 }
 
@@ -3281,96 +3282,170 @@ body:not(.is-grabbing) .search-result .tree-item-self.search-result-file-title:h
 	background: unset;
 }
 
+/* Base tag styles */
 .cm-hashtag,
 a.tag,
-.multi-select-pill,
-.multi-select-pill:hover {
+.multi-select-pill {
 	border: var(--rtm-tag-border-width) var(--rtm-tag-border-style) var(--rtm-tag-border-color, var(--tag-color));
 	font-family: var(--rtm-tag-font);
 }
 
+/* Leading border highlights */
 .cm-hashtag.cm-hashtag-begin,
 a.tag,
-a.tag:hover,
-.metadata-property-value .multi-select-pill {
+.multi-select-pill {
 	border-inline-start: var(--rtm-tag-border-left-width) solid var(--rtm-tag-border-color, var(--tag-color));
 }
 
-.tag:hover,
-[class*="cm-tag-"]:hover,
-.cm-hashtag:hover {
+/* Hover overrides */
+:is(.tag, [class*="cm-tag-"], .cm-hashtag, .multi-select-pill):hover {
 	--tag-color-hover: var(--tag-color);
 	opacity: 1;
 	filter: none;
 }
 
+/* Ensure left border is retained on hover */
+:is(.cm-hashtag.cm-hashtag-begin, a.tag, .multi-select-pill):hover {
+	border-inline-start: var(--rtm-tag-border-left-width) solid var(--rtm-tag-border-color, var(--tag-color));
+}
+
+.multi-select-pill.is-invalid, .multi-select-pill.is-invalid  *{
+	color: var(--rtm-color-red);
+	stroke: var(--rtm-color-red);
+}
+
+/* Purple */
 .tag[href*="#obsidian" i],
+.multi-select-pill[data-tag-value*="obsidian" i],
 :is(.cm-tag-Obsidian, .cm-tag-obsidian) {
 	--tag-color: var(--rtm-color-purple);
 }
 
+/* Red */
 .tag[href*="#high" i],
 .tag[href*="#error" i],
 .tag[href*="#bad" i],
 .tag[href*="#urgent" i],
 .tag[href*="#bug" i],
+.multi-select-pill:is(
+	[data-tag-value*="high" i],
+	[data-tag-value*="error" i],
+	[data-tag-value*="bad" i],
+	[data-tag-value*="urgent" i],
+	[data-tag-value*="bug" i]
+),
 :is(.cm-tag-high, .cm-tag-error, .cm-tag-bad, .cm-tag-urgent, .cm-tag-bug) {
 	--tag-color: var(--rtm-color-red);
 }
 
+/* Orange */
 .tag[href*="#medium" i],
 .tag[href*="#warning" i],
 .tag[href*="#work" i],
 .tag[href*="#in-progress" i],
 .tag[href*="#wip" i],
+.multi-select-pill:is(
+	[data-tag-value*="medium" i],
+	[data-tag-value*="warning" i],
+	[data-tag-value*="work" i],
+	[data-tag-value*="in-progress" i],
+	[data-tag-value*="wip" i]
+),
 :is(.cm-tag-medium, .cm-tag-warning, .cm-tag-work, .cm-tag-in-progress, .cm-tag-wip) {
 	--tag-color: var(--rtm-color-orange);
 }
 
+/* Green */
 .tag[href*="#low" i],
 .tag[href*="#good" i],
 .tag[href*="#done" i],
 .tag[href*="#complete" i],
 .tag[href*="#success" i],
+.multi-select-pill:is(
+	[data-tag-value*="low" i],
+	[data-tag-value*="good" i],
+	[data-tag-value*="done" i],
+	[data-tag-value*="complete" i],
+	[data-tag-value*="success" i]
+),
 :is(.cm-tag-low, .cm-tag-good, .cm-tag-done, .cm-tag-complete, .cm-tag-success) {
 	--tag-color: var(--rtm-color-green);
 }
 
+/* Blue */
 .tag[href*="#todo" i],
 .tag[href*="#next" i],
 .tag[href*="#task" i],
+.multi-select-pill:is(
+	[data-tag-value*="todo" i],
+	[data-tag-value*="next" i],
+	[data-tag-value*="task" i]
+),
 :is(.cm-tag-todo, .cm-tag-next, .cm-tag-task) {
 	--tag-color: var(--rtm-color-blue);
 }
 
+/* Indigo */
 .tag[href*="#home" i],
 .tag[href*="#personal" i],
+.multi-select-pill:is(
+	[data-tag-value*="home" i],
+	[data-tag-value*="personal" i]
+),
 :is(.cm-tag-home, .cm-tag-personal) {
 	--tag-color: var(--rtm-color-indigo);
 }
 
+/* Teal */
 .tag[href*="#concept" i],
 .tag[href*="#idea" i],
 .tag[href*="#note" i],
+.multi-select-pill:is(
+	[data-tag-value*="concept" i],
+	[data-tag-value*="idea" i],
+	[data-tag-value*="note" i]
+),
 :is(.cm-tag-concept, .cm-tag-idea, .cm-tag-note) {
 	--tag-color: var(--rtm-color-teal);
 }
 
+/* Pink */
 .tag[href*="#book" i],
 .tag[href*="#read" i],
 .tag[href*="#article" i],
 .tag[href*="#podcast" i],
 .tag[href*="#video" i],
+.multi-select-pill:is(
+	[data-tag-value*="book" i],
+	[data-tag-value*="read" i],
+	[data-tag-value*="article" i],
+	[data-tag-value*="podcast" i],
+	[data-tag-value*="video" i]
+),
 :is(.cm-tag-book, .cm-tag-read, .cm-tag-article, .cm-tag-podcast, .cm-tag-video) {
 	--tag-color: var(--rtm-color-pink);
 }
 
+/* Yellow */
 .tag[href*="#waiting" i],
 .tag[href*="#blocked" i],
 .tag[href*="#hold" i],
 .tag[href*="#someday" i],
+.multi-select-pill:is(
+	[data-tag-value*="waiting" i],
+	[data-tag-value*="blocked" i],
+	[data-tag-value*="hold" i],
+	[data-tag-value*="someday" i]
+),
 :is(.cm-tag-waiting, .cm-tag-blocked, .cm-tag-hold, .cm-tag-someday) {
 	--tag-color: var(--rtm-color-yellow);
+}
+
+div.multi-select-pill div.multi-select-pill-remove-button,
+div.multi-select-pill div.multi-select-pill-remove-button svg.svg-icon,
+div.multi-select-pill svg.svg-icon {
+	color: var(--tag-color);
+	stroke: var(--tag-color);
 }
 
 .metadata-property-value .multi-select-pill {
@@ -3379,6 +3454,11 @@ a.tag:hover,
 	--pill-color: unset;
 	--pill-radius: var(--tag-radius);
 	gap: var(--size-4-1);
+}
+
+.base-tags-style .bases-view [data-property="note.tags"] .multi-select-pill:not(.theme-color, .custom-color, .transparent-color), .base-tags-style .bases-view [data-property="note.tags"] .value-list-element:not(.theme-color, .custom-color, .transparent-color, :has(.tag)) {
+	--pill-padding-x: var(--rtm-tag-padding-x);
+	padding: 0;
 }
 
 .metadata-container .metadata-show-source-button,
@@ -3435,9 +3515,9 @@ a.tag:hover,
 }
 
 .bases-view {
+	--table-border-color: var(--rtm-bases-table-border-color);
 	border: var(--rtm-view-content-border);
 	border-radius: var(--rtm-interface-radius);
-	--table-border-color: var(--rtm-bases-table-border-color);
 	background: var(--rtm-bg-paper);
 }
 
