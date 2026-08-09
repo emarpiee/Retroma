@@ -515,7 +515,8 @@ body {
 	--rtm-prompt-input-container-padding: 8px;
 	/* MENU MODAL */
 	--rtm-menu-bg: var(--rtm-bg-primary);
-	--rtm-menu-radius: var(--rtm-interface-radius);
+	--rtm-menu-corner-shape: solid;
+	--rtm-menu-radius: calc(var(--rtm-interface-radius) * 0.8);
 	--rtm-menu-border: var(--rtm-workspace-secondary-border);
 	--rtm-menu-box-shadow: 0 0 12px 2px oklch(from var(--rtm-interactive-shadow-accent-normal) l c h / 0.3);
 	--rtm-menu-height: 90vh;
@@ -595,6 +596,7 @@ body {
 	--rtm-blockquote-left-padding: 8px;
 	--rtm-blockquote-left-margin: 0;
 	--rtm-blockquote-txt-align: left;
+	--rtm-blockquote-corner-shape: round;
 
 	/* -- STYLE SETTINGS CONTAINER */
 	--rtm-style-settings-item-border: 1px dashed var(--rtm-txt-accent-faint);
@@ -745,11 +747,17 @@ body {
 	--font-monospace-theme: var(--rtm-code-font);
 	--rtm-code-font: inherit;
 	--rtm-code-border-width: 2px;
+	--rtm-code-inline-border-width: 2px;
+	--rtm-code-inline-outline-style: solid;
+	--rtm-code-outline-style: solid;
+	--rtm-code-inline-border-color: var(--rtm-code-border-color);
 	--rtm-code-border-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-faint) calc(c * var(--rtm-c-accent)) h);
 	--rtm-code-radius: var(--rtm-interface-radius);
 	--rtm-code-inline-radius: 6px;
+	--rtm-code-corner-shape: round;
 	--rtm-code-size: var(--font-smaller);
 	--rtm-code-bg: oklch(from var(--rtm-bg-primary) l c h);
+	--rtm-code-inline-bg: var(--rtm-code-bg);
 
 	/* -- BASES */
 	--bases-header-border-width: 0;
@@ -928,6 +936,7 @@ body {
 	--rtm-callout-title-padding: 0;
 	--rtm-callout-title-size: 1em;
 	--rtm-callout-title-weight: 1000;
+	--rtm-callout-corner-shape: round;
 
 	/* CALLOUT COLORS */
 	--rtm-callout-txt-color: var(--rtm-txt-accent);
@@ -1160,6 +1169,7 @@ body {
 	--bases-embed-width: var(--rtm-bases-embed-width);
 	--bases-embed-transform: unset;
 	--embed-max-height: var(--rtm-embed-max-height);
+	--rtm-corner-shape: round;
 	--rtm-embed-title-display: flex;
 	--rtm-embed-margin-left: 0;
 	--rtm-embed-margin-right: auto;
@@ -1880,6 +1890,7 @@ body.is-mobile ::-webkit-scrollbar-thumb:active,
 	border: var(--rtm-menu-border);
 	box-shadow: var(--rtm-menu-box-shadow);
 	max-height: var(--rtm-menu-height);
+	corner-shape: var(--rtm-menu-corner-shape);
 }
 
 /* # WORKSPACE */
@@ -2291,6 +2302,7 @@ blockquote,
 	border-radius: var(--rtm-blockquote-radius);
 	border: var(--rtm-blockquote-border-thickness) solid var(--rtm-blockquote-border-color);
 	margin-inline-start: var(--rtm-blockquote-left-margin);
+	corner-shape: var(--rtm-blockquote-corner-shape);
 }
 
 blockquote blockquote {
@@ -2347,6 +2359,10 @@ blockquote p,
 	min-width: unset;
 }
 
+.pdf-container:not(.pdf-embed .pdf-container) {
+	corner-shape: var(--rtm-workspace-leaf-content-corner-shape);
+}
+
 .is-mobile input[type="number"].pdf-page-input {
 	height: revert;
 	padding: 2px 8px;
@@ -2368,6 +2384,19 @@ blockquote p,
 .callout .callout-content {
 	margin-left: 8px;
 	overflow-x: visible;
+}
+
+.callout:is([data-callout="default"], [data-callout="example"], [data-callout="note"],
+	[data-callout="abstract"], [data-callout="info"], [data-callout="todo"],
+	[data-callout="tip"], [data-callout="success"], [data-callout="question"],
+	[data-callout="warning"], [data-callout="failure"], [data-callout="danger"],
+	[data-callout="bug"], [data-callout="quote"], [data-callout="summary"],
+	[data-callout="tldr"], [data-callout="hint"], [data-callout="important"],
+	[data-callout="check"], [data-callout="done"], [data-callout="help"],
+	[data-callout="faq"], [data-callout="caution"], [data-callout="attention"],
+	[data-callout="fail"], [data-callout="missing"], [data-callout="error"],
+	[data-callout="cite"]) {
+	corner-shape: var(--rtm-callout-corner-shape);
 }
 
 .callout[data-callout="default"] {
@@ -2535,6 +2564,7 @@ blockquote p,
 	border: var(--rtm-embed-border);
 	margin-left: var(--rtm-embed-margin-left);
 	margin-right: var(--rtm-embed-margin-right);
+	corner-shape: var(--rtm-embed-corner-shape);
 }
 
 /* NOTE: regular markdown note embed height and width*/
@@ -2602,10 +2632,10 @@ iframe {
 }
 
 :is(.mod-left-split, .mod-right-split) .workspace-tabs .workspace-leaf-content[data-type="file-explorer"] {
-  border-radius: var(--rtm-interface-radius);
-  border: var(--rtm-workspace-primary-border);
-  background: var(--rtm-nav-folder-pane-bg);
-  padding: var(--rtm-workspace-leaf-padding);
+	border-radius: var(--rtm-interface-radius);
+	border: var(--rtm-workspace-primary-border);
+	background: var(--rtm-nav-folder-pane-bg);
+	padding: var(--rtm-workspace-leaf-padding);
 }
 
 /* NOTE: FILE EXPLORER HEADER */
@@ -3559,6 +3589,7 @@ div.multi-select-pill svg.svg-icon {
 	border: var(--rtm-view-content-border);
 	border-radius: var(--rtm-interface-radius);
 	background: var(--rtm-bg-paper);
+	corner-shape: var(--rtm-workspace-leaf-content-corner-shape);
 }
 
 .bases-view[data-view-type="cards"] {
@@ -3824,6 +3855,13 @@ code {
 	padding-block: unset;
 }
 
+pre,
+.markdown-source-view pre,
+.markdown-rendered pre {
+	border-style: var(--rtm-code-outline-style);
+	corner-shape: var(--rtm-code-corner-shape);
+}
+
 code,
 pre,
 .cm-line.HyperMD-codeblock {
@@ -3833,10 +3871,12 @@ pre,
 .cm-s-obsidian .cm-inline-code:not(.cm-formatting),
 .markdown-rendered code:not(pre code),
 code:not(pre code) {
+	background: var(--rtm-code-inline-bg);
 	padding-block: 0;
 	padding-inline: 6px;
 	border-radius: var(--rtm-code-inline-radius);
 	font-family: var(--rtm-code-font);
+	border: var(--rtm-code-inline-border-width) var(--rtm-code-inline-outline-style) var(--rtm-code-inline-border-color);
 }
 
 
@@ -3965,19 +4005,17 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 	--rtm-workspace-tab-padding: 0;
 }
 
-.workspace-leaf-content:not(
-  .mod-root .workspace-leaf-content,
-  [data-type="markdown"],
-  [data-type="file-properties"],
-  [data-type="file-explorer"],
-  [data-type="calendar"],
-  [data-type="style-manager-view"],
-  [data-type="footnotes"]
-) {
-  border-radius: var(--rtm-interface-radius);
-  border: var(--rtm-workspace-primary-border);
-  background: var(--rtm-workspace-leaf-bg);
-  padding: var(--rtm-workspace-leaf-padding);
+.workspace-leaf-content:not(.mod-root .workspace-leaf-content,
+	[data-type="markdown"],
+	[data-type="file-properties"],
+	[data-type="file-explorer"],
+	[data-type="calendar"],
+	[data-type="style-manager-view"],
+	[data-type="footnotes"]) {
+	border-radius: var(--rtm-interface-radius);
+	border: var(--rtm-workspace-primary-border);
+	background: var(--rtm-workspace-leaf-bg);
+	padding: var(--rtm-workspace-leaf-padding);
 }
 
 .is-phone .mod-root .workspace-leaf {
@@ -12467,23 +12505,25 @@ settings:
         addCommand: true
     -
         id: rtm-workspace-leaf-corner-shape
-        title: Pane outer-corner shape
+        title: Pane corner shape
         type: variable-select
         default: round
         options:
             - round
             - bevel
             - notch
+            - square
             - squircle
     -
         id: rtm-workspace-leaf-content-corner-shape
-        title: Pane inner-corner shape
+        title: Pane content corner shape
         type: variable-select
         default: round
         options:
             - round
             - bevel
             - notch
+            - square
             - squircle
     -
         id: rtm-workspace-tab-padding
@@ -12553,6 +12593,7 @@ settings:
             - round
             - bevel
             - notch
+            - square
             - squircle
     -
         id: rtm-view-header-bg
@@ -12937,13 +12978,24 @@ settings:
         level: 3
         collapsed: true
     -
+        id: rtm-blockquote-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - square
+            - squircle
+    -
         id: rtm-blockquote-radius
         title: Border-radius
         type: variable-number-slider
         format: px
         default: 10
         min: 0
-        max: 50
+        max: 24
         step: 1
     -
         id: rtm-blockquote-border-thickness
@@ -13003,6 +13055,17 @@ settings:
         min: 0
         max: 24
         step: 1
+    -
+        id: rtm-callout-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - square
+            - squircle
     -
         id: rtm-callout-border-width
         title: Outline thickness
@@ -13582,14 +13645,11 @@ settings:
         max: 1.12
         step: 0.01
     -
-        id: rtm-code-inline-radius
-        title: Inline code border-radius
-        type: variable-number-slider
-        format: px
-        default: 4
-        min: 0
-        max: 32
-        step: 1
+        id: codeblock
+        title: Codeblock
+        type: heading
+        level: 3
+        collapsed: true
     -
         id: rtm-code-radius
         title: Codeblock border-radius
@@ -13600,8 +13660,19 @@ settings:
         max: 32
         step: 1
     -
+        id: rtm-code-corner-shape
+        title: Codeblock corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - square
+            - squircle
+    -
         id: rtm-code-border-width
-        title: Outline thickness
+        title: Codeblock outline thickness
         type: variable-number-slider
         format: px
         default: 1
@@ -13609,8 +13680,18 @@ settings:
         max: 4
         step: 1
     -
+        id: rtm-code-outline-style
+        title: Codeblock outline style
+        type: variable-select
+        default: solid
+        options:
+            - solid
+            - dashed
+            - double
+            - dotted
+    -
         id: rtm-code-border-color
-        title: Outline color
+        title: Codeblock outline color
         type: variable-themed-color
         format: hex
         opacity: true
@@ -13618,7 +13699,57 @@ settings:
         default-dark: '#'
     -
         id: rtm-code-bg
-        title: Background color
+        title: Codeblock background color
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: code-inline
+        title: Inline code
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: rtm-code-inline-radius
+        title: Inline code border-radius
+        type: variable-number-slider
+        format: px
+        default: 4
+        min: 0
+        max: 32
+        step: 1
+    -
+        id: rtm-code-inline-border-width
+        title: Inline code outline thickness
+        type: variable-number-slider
+        format: px
+        default: 1
+        min: 0
+        max: 4
+        step: 1
+    -
+        id: rtm-code-inline-outline-style
+        title: Inline code outline style
+        type: variable-select
+        default: solid
+        options:
+            - solid
+            - dashed
+            - double
+            - dotted
+    -
+        id: rtm-code-inline-border-color
+        title: Inline code color
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-code-inline-bg
+        title: Inline code background color
         type: variable-themed-color
         format: hex
         opacity: true
@@ -13626,7 +13757,7 @@ settings:
         default-dark: '#'
     -
         id: source-code-color
-        title: Code colors (advance)
+        title: Source code colors (advance)
         description: "Fine-tune the exact syntax highlighting colors for different code tokens."
         type: heading
         level: 3
@@ -13737,6 +13868,26 @@ settings:
         type: heading
         level: 2
         collapsed: true
+    -
+        id: rtm-embed-radius
+        title: Border-radius
+        type: variable-number-slider
+        format: px
+        default: 10
+        min: 0
+        max: 24
+        step: 1
+    -
+        id: rtm-embed-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - square
+            - squircle
     -
         id: embeds-alignment
         title: Embeds alignment
@@ -15056,6 +15207,7 @@ settings:
             - round
             - bevel
             - notch
+            - square
             - squircle
     -
         id: rtm-metadata-border-style
@@ -15547,6 +15699,7 @@ settings:
             - round
             - bevel
             - notch
+            - square
             - squircle
     -
         id: rtm-btn-radius
@@ -16382,6 +16535,7 @@ settings:
             - round
             - bevel
             - notch
+            - square
             - squircle
     -
         id: rtm-bases-cards-border-style
@@ -16763,6 +16917,7 @@ settings:
             - round
             - bevel
             - notch
+            - square
             - squircle
     -
         id: rtm-nav-folder-border-width
@@ -17076,6 +17231,32 @@ settings:
         min: 15
         max: 100
         step: 5
+    -
+        id: menu
+        title: Menu
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: rtm-menu-radius
+        title: Border-radius
+        type: variable-number-slider
+        format: px
+        default: 10
+        min: 0
+        max: 24
+        step: 1
+    -
+        id: rtm-menu-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - square
+            - squircle
     -
         id: modal
         title: Modal
@@ -17498,6 +17679,7 @@ settings:
             - round
             - bevel
             - notch
+            - square
             - squircle
     -
         id: rtm-tab-radius
