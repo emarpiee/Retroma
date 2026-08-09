@@ -218,6 +218,8 @@ body {
 	--rtm-workspace-tab-padding: 12px;
 	--rtm-workspace-leaf-padding: 8px;
 	--rtm-workspace-leaf-content-gap: var(--rtm-workspace-leaf-padding);
+	--rtm-workspace-leaf-corner-shape: round;
+	--rtm-workspace-leaf-content-corner-shape: round;
 	--rtm-workspace-leaf-radius: var(--rtm-interface-radius);
 	--rtm-workspace-tab-sidebar-bottom-padding: 0;
 	--rtm-workspace-bg: var(--rtm-workspace-root-bg);
@@ -282,6 +284,7 @@ body {
 	--rtm-metadata-property-bg-selected: var(--rtm-metadata-label-bg-selected);
 	--rtm-metadata-property-border-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-metadata-property-border-color) calc(c * var(--rtm-c-accent)) h / 0.5);
 	--rtm-metadata-container-gap: 2rem;
+	--rtm-metadata-container-corner-shape: round;
 	--rtm-metadata-property-radius: var(--rtm-interface-radius);
 
 	/* -- TYPOGRAPHY */
@@ -352,6 +355,7 @@ body {
 	--collapse-icon-color: var(--rtm-collapse-icon-color);
 	--collapse-icon-color-collapsed: var(--rtm-collapsed-icon-color);
 	--rtm-icon-color: var(--rtm-icon-accent);
+	--rtm-icon-active-color: var(--rtm-icon-color);
 	--rtm-icon-color-hover: var(--rtm-icon-accent);
 	--rtm-icon-color-active: var(--rtm-icon-accent);
 	--rtm-icon-color-focus: var(--rtm-icon-accent);
@@ -359,8 +363,13 @@ body {
 	--rtm-collapsed-icon-color: var(--rtm-icon-accent);
 
 	/* -- BUTTONS */
+	--rtm-btn-corner-shape: round;
 	--rtm-btn-gap: 4px;
-	--rtm-btn-outline-focus: 3px solid var(--rtm-txt-accent-faint);
+	--rtm-btn-outline-focus: var(--rtm-btn-outline-focus-width) var(--rtm-btn-outline-focus-style) var(--rtm-btn-outline-focus-color);
+	--rtm-btn-outline-focus-width: 1px;
+	--rtm-btn-outline-style: solid;
+	--rtm-btn-outline-focus-style: solid;
+	--rtm-btn-outline-focus-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) c h);
 	--rtm-3d-light-angle: 135deg;
 	--rtm-btn-bg-normal: oklch(from var(--rtm-bg-paper) l c h);
 	--rtm-btn-bg-hover: oklch(from var(--rtm-bg-secondary) calc(l + var(--rtm-l-btn-hover)) c h);
@@ -399,15 +408,16 @@ body {
 	--view-header-action-radius: var(--rtm-view-header-action-radius);
 	--file-line-width: var(--rtm-markdown-editor-readable-line-length);
 	--rtm-file-header-border: var(--rtm-workspace-primary-border);
-	--rtm-file-header-radius: var(--rtm-interface-radius);
+	--rtm-file-header-radius: var(--rtm-view-header-radius);
 	--rtm-file-header-bg: var(--rtm-workspace-root-bg);
 	--rtm-view-header-title-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-mute) calc(c * var(--rtm-c-accent)) h);
 	--rtm-view-header-title-parent-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-faint) calc(c * var(--rtm-c-accent)) h);
 	--rtm-view-header-padding: 4px;
 	--rtm-view-header-bg: var(--rtm-workspace-root-bg);
 	--rtm-view-header-border: var(--rtm-workspace-primary-border);
+	--rtm-view-header-corner-shape: round;
 	--rtm-view-header-action-radius: var(--rtm-btn-radius);
-	--rtm-view-header-radius: var(--rtm-interface-radius);
+	--rtm-view-header-radius: 10px;
 	--rtm-mobile-view-header-is-floating-width: 95vw;
 	--rtm-markdown-editor-readable-line-length: 700px;
 	--rtm-markdown-editor-bg: var(--rtm-bg-paper);
@@ -614,8 +624,8 @@ body {
 	--dropdown-background-hover: var(--rtm-dropdown-bg-hover);
 	--rtm-dropdown-bg: var(--rtm-btn-bg-normal);
 	--rtm-dropdown-bg-hover: var(--rtm-btn-bg-hover);
-	--rtm-dropdown-outline: var(--rtm-btn-outline-width) solid oklch(from var(--rtm-btn-outline-color) l c h / 0.5);
-	--rtm-dropdown-outline-focus: calc(var(--rtm-btn-outline-width) + 1px) solid oklch(from var(--rtm-btn-outline-color) l c h / 0.5);
+	--rtm-dropdown-outline: var(--rtm-btn-outline-width) var(--rtm-btn-outline-style) oklch(from var(--rtm-btn-outline-color) l c h / 0.5);
+	--rtm-dropdown-outline-focus: calc(var(--rtm-btn-outline-focus-width) + 1px) var(--rtm-btn-outline-focus-style) var(--rtm-btn-outline-focus-color);
 	--rtm-dropdown-box-shadow: var(--rtm-btn-3d-normal);
 
 	/* -- TOGGLE */
@@ -632,10 +642,11 @@ body {
 	--rtm-input-shadow: var(--rtm-btn-3d-active);
 	--rtm-input-shadow-hover: var(--rtm-btn-3d-normal);
 	--rtm-input-outline: var(--rtm-btn-outline-width) solid oklch(from var(--rtm-btn-outline-color) l c h);
-	--rtm-input-outline-focus: 1px solid oklch(from var(--rtm-btn-outline-color) l c h / 0.5);
+	--rtm-input-outline-focus: 1px solid var(--rtm-btn-outline-focus-color);
 
 	/* -- SEARCH RESULT */
 	--rtm-search-result-container-border: var(--rtm-workspace-secondary-border);
+	--rtm-search-result-container-corner-shape: round;
 	--rtm-search-result-container-bg: var(--rtm-view-content-bg);
 	--rtm-search-result-header-container-bg: oklch(from var(--rtm-primary-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent) * 2) h / 0.4);
 
@@ -1026,7 +1037,8 @@ body {
 	--rtm-nav-collapsed-icon-color: oklch(from var(--rtm-secondary-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
 	--rtm-nav-folder-pane-header-border: var(--rtm-workspace-primary-border);
 	--rtm-nav-folder-pane-header-bg: var(--rtm-workspace-root-bg);
-	--rtm-nav-folder-pane-header-radius: var(--rtm-interface-radius);
+	--rtm-nav-folder-pane-header-radius: var(--rtm-view-header-radius);
+	--rtm-nav-folder-pane-bg: var(--rtm-workspace-leaf-bg);
 	--rtm-nav-folder-pane-content-bg: var(--rtm-bg-paper);
 	--rtm-nav-folder-pane-content-border: var(--rtm-workspace-secondary-border);
 	--rtm-nav-folder-pane-content-border-radius: var(--rtm-interface-radius);
@@ -1061,6 +1073,7 @@ body {
 	--rtm-nav-folder-collapsed-outline-style: solid;
 	--rtm-nav-folder-collapsed-outline-offset: calc(var(--rtm-nav-folder-collapsed-outline-width) * 1);
 	--rtm-nav-folder-border-left-width: 2px;
+	--rtm-nav-folder-corner-shape: round;
 	--rtm-nav-file-outline-width: 1px;
 	--rtm-nav-file-bg: oklch(from var(--rtm-bg-paper) l c h);
 	--rtm-nav-file-box-shadow: 0 3px 0 var(--rtm-txt-accent-faint);
@@ -1581,7 +1594,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 /* # INPUT NORMAL */
 :is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button),
 	.mobile-toolbar-option,
-	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu),
+	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu, .setting-item),
 	.clickable-icon,
 	.text-icon-button,
 	.is-mobile .workspace-drawer-tab-select .workspace-tab-header-inner,
@@ -1597,16 +1610,17 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 .style-manager-isolate-badge {
 	font-weight: var(--font-bold);
 	border-radius: var(--rtm-btn-radius);
-	border: var(--rtm-btn-outline-width) solid var(--rtm-btn-outline-color);
+	border: var(--rtm-btn-outline-width) var(--rtm-btn-outline-style) var(--rtm-btn-outline-color);
 	box-shadow: var(--rtm-btn-3d-normal);
 	background: var(--rtm-btn-bg-normal);
 	transition: var(--rtm-btn-state-transition);
+	corner-shape: var(--rtm-btn-corner-shape);
 }
 
 /* # INPUT ACTIVE */
 :is(button:not(.excalidraw button, .pcr-app button, .cm-panel button, .mod-warning, .mod-cta, .mod-success, .mod-error):active,
 	.mobile-toolbar-option:active,
-	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr):active,
+	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .setting-item):active,
 	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self):is(.is-active, .is-selected),
 	.mobile-tab .mobile-tab-pin:active,
 	.mobile-tab .close-button:active,
@@ -1626,7 +1640,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 /* # INPUT HOVER */
 :is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button),
 	.mobile-toolbar-option,
-	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr),
+	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .setting-item),
 	.clickable-icon,
 	.mobile-tab .mobile-tab-pin,
 	.mobile-tab .close-button,
@@ -1639,11 +1653,13 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 ::-webkit-scrollbar-thumb:hover,
 :is(.style-manager-tab-actions .style-manager-icon-button, .style-manager-theme-trigger, .style-manager-isolate-badge):hover {
 	background: var(--rtm-btn-bg-hover);
+	outline: var(--rtm-btn-outline-focus);
 }
 
+/* NOTE: Hover and focus-visible states share identical properties, but I separated the declarations to make debugging and code maintenance easier. */
 :is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button):focus-visible,
 	.mobile-toolbar-option:focus-visible,
-	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu).selected,
+	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu, .setting-item).selected,
 	.clickable-icon:focus-visible,
 	.text-icon-button:focus-visible,
 	.is-mobile .workspace-drawer-tab-select .workspace-tab-header-inner:focus-visible,
@@ -1656,6 +1672,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 .style-manager-tab-actions .style-manager-icon-button:focus-visible,
 .style-manager-theme-trigger:focus-visible,
 .style-manager-isolate-badge:focus-visible {
+	background: var(--rtm-btn-bg-hover);
 	outline: var(--rtm-btn-outline-focus);
 }
 
@@ -1669,6 +1686,20 @@ svg:not(.excalidraw svg,
 	.callout-fold svg,
 	.collapse-icon svg.svg-icon, .mod-cta svg) {
 	stroke: var(--rtm-icon-color);
+}
+
+.is-active svg:not(.excalidraw svg,
+	.status-bar svg,
+	.titlebar svg,
+	.mobile-toolbar svg,
+	.callout-icon svg,
+	.style-manager-logo svg,
+	svg.canvas-background,
+	.callout-fold svg,
+	.collapse-icon svg.svg-icon, .mod-cta svg,
+	.workspace-tab-header-inner-close-button svg,
+	.style-manager-tab-icon svg) {
+	stroke: var(--rtm-icon-active-color);
 }
 
 button.mod-warning,
@@ -1722,6 +1753,7 @@ select,
 	outline: var(--rtm-dropdown-outline);
 	box-shadow: var(--rtm-dropdown-box-shadow);
 	border-radius: var(--rtm-btn-radius);
+	corner-shape: var(--rtm-btn-corner-shape);
 }
 
 select:hover,
@@ -1969,6 +2001,7 @@ body:not(.rtm-ss-tab-style-btn) .mod-root .workspace-tab-header:not(.is-active) 
 	padding: var(--rtm-workspace-leaf-padding);
 	border-radius: var(--rtm-workspace-leaf-radius);
 	border: var(--rtm-workspace-primary-border);
+	corner-shape: var(--rtm-workspace-leaf-corner-shape);
 }
 
 .workspace-drawer-vault-actions {
@@ -2003,6 +2036,7 @@ body.is-phone .markdown-source-view .cm-sizer,
 body.is-phone .markdown-rendered .markdown-preview-sizer {
 	margin-top: var(--rtm-markdown-editor-margin-block);
 }
+
 .workspace-leaf-content[data-type="markdown"] {
 	background: var(--rtm-markdown-editor-bg);
 	color: var(--rtm-markdown-editor-color);
@@ -2023,6 +2057,7 @@ body:not(.is-phone) .workspace-leaf-content[data-type="markdown"] .view-content 
 	border: var(--rtm-markdown-editor-border);
 	background: var(--rtm-markdown-editor-bg);
 	box-shadow: var(--rtm-markdown-editor-shadow);
+	corner-shape: var(--rtm-workspace-leaf-content-corner-shape);
 }
 
 .markdown-source-view {
@@ -2086,6 +2121,7 @@ body:not(.is-phone) .workspace-leaf-content[data-type="markdown"] .view-content 
 	border: var(--rtm-view-header-border);
 	border-radius: var(--rtm-view-header-radius);
 	background: var(--rtm-view-header-bg);
+	corner-shape: var(--rtm-view-header-corner-shape);
 }
 
 .view-header:not(.is-phone :not(.is-floating-nav) .view-header) {
@@ -2193,6 +2229,7 @@ body.is-phone .workspace-leaf-content[data-type="markdown"] {
 	border: var(--rtm-view-content-border);
 	background: var(--rtm-view-content-bg);
 	box-shadow: var(--rtm-workspace-pane-content-box-shadow);
+	corner-shape: var(--rtm-workspace-leaf-content-corner-shape);
 }
 
 .workspace-leaf-content[data-type="markdown"] .view-content {
@@ -2322,7 +2359,8 @@ blockquote p,
 	border-bottom-left-radius: calc(var(--rtm-interface-radius) * 0.8);
 }
 
-.is-mobile .pdf-sidebar-container[data-view="1"], .pdf-embed .pdf-sidebar-container[data-view="1"] {
+.is-mobile .pdf-sidebar-container[data-view="1"],
+.pdf-embed .pdf-sidebar-container[data-view="1"] {
 	width: 150px;
 }
 
@@ -2510,7 +2548,7 @@ blockquote p,
 
 /* NOTE: bases embed height and width */
 :is(.block-language-base,
-.bases-embed):not(.popover *) {
+	.bases-embed):not(.popover *) {
 	min-height: var(--rtm-bases-embed-height);
 	height: auto;
 }
@@ -2521,12 +2559,10 @@ blockquote p,
 }
 
 /* NOTE: pdf embed height and width */
-:is(
-  .pdf-embed,
-  .markdown-source-view .pdf-embed,
-  .markdown-source-view.mod-cm6 .cm-content > .pdf-embed,
-  .internal-embed.pdf-embed:not(.image-embed)
-):not(.popover *) {
+:is(.pdf-embed,
+	.markdown-source-view .pdf-embed,
+	.markdown-source-view.mod-cm6 .cm-content > .pdf-embed,
+	.internal-embed.pdf-embed:not(.image-embed)):not(.popover *) {
 	width: var(--rtm-pdf-embed-width);
 	min-height: var(--rtm-pdf-embed-height);
 	max-height: var(--rtm-pdf-embed-height);
@@ -2563,6 +2599,13 @@ iframe {
 .workspace-leaf-content[data-type="markdown"] .block-language-base .bases-view,
 .workspace-leaf-content[data-type="markdown"] .bases-embed .bases-view {
 	border: var(--rtm-workspace-secondary-border);
+}
+
+:is(.mod-left-split, .mod-right-split) .workspace-tabs .workspace-leaf-content[data-type="file-explorer"] {
+  border-radius: var(--rtm-interface-radius);
+  border: var(--rtm-workspace-primary-border);
+  background: var(--rtm-nav-folder-pane-bg);
+  padding: var(--rtm-workspace-leaf-padding);
 }
 
 /* NOTE: FILE EXPLORER HEADER */
@@ -2665,6 +2708,7 @@ iframe {
 	border: var(--rtm-nav-folder-border);
 	border-inline-start: var(--rtm-nav-folder-border-left-width) var(--rtm-nav-folder-deco-style) oklch(from var(--rtm-folder-color) var(--rtm-l-txt-normal) c h);
 	box-shadow: var(--rtm-nav-folder-box-shadow);
+	corner-shape: var(--rtm-nav-folder-corner-shape);
 }
 
 /* NOTE: Expanded/open folder state */
@@ -2877,6 +2921,7 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 	padding: var(--rtm-metadata-padding);
 	border: var(--rtm-metadata-border);
 	margin-block-end: var(--rtm-metadata-container-gap);
+	corner-shape: var(--rtm-metadata-container-corner-shape);
 }
 
 .metadata-container .metadata-properties-heading {
@@ -3124,7 +3169,7 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 .search-result,
 .outgoing-link-item {
 	box-shadow: 0px 0px 0px 1px oklch(from var(--rtm-txt-normal) l calc(var(--rtm-c-accent) - 0.5) h / 0.2);
-	border-radius: var(--rtm-interface-radius);
+	border-radius: calc(var(--rtm-interface-radius) * 0.6);
 }
 
 .search-results-info {
@@ -3141,7 +3186,7 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 .search-result:not(.is-collapsed) .search-result-file-title {
 	margin-top: 4px;
 	border: 1px solid oklch(from var(--rtm-interactive-accent) l calc(var(--rtm-c-accent) - 0.5) h / 0.3);
-	border-radius: var(--rtm-interface-radius) var(--rtm-interface-radius) 0 0;
+	border-radius: calc(var(--rtm-interface-radius) * 0.6) calc(var(--rtm-interface-radius) * 0.6) 0 0;
 	background: var(--rtm-search-result-title-bg);
 	color: var(--rtm-search-result-title-color);
 }
@@ -3214,12 +3259,13 @@ body:not(.is-grabbing) .search-result .tree-item-self.search-result-file-title:h
 	border-left: var(--rtm-search-result-container-border);
 	border-top: var(--rtm-search-result-container-border);
 	border-right: var(--rtm-search-result-container-border);
-	border-top-left-radius: var(--rtm-interface-radius);
-	border-top-right-radius: var(--rtm-interface-radius);
+	border-top-left-radius: calc(var(--rtm-interface-radius) * 0.8);
+	border-top-right-radius: calc(var(--rtm-interface-radius) * 0.8);
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 	background: var(--rtm-search-result-header-container-bg);
 	padding: var(--size-4-2);
+	corner-shape: var(--rtm-search-result-container-corner-shape);
 }
 
 .backlink-pane>.tree-item-self:hover,
@@ -3245,7 +3291,7 @@ body:not(.is-grabbing) .search-result .tree-item-self.search-result-file-title:h
 .outgoing-link-pane>.tree-item-self.is-clickable.is-collapsed,
 .backlink-pane>.tree-item-self.is-clickable.is-collapsed {
 	border-bottom: var(--rtm-search-result-container-border);
-	border-radius: var(--rtm-interface-radius);
+	border-radius: calc(var(--rtm-interface-radius) * 0.8);
 }
 
 .backlink-pane .search-result-container,
@@ -3256,8 +3302,9 @@ body:not(.is-grabbing) .search-result .tree-item-self.search-result-file-title:h
 	border-left: var(--rtm-search-result-container-border);
 	border-bottom: var(--rtm-search-result-container-border);
 	border-right: var(--rtm-search-result-container-border);
-	border-bottom-left-radius: var(--rtm-interface-radius);
-	border-bottom-right-radius: var(--rtm-interface-radius);
+	border-bottom-left-radius: calc(var(--rtm-interface-radius) * 0.8);
+	border-bottom-right-radius: calc(var(--rtm-interface-radius) * 0.8);
+	corner-shape: var(--rtm-search-result-container-corner-shape);
 }
 
 .embedded-backlinks {
@@ -3316,7 +3363,8 @@ a.tag,
 	border-inline-start: var(--rtm-tag-border-left-width) solid var(--rtm-tag-border-color, var(--tag-color));
 }
 
-.multi-select-pill.is-invalid, .multi-select-pill.is-invalid  *{
+.multi-select-pill.is-invalid,
+.multi-select-pill.is-invalid * {
 	color: var(--rtm-color-red);
 	stroke: var(--rtm-color-red);
 }
@@ -3334,13 +3382,11 @@ a.tag,
 .tag[href*="#bad" i],
 .tag[href*="#urgent" i],
 .tag[href*="#bug" i],
-.multi-select-pill:is(
-	[data-tag-value*="high" i],
+.multi-select-pill:is([data-tag-value*="high" i],
 	[data-tag-value*="error" i],
 	[data-tag-value*="bad" i],
 	[data-tag-value*="urgent" i],
-	[data-tag-value*="bug" i]
-),
+	[data-tag-value*="bug" i]),
 :is(.cm-tag-high, .cm-tag-error, .cm-tag-bad, .cm-tag-urgent, .cm-tag-bug) {
 	--tag-color: var(--rtm-color-red);
 }
@@ -3351,13 +3397,11 @@ a.tag,
 .tag[href*="#work" i],
 .tag[href*="#in-progress" i],
 .tag[href*="#wip" i],
-.multi-select-pill:is(
-	[data-tag-value*="medium" i],
+.multi-select-pill:is([data-tag-value*="medium" i],
 	[data-tag-value*="warning" i],
 	[data-tag-value*="work" i],
 	[data-tag-value*="in-progress" i],
-	[data-tag-value*="wip" i]
-),
+	[data-tag-value*="wip" i]),
 :is(.cm-tag-medium, .cm-tag-warning, .cm-tag-work, .cm-tag-in-progress, .cm-tag-wip) {
 	--tag-color: var(--rtm-color-orange);
 }
@@ -3368,13 +3412,11 @@ a.tag,
 .tag[href*="#done" i],
 .tag[href*="#complete" i],
 .tag[href*="#success" i],
-.multi-select-pill:is(
-	[data-tag-value*="low" i],
+.multi-select-pill:is([data-tag-value*="low" i],
 	[data-tag-value*="good" i],
 	[data-tag-value*="done" i],
 	[data-tag-value*="complete" i],
-	[data-tag-value*="success" i]
-),
+	[data-tag-value*="success" i]),
 :is(.cm-tag-low, .cm-tag-good, .cm-tag-done, .cm-tag-complete, .cm-tag-success) {
 	--tag-color: var(--rtm-color-green);
 }
@@ -3383,11 +3425,9 @@ a.tag,
 .tag[href*="#todo" i],
 .tag[href*="#next" i],
 .tag[href*="#task" i],
-.multi-select-pill:is(
-	[data-tag-value*="todo" i],
+.multi-select-pill:is([data-tag-value*="todo" i],
 	[data-tag-value*="next" i],
-	[data-tag-value*="task" i]
-),
+	[data-tag-value*="task" i]),
 :is(.cm-tag-todo, .cm-tag-next, .cm-tag-task) {
 	--tag-color: var(--rtm-color-blue);
 }
@@ -3395,10 +3435,8 @@ a.tag,
 /* Indigo */
 .tag[href*="#home" i],
 .tag[href*="#personal" i],
-.multi-select-pill:is(
-	[data-tag-value*="home" i],
-	[data-tag-value*="personal" i]
-),
+.multi-select-pill:is([data-tag-value*="home" i],
+	[data-tag-value*="personal" i]),
 :is(.cm-tag-home, .cm-tag-personal) {
 	--tag-color: var(--rtm-color-indigo);
 }
@@ -3407,11 +3445,9 @@ a.tag,
 .tag[href*="#concept" i],
 .tag[href*="#idea" i],
 .tag[href*="#note" i],
-.multi-select-pill:is(
-	[data-tag-value*="concept" i],
+.multi-select-pill:is([data-tag-value*="concept" i],
 	[data-tag-value*="idea" i],
-	[data-tag-value*="note" i]
-),
+	[data-tag-value*="note" i]),
 :is(.cm-tag-concept, .cm-tag-idea, .cm-tag-note) {
 	--tag-color: var(--rtm-color-teal);
 }
@@ -3422,13 +3458,11 @@ a.tag,
 .tag[href*="#article" i],
 .tag[href*="#podcast" i],
 .tag[href*="#video" i],
-.multi-select-pill:is(
-	[data-tag-value*="book" i],
+.multi-select-pill:is([data-tag-value*="book" i],
 	[data-tag-value*="read" i],
 	[data-tag-value*="article" i],
 	[data-tag-value*="podcast" i],
-	[data-tag-value*="video" i]
-),
+	[data-tag-value*="video" i]),
 :is(.cm-tag-book, .cm-tag-read, .cm-tag-article, .cm-tag-podcast, .cm-tag-video) {
 	--tag-color: var(--rtm-color-pink);
 }
@@ -3438,12 +3472,10 @@ a.tag,
 .tag[href*="#blocked" i],
 .tag[href*="#hold" i],
 .tag[href*="#someday" i],
-.multi-select-pill:is(
-	[data-tag-value*="waiting" i],
+.multi-select-pill:is([data-tag-value*="waiting" i],
 	[data-tag-value*="blocked" i],
 	[data-tag-value*="hold" i],
-	[data-tag-value*="someday" i]
-),
+	[data-tag-value*="someday" i]),
 :is(.cm-tag-waiting, .cm-tag-blocked, .cm-tag-hold, .cm-tag-someday) {
 	--tag-color: var(--rtm-color-yellow);
 }
@@ -3463,7 +3495,8 @@ div.multi-select-pill svg.svg-icon {
 	gap: var(--size-4-1);
 }
 
-.base-tags-style .bases-view [data-property="note.tags"] .multi-select-pill:not(.theme-color, .custom-color, .transparent-color), .base-tags-style .bases-view [data-property="note.tags"] .value-list-element:not(.theme-color, .custom-color, .transparent-color, :has(.tag)) {
+.base-tags-style .bases-view [data-property="note.tags"] .multi-select-pill:not(.theme-color, .custom-color, .transparent-color),
+.base-tags-style .bases-view [data-property="note.tags"] .value-list-element:not(.theme-color, .custom-color, .transparent-color, :has(.tag)) {
 	--pill-padding-x: var(--rtm-tag-padding-x);
 	padding: 0;
 }
@@ -3932,11 +3965,19 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 	--rtm-workspace-tab-padding: 0;
 }
 
-.workspace-leaf-content:not(.workspace-leaf-content[data-type="markdown"], .mod-root .workspace-leaf-content, .workspace-leaf-content[data-type="file-properties"], .workspace-leaf-content[data-type="calendar"], .workspace-leaf-content[data-type="style-manager-view"], .workspace-leaf-content[data-type="footnotes"]) {
-	border-radius: var(--rtm-interface-radius);
-	border: var(--rtm-workspace-primary-border);
-	background: var(--rtm-workspace-leaf-bg);
-	padding: var(--rtm-workspace-leaf-padding);
+.workspace-leaf-content:not(
+  .mod-root .workspace-leaf-content,
+  [data-type="markdown"],
+  [data-type="file-properties"],
+  [data-type="file-explorer"],
+  [data-type="calendar"],
+  [data-type="style-manager-view"],
+  [data-type="footnotes"]
+) {
+  border-radius: var(--rtm-interface-radius);
+  border: var(--rtm-workspace-primary-border);
+  background: var(--rtm-workspace-leaf-bg);
+  padding: var(--rtm-workspace-leaf-padding);
 }
 
 .is-phone .mod-root .workspace-leaf {
@@ -4045,9 +4086,10 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 }
 
 .style-manager-plugin .style-manager-tab-actions {
-	border-radius: var(--rtm-interface-radius);
+	border-radius: var(--rtm-view-header-radius);
 	border: var(--rtm-view-header-border);
 	background: var(--rtm-view-header-bg);
+	corner-shape: var(--rtm-view-header-corner-shape);
 }
 
 .style-manager-modal-pre,
@@ -4653,7 +4695,8 @@ body.rtm-ss-pdf-simple-view {
 		background: var(--rtm-pdf-container-bg);
 	}
 
-	.workspace-leaf-content[data-type="pdf"] .view-content .pdf-content-container, .pdf-container {
+	.workspace-leaf-content[data-type="pdf"] .view-content .pdf-content-container,
+	.pdf-container {
 		/* border-radius: 0; */
 		border: unset;
 		box-shadow: unset;
@@ -4703,7 +4746,6 @@ body.rtm-ss-canvas-floating-ui-simple {
 }
 
 body.rtm-ss-nav-folder-pane-header-simple {
-	--rtm-nav-folder-pane-header-radius: unset;
 	--rtm-nav-folder-pane-header-bg: unset;
 	--rtm-nav-folder-pane-header-border: unset;
 }
@@ -12345,7 +12387,7 @@ settings:
         collapsed: true
     -
         id: rtm-interface-radius
-        title: Border-radius
+        title: Workspace border-radius
         type: variable-number-slider
         format: px
         default: 10
@@ -12353,44 +12395,12 @@ settings:
         max: 24
         step: 1
     -
-        id: rtm-view-header-simple
-        title: Simple pane header
-        description: "Removes borders and backgrounds from pane headers (does not affect Markdown editor, file navigation, or PDF viewer panes)."
-        type: class-toggle
-        default: false
-        addCommand: true
-    -
-        id: rtm-ss-workspace-leaf-simple-view
-        title: Simple workspace panes
-        description: "Removes extra borders and backgrounds around individual panes (some panes, such as the Markdown editor or PDF viewer, may not be affected)."
-        type: class-toggle
-        default: false
-        addCommand: true
-    -
         id: rtm-ss-workspace-vault-profile-container
         title: Hide vault profile container (desktop)
         description: "Hides the vault profile area at the bottom left (vault name, settings, and help icons)."
         type: class-toggle
         default: false
         addCommand: true
-    -
-        id: rtm-workspace-tab-padding
-        title: Pane outer-spacing (desktop / tablet)
-        type: variable-number-slider
-        format: px
-        default: 12
-        min: 0
-        max: 24
-        step: 1
-    -
-        id: rtm-workspace-leaf-padding
-        title: Pane inner-spacing (desktop / tablet)
-        type: variable-number-slider
-        format: px
-        default: 8
-        min: 0
-        max: 32
-        step: 1
     -
         id: rtm-workspace-primary-border-style
         title: Workspace primary-outline style
@@ -12402,6 +12412,7 @@ settings:
             - ridge
             - dashed
             - dotted
+            - solid
             -
             	label: none
             	value: unset
@@ -12416,6 +12427,7 @@ settings:
             - ridge
             - dashed
             - dotted
+            - solid
             -
             	label: none
             	value: unset
@@ -12439,6 +12451,127 @@ settings:
         min: 0
         max: 8
         step: 1
+    -
+        id: pane
+        title: Pane
+        description: ""
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: rtm-ss-workspace-leaf-simple-view
+        title: Simple workspace panes
+        description: "Removes extra borders and backgrounds around individual panes (some panes, such as the Markdown editor or PDF viewer, may not be affected)."
+        type: class-toggle
+        default: false
+        addCommand: true
+    -
+        id: rtm-workspace-leaf-corner-shape
+        title: Pane outer-corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - squircle
+    -
+        id: rtm-workspace-leaf-content-corner-shape
+        title: Pane inner-corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - squircle
+    -
+        id: rtm-workspace-tab-padding
+        title: Pane outer-spacing (desktop / tablet)
+        type: variable-number-slider
+        format: px
+        default: 12
+        min: 0
+        max: 24
+        step: 1
+    -
+        id: rtm-workspace-leaf-padding
+        title: Pane inner-spacing (desktop / tablet)
+        type: variable-number-slider
+        format: px
+        default: 8
+        min: 0
+        max: 32
+        step: 1
+    -
+        id: rtm-workspace-leaf-bg
+        title: Pane background color
+        description: "Overrides the background color of the outer padding and container area of workspace leaves (panes)."
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-view-content-bg
+        title: Pane content background color
+        description: "Overrides the background color of the internal content area of workspace leaves."
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: pane-header
+        title: Pane header
+        description: ""
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: rtm-view-header-simple
+        title: Simple pane header
+        description: "Removes borders and backgrounds from pane headers (does not affect Markdown editor, file navigation, or PDF viewer panes)."
+        type: class-toggle
+        default: false
+        addCommand: true
+    -
+        id: rtm-view-header-radius
+        title: Pane header border-radius
+        type: variable-number-slider
+        format: px
+        default: 10
+        min: 0
+        max: 24
+        step: 1
+    -
+        id: rtm-view-header-corner-shape
+        title: Pane header corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - squircle
+    -
+        id: rtm-view-header-bg
+        title: Pane header background color
+        description: "Overrides the background color of the top header bar in workspace panes (the area containing navigation buttons and pane titles)."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-view-header-title-color
+        title: Pane header title color
+        description: "Overrides the color of the pane title text at the top of workspace panes."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
     -
         id: color-tuner
         title: LCH tuner (backgrounds)
@@ -12549,42 +12682,6 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
-        id: rtm-workspace-leaf-bg
-        title: Pane  background color
-        description: "Overrides the background color of the outer padding and container area of workspace leaves (panes)."
-        type: variable-themed-color
-        format: hex
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: rtm-view-content-bg
-        title: Pane content background color
-        description: "Overrides the background color of the internal content area of workspace leaves."
-        type: variable-themed-color
-        format: hex
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: rtm-view-header-bg
-        title: Pane header background color
-        description: "Overrides the background color of the top header bar in workspace panes (the area containing navigation buttons and pane titles)."
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: rtm-view-header-title-color
-        title: Pane header title color
-        description: "Overrides the color of the pane title text at the top of workspace panes."
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
         id: rtm-workspace-primary-border-color
         title: Workspace primary-outline color
         description: "Color for outer workspace pane and pane header outlines."
@@ -12676,9 +12773,18 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: rtm-file-header-bg
+        title: Editor header background color
+        description: "Overrides the background color of the top header bar in markdown editor (the area containing back/forward buttons and note titles)."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: rtm-ss-markdown-editor-header-simple
         title: Simple markdown editor header
-        description: "Simplifies the file name header at the top of the editor."
+        description: "Simplifies the header bar at the top of the editor."
         type: class-toggle
         default: false
         addCommand: true
@@ -14942,6 +15048,16 @@ settings:
         max: 24
         step: 1
     -
+        id: rtm-metadata-container-corner-shape
+        title: Container corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - squircle
+    -
         id: rtm-metadata-border-style
         title: Container outline style
         type: variable-select
@@ -14951,6 +15067,7 @@ settings:
             - ridge
             - dashed
             - dotted
+            - solid
             -
             	label: none
             	value: unset
@@ -15016,6 +15133,7 @@ settings:
             - ridge
             - dashed
             - dotted
+            - solid
             -
             	label: none
             	value: unset
@@ -15421,6 +15539,16 @@ settings:
                 label: Neubrutalism
                 value: rtm-ss-btn-style-neubrutalism
     -
+        id: rtm-btn-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - squircle
+    -
         id: rtm-btn-radius
         title: Border-radius
         type: variable-number-slider
@@ -15438,6 +15566,33 @@ settings:
         min: 0
         max: 3
         step: 1
+    -
+        id: rtm-btn-outline-style
+        title: Outline style
+        type: variable-select
+        default: solid
+        options:
+            - solid
+            - dashed
+            - dotted
+    -
+        id: rtm-btn-outline-focus-width
+        title: Hover outline thickness
+        type: variable-number-slider
+        format: px
+        default: 1
+        min: 0
+        max: 3
+        step: 1
+    -
+        id: rtm-btn-outline-focus-style
+        title: Hover outline style
+        type: variable-select
+        default: solid
+        options:
+            - solid
+            - dashed
+            - dotted
     -
         id: rtm-btn-state-transition-smoothness
         title: State transition smoothness
@@ -15985,9 +16140,27 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: rtm-icon-active-color
+        title: Inner icon color (active)
+        description: "Customize the color of the icon inside the button with an active state."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: rtm-btn-outline-color
         title: Outline color
-        description: "Adjust the color of the button's outer border."
+        description: "Adjust the color of the button's outer outline."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-btn-outline-focus-color
+        title: Hover outline color
+        description: "Adjust the color of the hovered button's outer outline."
         type: variable-themed-color
         format: hex
         opacity: true
@@ -16209,7 +16382,6 @@ settings:
             - round
             - bevel
             - notch
-            - square
             - squircle
     -
         id: rtm-bases-cards-border-style
@@ -16435,6 +16607,24 @@ settings:
         level: 1
         collapsed: true
     -
+        id: rtm-nav-folder-pane-content-bg
+        title: Folder container background color
+        description: "Overrides the background color of the container holding your folders.."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-nav-folder-pane-header-bg
+        title: Folder pane header background color
+        description: "Overrides the background color of the top header bar in folder pane."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: rtm-ss-nav-folder-pane-header-simple
         title: Simple folder pane header
         type: class-toggle
@@ -16564,6 +16754,16 @@ settings:
             - solid
             - dashed
             - dotted
+    -
+        id: rtm-nav-folder-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - squircle
     -
         id: rtm-nav-folder-border-width
         title: Outline thickness
@@ -17209,6 +17409,17 @@ settings:
         level: 1
         collapsed: true
     -
+        id: rtm-search-result-container-corner-shape
+        title: Container corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - square
+            - squircle
+    -
         id: rtm-search-result-header-container-bg
         title: Header container background color
         type: variable-themed-color
@@ -17286,6 +17497,8 @@ settings:
         options:
             - round
             - bevel
+            - notch
+            - squircle
     -
         id: rtm-tab-radius
         title: Border-radius
