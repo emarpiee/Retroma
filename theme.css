@@ -4665,7 +4665,6 @@ body:not(.is-phone).rtm-ss-markdown-editor-container-simple {
 	}
 
 	.workspace-leaf-content[data-type="markdown"] .view-content {
-		border-radius: unset;
 		border: unset;
 		background: unset;
 		box-shadow: unset;
@@ -4827,8 +4826,8 @@ body.rtm-ss-bases-pill-simple .bases-view .multi-select-pill {
 }
 
 /* ## EDITOR PATTERN */
-body.rtm-ss-markdown-editor-overlay .mod-root .workspace-leaf:has(.cm-scroller):not(:has(:is(.kanban-plugin, .style-manager-editor-view) .cm-scroller)),
-body.rtm-ss-markdown-editor-overlay .workspace-split:is(.mod-left-split, .mod-right-split) .workspace-leaf:has(.workspace-leaf-content[data-type="markdown"]),
+body.rtm-ss-markdown-editor-overlay .mod-root .workspace-leaf:has(.cm-scroller):not(:has(:is(.kanban-plugin, .style-manager-editor-view) .cm-scroller)) .view-content,
+body.rtm-ss-markdown-editor-overlay .workspace-split:is(.mod-left-split, .mod-right-split) .workspace-leaf:has(.workspace-leaf-content[data-type="markdown"]) .view-content,
 body.rtm-ss-markdown-editor-overlay :is(.markdown-preview-view, .markdown-reading-view):not(:is(.excalidraw-view, .canvas-wrapper) *) {
 	background-image: var(--rtm-markdown-editor-overlay-pattern);
 	background-size: var(--rtm-markdown-editor-pattern-zoom) var(--rtm-markdown-editor-pattern-zoom);
@@ -4837,9 +4836,19 @@ body.rtm-ss-markdown-editor-overlay :is(.markdown-preview-view, .markdown-readin
 	overflow-y: auto;
 }
 
+body.rtm-ss-markdown-editor-overlay-hide-embed-preview :is(.markdown-embed, .internal-embed, .popover, .hover-popover) :is(.view-content, .markdown-preview-view, .markdown-reading-view) {
+	background-image: none !important;
+}
+
 body.rtm-ss-markdown-editor-overlay-pattern-grid {
 	--rtm-markdown-editor-overlay-pattern: linear-gradient(to right, var(--rtm-markdown-editor-pattern-color) var(--rtm-markdown-editor-pattern-thickness), transparent var(--rtm-markdown-editor-pattern-thickness)),
 		linear-gradient(to bottom, var(--rtm-markdown-editor-pattern-color) var(--rtm-markdown-editor-pattern-thickness), transparent var(--rtm-markdown-editor-pattern-thickness));
+}
+
+body.rtm-ss-markdown-editor-overlay-pattern-crosshatch {
+	--rtm-markdown-editor-overlay-pattern: 
+		linear-gradient(45deg, transparent calc(50% - var(--rtm-markdown-editor-pattern-thickness) / 2), var(--rtm-markdown-editor-pattern-color) calc(50% - var(--rtm-markdown-editor-pattern-thickness) / 2), var(--rtm-markdown-editor-pattern-color) calc(50% + var(--rtm-markdown-editor-pattern-thickness) / 2), transparent calc(50% + var(--rtm-markdown-editor-pattern-thickness) / 2)),
+		linear-gradient(-45deg, transparent calc(50% - var(--rtm-markdown-editor-pattern-thickness) / 2), var(--rtm-markdown-editor-pattern-color) calc(50% - var(--rtm-markdown-editor-pattern-thickness) / 2), var(--rtm-markdown-editor-pattern-color) calc(50% + var(--rtm-markdown-editor-pattern-thickness) / 2), transparent calc(50% + var(--rtm-markdown-editor-pattern-thickness) / 2));
 }
 
 /* # CALLOUT */
@@ -12981,6 +12990,12 @@ settings:
         default: false
         addCommand: true
     -
+        id: rtm-ss-markdown-editor-overlay-hide-embed-preview
+        title: Hide on embeds & previews
+        description: "Hide background pattern inside markdown embeds, internal attachment embeds, and page preview popovers."
+        type: class-toggle
+        default: false
+    -
         id: markdown-editor-pattern-type-selection
         title: Type
         description: " "
@@ -12994,6 +13009,9 @@ settings:
             -
                 label: Grid
                 value: rtm-ss-markdown-editor-overlay-pattern-grid
+            -
+                label: Crosshatch
+                value: rtm-ss-markdown-editor-overlay-pattern-crosshatch
     -
         id: rtm-markdown-editor-pattern-zoom
         title: Zoom
