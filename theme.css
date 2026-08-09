@@ -1792,6 +1792,7 @@ select.mouse-focus:focus-visible,
 	box-shadow: var(--rtm-input-shadow);
 	border-radius: var(--rtm-input-radius);
 	background: var(--rtm-input-txt-bg);
+	corner-shape: var(--rtm-btn-corner-shape);
 }
 
 :is(textarea:hover, .multi-select-container:hover, input.metadata-input-text:hover, input[type='date']:hover, input[type='datetime-local']:hover, input[type='text']:hover, input[type='search']:hover, input[type='email']:hover, input[type='password']:hover, input[type='number']:hover, textarea:active, .multi-select-container:active, input.metadata-input-text:active, input[type='date']:active, input[type='datetime-local']:active, input[type='text']:active, input[type='search']:active, input[type='email']:active, input[type='password']:active, input[type='number']:active, textarea:focus, .multi-select-container:focus, input.metadata-input-text:focus, input[type='date']:focus, input[type='datetime-local']:focus, input[type='text']:focus, input[type='search']:focus, input[type='email']:focus, input[type='password']:focus, input[type='number']:focus, textarea:focus-visible, .multi-select-container:focus-visible, input.metadata-input-text:focus-visible, input[type='date']:focus-visible, input[type='datetime-local']:focus-visible, input[type='text']:focus-visible, input[type='search']:focus-visible, input[type='email']:focus-visible, input[type='password']:focus-visible, input[type='number']:focus-visible):not(.metadata-property *, .bases-view *) {
@@ -1825,6 +1826,7 @@ select.mouse-focus:focus-visible,
 .checkbox-container::after {
 	box-shadow: var(--rtm-btn-3d-normal);
 	outline: var(--rtm-btn-outline-width) solid var(--rtm-btn-outline-color);
+	corner-shape: var(--rtm-btn-corner-shape);
 }
 
 .checkbox-container:focus-visible, .checkbox-container:hover{
@@ -3120,7 +3122,7 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 	border: var(--rtm-view-content-border);
 	background: var(--rtm-search-result-container-bg);
 	box-shadow: var(--rtm-workspace-pane-content-box-shadow);
-
+	corner-shape: var(--rtm-workspace-leaf-content-corner-shape);
 }
 
 .search-result,
@@ -12652,6 +12654,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -12663,6 +12666,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -12733,6 +12737,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -13135,6 +13140,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -13213,6 +13219,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -13844,6 +13851,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -14062,6 +14070,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -15383,6 +15392,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -15875,6 +15885,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -16711,6 +16722,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -16999,6 +17011,18 @@ settings:
         max: 16
         step: 1
     -
+        id: rtm-nav-folder-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - scoop
+            - square
+            - squircle
+    -
         id: rtm-nav-folder-font
         title: Font-family
         type: variable-select
@@ -17084,17 +17108,6 @@ settings:
             - solid
             - dashed
             - dotted
-    -
-        id: rtm-nav-folder-corner-shape
-        title: Corner shape
-        type: variable-select
-        default: round
-        options:
-            - round
-            - bevel
-            - notch
-            - square
-            - squircle
     -
         id: rtm-nav-folder-border-width
         title: Outline thickness
@@ -17431,6 +17444,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -17774,6 +17788,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
@@ -17864,6 +17879,7 @@ settings:
             - round
             - bevel
             - notch
+            - scoop
             - square
             - squircle
     -
