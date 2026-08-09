@@ -377,10 +377,16 @@ body {
 	--rtm-btn-bg-active: oklch(from var(--rtm-bg-primary-alt) var(--rtm-l-btn-active) c h);
 	--rtm-btn-outline-color: oklch(from var(--rtm-icon-color) var(--rtm-l-btn-outline) calc(c * var(--rtm-c-accent)) h);
 
-	--rtm-btn-normal-transform-lightmode: translateX(calc(var(--h-x) / 2)) translateY(calc(var(--h-y) / 2.5));
-	--rtm-btn-active-transform-lightmode: translateX(calc(var(--s-x-active) / 2.5)) translateY(calc(var(--s-y-active) / 2.5));
-	--rtm-btn-normal-transform-darkmode: translateX(calc(var(--h-x-darkmode) / 2)) translateY(calc(var(--h-y-darkmode) / 2));
-	--rtm-btn-active-transform-darkmode: translateX(calc(var(--s-x-darkmode-active) / 2.5)) translateY(calc(var(--s-y-darkmode-active) / 2.5));
+	--rtm-btn-offset-normal-factor: 2;
+  --rtm-btn-offset-active-factor: 2;
+
+  --rtm-btn-normal-transform-lightmode: translateX(calc(var(--h-x) / var(--rtm-btn-offset-normal-factor))) translateY(calc(var(--h-y) / var(--rtm-btn-offset-normal-factor)));
+  --rtm-btn-active-transform-lightmode: translateX(calc(var(--s-x-active) / var(--rtm-btn-offset-active-factor))) translateY(calc(var(--s-y-active) / var(--rtm-btn-offset-active-factor)));
+
+  --rtm-btn-normal-transform-darkmode: translateX(calc(var(--h-x-darkmode) / var(--rtm-btn-offset-normal-factor))) translateY(calc(var(--h-y-darkmode) / var(--rtm-btn-offset-normal-factor)));
+  --rtm-btn-active-transform-darkmode: translateX(calc(var(--s-x-darkmode-active) / var(--rtm-btn-offset-active-factor))) translateY(calc(var(--s-y-darkmode-active) / var(--rtm-btn-offset-active-factor)));
+
+  
 	--rtm-btn-state-transition-smoothness: 0s;
 	--rtm-btn-state-transition: transform var(--rtm-btn-state-transition-smoothness) cubic-bezier(0.2, 0, 0, 1),
 		box-shadow var(--rtm-btn-state-transition-smoothness) cubic-bezier(0.2, 0, 0, 1),
