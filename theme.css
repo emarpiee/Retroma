@@ -191,11 +191,24 @@ body {
 	--rtm-tab-inactive-bg: oklch(from var(--background-secondary) l c h / 0.5);
 	--rtm-tab-inactive-bg-hover: var(--background-primary-alt);
 	--rtm-tab-radius: var(--rtm-interface-radius);
-	--rtm-tab-txt-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
-	--rtm-tab-txt-color-active: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
-	--rtm-tab-txt-color-focused: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
-	--rtm-tab-txt-color-focused-active: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
+	--rtm-tab-active-font: inherit;
+	--rtm-tab-inactive-font: var(--rtm-tab-active-font);
+
+	/* NOTE: Active tab | App focused & Pane focused */	
 	--rtm-tab-txt-color-focused-active-current: oklch(from var(--rtm-interactive-accent) var(--rtm-l-low) calc(c * var(--rtm-c-accent)) h);
+
+	/* NOTE: Active tab | App focused & Pane unfocused */	
+	--rtm-tab-txt-color-focused-active: oklch(from var(--rtm-tab-txt-color-focused-active-current) var(--rtm-l-low) c h / 0.8);
+
+	/* NOTE: Active tab | App unfocused */	
+	--rtm-tab-txt-color-active: oklch(from var(--rtm-tab-txt-color-focused-active-current) var(--rtm-l-low) c h / 0.4);
+
+	/* NOTE: Inactive tab | App focused */	
+	--rtm-tab-txt-color-focused: oklch(from var(--rtm-interactive-accent) var(--rtm-l-low) calc(c * var(--rtm-c-accent)) h / 0.6);
+
+	/* NOTE: Inactive tab | App unfocused */	
+	--rtm-tab-txt-color: oklch(from var(--rtm-tab-txt-color-focused) l c h / 0.4);
+
 	--rtm-tab-outline-style: solid;
 	--rtm-tab-outline: var(--rtm-tab-outline-width) var(--rtm-tab-outline-style) var(--rtm-tab-outline-color);
 	--rtm-tab-corner-shape: round;
@@ -912,9 +925,9 @@ body {
 	--rtm-bg-modifier-error: oklch(from var(--rtm-color-red) var(--rtm-l-bg-mod-error) calc(c * var(--rtm-c-accent) * 5) h);
 	--rtm-bg-modifier-error-hover: oklch(from var(--rtm-bg-modifier-error) var(--rtm-l-bg-mod-error-hover) c h);
 	--rtm-titlebar-bg-focus: oklch(from var(--rtm-secondary-accent) var(--rtm-l-titlebar-bg-focus) calc(c * var(--rtm-c-accent)) h);
-	--rtm-titlebar-bg: var(--rtm-titlebar-bg-focus);
+	--rtm-titlebar-bg: oklch(from var(--rtm-titlebar-bg-focus) calc(l + 0.02) c h);
 	--rtm-titlebar-txt-color-focus: oklch(from var(--rtm-titlebar-bg-focus) var(--rtm-l-titlebar-txt-color-focus) calc(c * var(--rtm-c-accent)) h);
-	--rtm-titlebar-txt-color: oklch(from var(--rtm-titlebar-txt-color-focus) var(--rtm-l-titlebar-txt-color) calc(c * var(--rtm-c-accent)) h);
+	--rtm-titlebar-txt-color: var(--rtm-titlebar-txt-color-focus);
 
 	--rtm-statusbar-bg: oklch(from var(--rtm-primary-accent) var(--rtm-l-statusbar-bg) calc(c * var(--rtm-c-accent)) h);
 
@@ -1992,6 +2005,14 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
 /* NOTE: Target top/middle stacked panes in a horizontal split (top/bottom layout) */
 .workspace-split.mod-horizontal> :not(:last-child) .workspace-tab-container {
 	padding-bottom: 0;
+}
+
+.workspace-tab-header.is-active .workspace-tab-header-inner-title {
+	font-family: var(--rtm-tab-active-font);
+}
+
+.workspace-tab-header:not(.is-active) .workspace-tab-header-inner-title {
+	font-family: var(--rtm-tab-inactive-font);
 }
 
 .mod-root .workspace-tab-header-inner {
@@ -3134,7 +3155,7 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 .search-result,
 .outgoing-link-item {
 	box-shadow: 0px 0px 0px 1px oklch(from var(--rtm-txt-normal) l calc(var(--rtm-c-accent) - 0.5) h / 0.2);
-	border-radius: calc(var(--rtm-interface-radius) * 0.6);
+	border-radius: var(--rtm-interface-radius);
 }
 
 .search-results-info {
@@ -3224,8 +3245,8 @@ body:not(.is-grabbing) .search-result .tree-item-self.search-result-file-title:h
 	border-left: var(--rtm-search-result-container-border);
 	border-top: var(--rtm-search-result-container-border);
 	border-right: var(--rtm-search-result-container-border);
-	border-top-left-radius: calc(var(--rtm-interface-radius) * 0.8);
-	border-top-right-radius: calc(var(--rtm-interface-radius) * 0.8);
+	border-top-left-radius: calc(var(--rtm-interface-radius) * 0.6);
+	border-top-right-radius: calc(var(--rtm-interface-radius) * 0.6);
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 	background: var(--rtm-search-result-header-container-bg);
@@ -3256,7 +3277,8 @@ body:not(.is-grabbing) .search-result .tree-item-self.search-result-file-title:h
 .outgoing-link-pane>.tree-item-self.is-clickable.is-collapsed,
 .backlink-pane>.tree-item-self.is-clickable.is-collapsed {
 	border-bottom: var(--rtm-search-result-container-border);
-	border-radius: calc(var(--rtm-interface-radius) * 0.8);
+	border-radius: calc(var(--rtm-interface-radius) * 0.6);
+	margin-bottom: 8px;
 }
 
 .backlink-pane .search-result-container,
@@ -3267,8 +3289,8 @@ body:not(.is-grabbing) .search-result .tree-item-self.search-result-file-title:h
 	border-left: var(--rtm-search-result-container-border);
 	border-bottom: var(--rtm-search-result-container-border);
 	border-right: var(--rtm-search-result-container-border);
-	border-bottom-left-radius: calc(var(--rtm-interface-radius) * 0.8);
-	border-bottom-right-radius: calc(var(--rtm-interface-radius) * 0.8);
+	border-bottom-left-radius: calc(var(--rtm-interface-radius) * 0.6);
+	border-bottom-right-radius: calc(var(--rtm-interface-radius) * 0.6);
 	corner-shape: var(--rtm-search-result-container-corner-shape);
 }
 
@@ -12565,12 +12587,14 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
-        id: workspace-layout
-        title: Layout
-        description: "Configure spacing, outlines, and header styling for workspace panes."
-        type: heading
-        level: 2
-        collapsed: true
+        id: rtm-workspace-root-bg
+        title: Workspace background color
+        description: "Overrides the primary background color of the entire Obsidian application."
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
     -
         id: rtm-interface-radius
         title: Workspace border-radius
@@ -12588,66 +12612,16 @@ settings:
         default: false
         addCommand: true
     -
-        id: rtm-workspace-primary-border-style
-        title: Workspace primary-outline style
-        description: "Outline style for outer workspace pane and pane header.."
-        type: variable-select
-        default: groove
-        options:
-            - groove
-            - ridge
-            - dashed
-            - dotted
-            - solid
-            -
-            	label: none
-            	value: unset
-    -
-        id: rtm-workspace-secondary-border-style
-        title: Workspace secondary-outline style
-        description: "Outline style for inner-pane, menus, modals, and popups."
-        type: variable-select
-        default: ridge
-        options:
-            - groove
-            - ridge
-            - dashed
-            - dotted
-            - solid
-            -
-            	label: none
-            	value: unset
-    -
-        id: rtm-workspace-primary-border-width
-        title: Workspace primary-outline thickness
-        description: "Outline thickness for outer workspace pane and pane header.."
-        type: variable-number-slider
-        format: px
-        default: 4
-        min: 0
-        max: 8
-        step: 1
-    -
-        id: rtm-workspace-secondary-border-width
-        title: Workspace secondary-outline thickness
-        description: "Outline thickness for inner-pane, menus, modals, and popups."
-        type: variable-number-slider
-        format: px
-        default: 4
-        min: 0
-        max: 8
-        step: 1
-    -
         id: pane
         title: Pane
         description: ""
         type: heading
-        level: 3
+        level: 2
         collapsed: true
     -
         id: rtm-ss-workspace-leaf-simple-view
         title: Simple workspace panes
-        description: "Removes extra borders and backgrounds around individual panes (some panes, such as the Markdown editor or PDF viewer, may not be affected)."
+        description: "Removes extra borders and backgrounds around individual panes (some panes, such as the Markdown editor, file explorer or PDF viewer, may not be affected)."
         type: class-toggle
         default: false
         addCommand: true
@@ -12716,12 +12690,12 @@ settings:
         title: Pane header
         description: ""
         type: heading
-        level: 3
+        level: 2
         collapsed: true
     -
         id: rtm-view-header-simple
         title: Simple pane header
-        description: "Removes borders and backgrounds from pane headers (does not affect Markdown editor, file navigation, or PDF viewer panes)."
+        description: "Removes borders and backgrounds from pane headers (does not affect Markdown editor, file explorer, or PDF viewer panes)."
         type: class-toggle
         default: false
         addCommand: true
@@ -12759,6 +12733,81 @@ settings:
         id: rtm-view-header-title-color
         title: Pane header title color
         description: "Overrides the color of the pane title text at the top of workspace panes."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: pane-outline
+        title: Pane outline (WIP)
+        description: ""
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: rtm-workspace-primary-border-style
+        title: Workspace primary-outline style
+        description: "Outline style for outer workspace pane and pane header.."
+        type: variable-select
+        default: groove
+        options:
+            - groove
+            - ridge
+            - dashed
+            - dotted
+            - solid
+            -
+            	label: none
+            	value: unset
+    -
+        id: rtm-workspace-secondary-border-style
+        title: Workspace secondary-outline style
+        description: "Outline style for inner-pane, menus, modals, and popups."
+        type: variable-select
+        default: ridge
+        options:
+            - groove
+            - ridge
+            - dashed
+            - dotted
+            - solid
+            -
+            	label: none
+            	value: unset
+    -
+        id: rtm-workspace-primary-border-width
+        title: Workspace primary-outline thickness
+        description: "Outline thickness for outer workspace pane and pane header.."
+        type: variable-number-slider
+        format: px
+        default: 4
+        min: 0
+        max: 8
+        step: 1
+    -
+        id: rtm-workspace-secondary-border-width
+        title: Workspace secondary-outline thickness
+        description: "Outline thickness for inner-pane, menus, modals, and popups."
+        type: variable-number-slider
+        format: px
+        default: 4
+        min: 0
+        max: 8
+        step: 1
+    -
+        id: rtm-workspace-primary-border-color
+        title: Workspace primary-outline color
+        description: "Color for outer workspace pane and pane header outlines."
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-workspace-secondary-border-color
+        title: Workspace secondary-outline color
+        description: "Color for inner pane outlines, menus, modals, and popups."
         type: variable-themed-color
         format: hex
         opacity: true
@@ -12857,40 +12906,6 @@ settings:
         min: 0.5
         max: 1
         step: 0.01
-    -
-        id: color-overrides-bg
-        title: Background colors
-        description: "Manually override workspace background and pane colors beyond the theme defaults."
-        type: heading
-        level: 2
-        collapsed: true
-    -
-        id: rtm-workspace-root-bg
-        title: Workspace background color
-        description: "Overrides the primary background color of the entire Obsidian application."
-        type: variable-themed-color
-        format: hex
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: rtm-workspace-primary-border-color
-        title: Workspace primary-outline color
-        description: "Color for outer workspace pane and pane header outlines."
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: rtm-workspace-secondary-border-color
-        title: Workspace secondary-outline color
-        description: "Color for inner pane outlines, menus, modals, and popups."
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
     -
         id: color-overrides-fg
         title: Foreground (text) colors
@@ -17852,6 +17867,27 @@ settings:
         level: 2
         collapsed: true
     -
+        id: rtm-tab-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - scoop
+            - square
+            - squircle
+    -
+        id: rtm-tab-radius
+        title: Border-radius
+        type: variable-number-slider
+        format: px
+        default: 8
+        min: 0
+        max: 12
+        step: 1
+    -
         id: workspace-tab-style-selection
         title: Active tab style
         type: class-select
@@ -17877,29 +17913,79 @@ settings:
             - dashed
             - dotted
     -
-        id: rtm-tab-corner-shape
-        title: Corner shape
+        id: rtm-tab-active-font
+        title: Active tab font-family
         type: variable-select
-        default: round
+        default: inherit
         options:
-            - round
-            - bevel
-            - notch
-            - scoop
-            - square
-            - squircle
+            -
+            	label: Theme font
+            	value: inherit
+
+            - Atkinson Hyperlegible
+            - Cascadia Code
+            - Caveat
+            - Courier Prime
+            - Excalifont
+            - Fraunces
+            - iA Writer Mono S
+            - Press Start 2P
+            - Space Grotesk
+            - Special Elite
+            - VT323
+            - W95font
     -
-        id: rtm-tab-radius
-        title: Border-radius
-        type: variable-number-slider
-        format: px
-        default: 8
-        min: 0
-        max: 12
-        step: 1
+        id: rtm-tab-inactive-font
+        title: Inactive tab font-family
+        type: variable-select
+        default: inherit
+        options:
+            -
+            	label: Theme font
+            	value: inherit
+
+            - Atkinson Hyperlegible
+            - Cascadia Code
+            - Caveat
+            - Courier Prime
+            - Excalifont
+            - Fraunces
+            - iA Writer Mono S
+            - Press Start 2P
+            - Space Grotesk
+            - Special Elite
+            - VT323
+            - W95font
     -
         id: rtm-tab-outline-color
         title: Outline color
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-tab-txt-color-focused-active-current
+        title: Active tab (current) text color
+        description: Text color of the ACTIVE TAB in the FOCUSED PANE.
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-tab-txt-color-focused-active
+        title: Active tab text color
+        description: Text color of the ACTIVE TAB in the UNFOCUSED PANE.
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-tab-txt-color-focused
+        title: Inactive tab text color
+        description: Text color of inactive tabs.
         type: variable-themed-color
         format: hex
         opacity: true
@@ -17920,7 +18006,8 @@ settings:
         collapsed: true
     -
         id: rtm-titlebar-bg-focus
-        title: Background color (focused)
+        title: Title bar background (active window)
+        description: Background color of the top title bar when the application window is focused.
         type: variable-themed-color
         format: hex
         opacity: false
@@ -17928,7 +18015,8 @@ settings:
         default-dark: '#'
     -
         id: rtm-titlebar-txt-color-focus
-        title: Text color (focused)
+        title: Title bar text (active window)
+        description: Text color of the top title bar when the application window is focused.
         type: variable-themed-color
         format: hex
         opacity: true
@@ -17936,7 +18024,8 @@ settings:
         default-dark: '#'
     -
         id: rtm-titlebar-bg
-        title: Background color
+        title: Title bar background (inactive window)
+        description: Background color of the top title bar when the application window is unfocused in the background.
         type: variable-themed-color
         format: hex
         opacity: false
@@ -17944,7 +18033,8 @@ settings:
         default-dark: '#'
     -
         id: rtm-titlebar-txt-color
-        title: Text color
+        title: Title bar text (inactive window)
+        description: Text color of the top title bar when the application window is unfocused in the background.
         type: variable-themed-color
         format: hex
         opacity: true
