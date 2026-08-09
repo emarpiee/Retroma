@@ -196,7 +196,8 @@ body {
 	--rtm-tab-txt-color-focused: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
 	--rtm-tab-txt-color-focused-active: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) calc(c * var(--rtm-c-accent)) h);
 	--rtm-tab-txt-color-focused-active-current: oklch(from var(--rtm-interactive-accent) var(--rtm-l-low) calc(c * var(--rtm-c-accent)) h);
-	--rtm-tab-outline: var(--rtm-tab-outline-width) solid var(--rtm-tab-outline-color);
+	--rtm-tab-outline-style: solid;
+	--rtm-tab-outline: var(--rtm-tab-outline-width) var(--rtm-tab-outline-style) var(--rtm-tab-outline-color);
 	--rtm-tab-corner-shape: round;
 	--rtm-tab-light-angle: 135deg;
 	--rtm-tab-split-sidebar-padding: 0;
@@ -1794,7 +1795,7 @@ select.mouse-focus:focus-visible,
 }
 
 :is(textarea:hover, .multi-select-container:hover, input.metadata-input-text:hover, input[type='date']:hover, input[type='datetime-local']:hover, input[type='text']:hover, input[type='search']:hover, input[type='email']:hover, input[type='password']:hover, input[type='number']:hover, textarea:active, .multi-select-container:active, input.metadata-input-text:active, input[type='date']:active, input[type='datetime-local']:active, input[type='text']:active, input[type='search']:active, input[type='email']:active, input[type='password']:active, input[type='number']:active, textarea:focus, .multi-select-container:focus, input.metadata-input-text:focus, input[type='date']:focus, input[type='datetime-local']:focus, input[type='text']:focus, input[type='search']:focus, input[type='email']:focus, input[type='password']:focus, input[type='number']:focus, textarea:focus-visible, .multi-select-container:focus-visible, input.metadata-input-text:focus-visible, input[type='date']:focus-visible, input[type='datetime-local']:focus-visible, input[type='text']:focus-visible, input[type='search']:focus-visible, input[type='email']:focus-visible, input[type='password']:focus-visible, input[type='number']:focus-visible):not(.metadata-property *, .bases-view *) {
-	outline: var(--rtm-input-outline-focus);
+	outline: var(--rtm-btn-outline-focus);
 	border: var(--rtm-input-outline);
 	box-shadow: var(--rtm-input-shadow);
 	border-radius: var(--rtm-input-radius);
@@ -1824,6 +1825,10 @@ select.mouse-focus:focus-visible,
 .checkbox-container::after {
 	box-shadow: var(--rtm-btn-3d-normal);
 	outline: var(--rtm-btn-outline-width) solid var(--rtm-btn-outline-color);
+}
+
+.checkbox-container:focus-visible, .checkbox-container:hover{
+	outline: calc(var(--rtm-btn-outline-focus-width) + 1px) var(--rtm-btn-outline-focus-style) var(--rtm-btn-outline-focus-color);
 }
 
 /* # SLIDER/RANGE */
@@ -1901,6 +1906,10 @@ body.is-mobile ::-webkit-scrollbar-thumb:active,
 }
 
 /* # WORKSPACE */
+
+.workspace-tab-header-container {
+	border-bottom-style: var(--rtm-tab-outline-style);
+}
 
 .workspace-leaf {
 	border-radius: var(--rtm-workspace-leaf-radius);
@@ -2001,6 +2010,7 @@ body:not(.rtm-ss-tab-style-btn) .mod-root .workspace-tab-header:not(.is-active) 
 .workspace-tab-header-container .workspace-tab-header.is-active {
 	border-inline: var(--rtm-tab-outline);
 	border-top: var(--rtm-tab-outline);
+	border-inline-style: var(--rtm-tab-outline-style);
 	box-shadow: var(--rtm-tab-3d-normal);
 	corner-shape: var(--rtm-tab-corner-shape);
 }
@@ -2883,6 +2893,16 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 	outline: var(--rtm-metadata-property-border);
 	border-radius: var(--rtm-metadata-property-radius);
 	background: var(--rtm-metadata-property-bg);
+}
+
+.metadata-container .metadata-property:hover {
+	outline: calc(var(--rtm-btn-outline-focus-width) + 1px) var(--rtm-btn-outline-focus-style) var(--rtm-btn-outline-focus-color);
+	box-shadow: unset;
+}
+
+.metadata-container .metadata-property:focus-within {
+	outline: calc(var(--rtm-btn-outline-focus-width) + 2px) var(--rtm-btn-outline-focus-style) var(--rtm-btn-outline-focus-color);
+	box-shadow: unset;
 }
 
 .metadata-container .metadata-property-key {
@@ -5566,7 +5586,7 @@ body.rtm-ss-tab-style-btn .workspace-tab-header-container .workspace-tab-header.
 body.rtm-ss-tab-style-btn .mod-root .workspace-tab-header-container .workspace-tab-header.is-active .workspace-tab-header-inner {
 	border-radius: var(--rtm-tab-radius);
 	border-inline: unset;
-	border: var(--rtm-btn-outline-width) solid var(--rtm-tab-outline-color);
+	border: var(--rtm-tab-outline-width) var(--rtm-tab-outline-style) var(--rtm-tab-outline-color);
 	box-shadow: var(--rtm-btn-3d-active);
 	background: var(--rtm-btn-bg-active);
 	transition: var(--rtm-btn-state-transition);
@@ -17826,6 +17846,15 @@ settings:
             -
                 label: Button
                 value: rtm-ss-tab-style-btn
+    -
+        id: rtm-tab-outline-style
+        title: Active tab outline style
+        type: variable-select
+        default: solid
+        options:
+            - solid
+            - dashed
+            - dotted
     -
         id: rtm-tab-corner-shape
         title: Corner shape
