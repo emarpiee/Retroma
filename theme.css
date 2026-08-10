@@ -2617,8 +2617,29 @@ blockquote p,
 	margin-block: 4px;
 }
 
-.inline-embed>.markdown-embed-title {
+.inline-embed > .markdown-embed-title,
+:is(.markdown-embed, .inline-embed) > .markdown-embed-link {
 	display: var(--rtm-embed-title-display);
+}
+
+body.rtm-ss-embed-title-show .inline-embed > .markdown-embed-title,
+body.rtm-ss-embed-title-show :is(.markdown-embed, .inline-embed) > .markdown-embed-link {
+	display: flex;
+}
+
+body.rtm-ss-embed-title-hover .inline-embed > .markdown-embed-title,
+body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed) > .markdown-embed-link {
+	display: none;
+}
+
+body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed):hover > .markdown-embed-title,
+body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed):hover > .markdown-embed-link {
+	display: flex;
+}
+
+body.rtm-ss-embed-title-hide .inline-embed > .markdown-embed-title,
+body.rtm-ss-embed-title-hide :is(.markdown-embed, .inline-embed) > .markdown-embed-link {
+	display: none !important;
 }
 
 
@@ -2701,6 +2722,22 @@ iframe):not(.popover *){
 
 .internal-query .internal-query-header {
 	display: var(--rtm-internal-query-embed-title-display);
+}
+
+body.rtm-ss-internal-query-embed-title-show .internal-query .internal-query-header {
+	display: flex;
+}
+
+body.rtm-ss-internal-query-embed-title-hover .internal-query .internal-query-header {
+	display: none;
+}
+
+body.rtm-ss-internal-query-embed-title-hover .internal-query:hover .internal-query-header {
+	display: flex;
+}
+
+body.rtm-ss-internal-query-embed-title-hide .internal-query .internal-query-header {
+	display: none !important;
 }
 
 .inline-embed>.markdown-embed-content>.markdown-source-view,
@@ -14297,30 +14334,38 @@ settings:
                 value: rtm-ss-embed-align-right
     -
         id: rtm-embed-title-display
-        title: Note embed title
-        description: "Choose whether to show or hide the note title within embedded blocks."
-        type: variable-select
-        default: flex
+        title: Note embed title and link
+        description: "Choose whether to show, show on hover, or hide the note title and embed link within embedded blocks."
+        type: class-select
+        default: rtm-ss-embed-title-show
+        allowEmpty: false
         options:
             -
-            	label: Show
-            	value: flex
+                label: Show
+                value: rtm-ss-embed-title-show
             -
-            	label: Hide
-            	value: none
+                label: Show on hover
+                value: rtm-ss-embed-title-hover
+            -
+                label: Hide
+                value: rtm-ss-embed-title-hide
     -
         id: rtm-internal-query-embed-title-display
         title: Internal search query embed title
-        description: "Choose whether to show or hide the internal search query title within embedded blocks."
-        type: variable-select
-        default: flex
+        description: "Choose whether to show, show on hover, or hide the internal search query title within embedded blocks."
+        type: class-select
+        default: rtm-ss-internal-query-embed-title-show
+        allowEmpty: false
         options:
             -
-            	label: Show
-            	value: flex
+                label: Show
+                value: rtm-ss-internal-query-embed-title-show
             -
-            	label: Hide
-            	value: none
+                label: Show on hover
+                value: rtm-ss-internal-query-embed-title-hover
+            -
+                label: Hide
+                value: rtm-ss-internal-query-embed-title-hide
     -
         id: rtm-embed-width-percent
         title: Note embed width (%)
