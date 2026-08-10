@@ -15,6 +15,8 @@
 	--hue-magenta: #e91e63;
 	--hue-rose: #f48fb1;
 	--hue-cyan: #00bcd4;
+	--hue-gray: #79777e;
+
 	--rtm-primary-accent-rotation: 330;
 	--rtm-secondary-accent-rotation: 30;
 
@@ -2618,28 +2620,28 @@ blockquote p,
 	margin-block: 4px;
 }
 
-.inline-embed > .markdown-embed-title,
-:is(.markdown-embed, .inline-embed) > .markdown-embed-link {
+.inline-embed>.markdown-embed-title,
+:is(.markdown-embed, .inline-embed)>.markdown-embed-link {
 	display: var(--rtm-embed-title-display);
 }
 
-body.rtm-ss-embed-title-show .inline-embed > .markdown-embed-title,
-body.rtm-ss-embed-title-show :is(.markdown-embed, .inline-embed) > .markdown-embed-link {
+body.rtm-ss-embed-title-show .inline-embed>.markdown-embed-title,
+body.rtm-ss-embed-title-show :is(.markdown-embed, .inline-embed)>.markdown-embed-link {
 	display: flex;
 }
 
-body.rtm-ss-embed-title-hover .inline-embed > .markdown-embed-title,
-body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed) > .markdown-embed-link {
+body.rtm-ss-embed-title-hover .inline-embed>.markdown-embed-title,
+body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed)>.markdown-embed-link {
 	display: none;
 }
 
-body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed):hover > .markdown-embed-title,
-body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed):hover > .markdown-embed-link {
+body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed):hover>.markdown-embed-title,
+body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed):hover>.markdown-embed-link {
 	display: flex;
 }
 
-body.rtm-ss-embed-title-hide .inline-embed > .markdown-embed-title,
-body.rtm-ss-embed-title-hide :is(.markdown-embed, .inline-embed) > .markdown-embed-link {
+body.rtm-ss-embed-title-hide .inline-embed>.markdown-embed-title,
+body.rtm-ss-embed-title-hide :is(.markdown-embed, .inline-embed)>.markdown-embed-link {
 	display: none !important;
 }
 
@@ -2663,8 +2665,8 @@ body.rtm-ss-embed-title-hide :is(.markdown-embed, .inline-embed) > .markdown-emb
 
 /* NOTE: embed contents */
 :is(.markdown-embed-content:not(.canvas .markdown-embed .markdown-embed-content, .workspace-leaf-content[data-type="footnotes"] .markdown-embed .markdown-embed-content),
-.internal-query .search-result-container,
-iframe):not(.popover *){
+	.internal-query .search-result-container,
+	iframe):not(.popover *) {
 	border-radius: var(--rtm-embed-content-radius);
 	border: var(--rtm-embed-content-border);
 	box-shadow: var(--rtm-embed-content-shadow);
@@ -2673,7 +2675,7 @@ iframe):not(.popover *){
 }
 
 :is(.pdf-embed .pdf-container,
-.workspace-leaf-content[data-type="markdown"] .bases-embed .bases-view):not(.popover *){
+	.workspace-leaf-content[data-type="markdown"] .bases-embed .bases-view):not(.popover *) {
 	border-radius: var(--rtm-embed-content-radius);
 	border: var(--rtm-embed-content-border);
 	box-shadow: var(--rtm-embed-content-shadow);
@@ -12372,6 +12374,113 @@ body.rtm-cs-monochromatic-colors {
 }
 
 body.rtm-cs-monochromatic-colors-flipped {
+	--rtm-primary-accent-rotation: 355;
+	--rtm-secondary-accent-rotation: 5;
+}
+
+/* NOTE: Per-note accent colors using Obsidian property "cssclasses" */
+body:has(.workspace-leaf.mod-active .rtm-accent-red) {
+	--rtm-interactive-accent: var(--hue-red);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-orange) {
+	--rtm-interactive-accent: var(--hue-orange);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-yellow) {
+	--rtm-interactive-accent: var(--hue-yellow);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-green) {
+	--rtm-interactive-accent: var(--hue-green);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-blue) {
+	--rtm-interactive-accent: var(--hue-blue);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-indigo) {
+	--rtm-interactive-accent: var(--hue-indigo);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-violet) {
+	--rtm-interactive-accent: var(--hue-violet);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-vermillion) {
+	--rtm-interactive-accent: var(--hue-vermillion);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-amber) {
+	--rtm-interactive-accent: var(--hue-amber);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-lime) {
+	--rtm-interactive-accent: var(--hue-lime);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-teal) {
+	--rtm-interactive-accent: var(--hue-teal);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-purple) {
+	--rtm-interactive-accent: var(--hue-purple);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-magenta) {
+	--rtm-interactive-accent: var(--hue-magenta);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-rose) {
+	--rtm-interactive-accent: var(--hue-rose);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-cyan) {
+	--rtm-interactive-accent: var(--hue-cyan);
+}
+
+body:has(.workspace-leaf.mod-active .rtm-accent-gray) {
+	--rtm-interactive-accent: var(--hue-gray);
+}
+
+/* NOTE: Per-note color scheme using Obsidian property "cssclasses" */
+
+body:has(.workspace-leaf.mod-active .rtm-analogous) {
+	--rtm-primary-accent-rotation: 330;
+	--rtm-secondary-accent-rotation: 30;
+}
+
+body:has(.workspace-leaf.mod-active .rtm-analogous-flipped) {
+	--rtm-primary-accent-rotation: 30;
+	--rtm-secondary-accent-rotation: 330;
+}
+
+body:has(.workspace-leaf.mod-active .rtm-split-complementary) {
+	--rtm-primary-accent-rotation: 150;
+	--rtm-secondary-accent-rotation: 210;
+}
+
+body:has(.workspace-leaf.mod-active .rtm-split-complementary-flipped) {
+	--rtm-primary-accent-rotation: 210;
+	--rtm-secondary-accent-rotation: 150;
+}
+
+body:has(.workspace-leaf.mod-active .rtm-triadic) {
+	--rtm-primary-accent-rotation: 120;
+	--rtm-secondary-accent-rotation: 240;
+}
+
+body:has(.workspace-leaf.mod-active .rtm-triadic-flipped) {
+	--rtm-primary-accent-rotation: 240;
+	--rtm-secondary-accent-rotation: 120;
+}
+
+body:has(.workspace-leaf.mod-active .rtm-monochromatic) {
+	--rtm-primary-accent-rotation: 5;
+	--rtm-secondary-accent-rotation: 355;
+}
+
+body:has(.workspace-leaf.mod-active .rtm-monochromatic-flipped) {
 	--rtm-primary-accent-rotation: 355;
 	--rtm-secondary-accent-rotation: 5;
 }
