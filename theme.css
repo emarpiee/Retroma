@@ -437,7 +437,7 @@ body {
 	--rtm-view-header-border: var(--rtm-workspace-primary-border);
 	--rtm-view-header-corner-shape: round;
 	--rtm-view-header-action-radius: var(--rtm-btn-radius);
-	--rtm-view-header-radius: 10px;
+	--rtm-view-header-radius: var(--rtm-interface-radius);
 	--rtm-mobile-view-header-is-floating-width: 95vw;
 	--rtm-markdown-editor-readable-line-length: 700px;
 	--rtm-markdown-editor-bg: var(--rtm-bg-paper);
@@ -537,7 +537,10 @@ body {
 	--rtm-menu-bg: var(--rtm-bg-primary);
 	--rtm-menu-corner-shape: solid;
 	--rtm-menu-radius: calc(var(--rtm-interface-radius) * 0.8);
-	--rtm-menu-border: var(--rtm-workspace-secondary-border);
+	--rtm-menu-border: var(--rtm-menu-border-width) var(--rtm-menu-border-style) var(--rtm-menu-border-color);
+	--rtm-menu-border-style: ridge;
+	--rtm-menu-border-color: var(--rtm-workspace-secondary-border-color);
+	--rtm-menu-border-width: 4px;
 	--rtm-menu-box-shadow: 0 0 12px 2px oklch(from var(--rtm-interactive-shadow-accent-normal) l c h / 0.3);
 	--rtm-menu-height: 90vh;
 	--rtm-modal-dim-bg: oklch(from var(--rtm-interactive-accent) 0.05 0.05 h / 0.2);
@@ -548,6 +551,13 @@ body {
 	--popover-pdf-width: var(--rtm-page-preview-width);
 	--rtm-page-preview-height: 50vh;
 	--rtm-page-preview-width: 35vh;
+	--rtm-page-preview-padding: 8px;
+	--rtm-page-preview-box-shadow: 0 0 4px oklch(from var(--rtm-txt-accent) l calc(c * var(--rtm-c-accent) * 4) h);
+	--rtm-page-preview-border: var(--rtm-page-preview-border-width) var(--rtm-page-preview-border-style) var(--rtm-page-preview-border-color);
+	--rtm-page-preview-radius: var(--rtm-embed-radius);
+	--rtm-page-preview-border-color: var(--rtm-txt-faint);
+	--rtm-page-preview-border-style: solid;
+	--rtm-page-preview-border-width: 1px;
 
 	/* -- FLAIR */
 	--flair-background: var(--rtm-flair-bg);
@@ -1198,12 +1208,25 @@ body {
 	--rtm-embed-margin-right: auto;
 	--rtm-embed-bg: var(--rtm-bg-primary);
 	--rtm-embed-radius: var(--rtm-interface-radius);
-	--rtm-embed-border: 1px solid var(--rtm-txt-faint);
-	--rtm-embed-box-shadow: 0 0 4px oklch(from var(--rtm-txt-accent) l calc(c * var(--rtm-c-accent) * 4) h);
+	--rtm-embed-border-width: 1px;
+	--rtm-embed-border-style: solid;
+	--rtm-embed-border-color: var(--rtm-txt-faint);
+	--rtm-embed-border: var(--rtm-embed-border-width) var(--rtm-embed-border-style) var(--rtm-embed-border-color);
+	--rtm-embed-shadow: 0 0 4px oklch(from var(--rtm-txt-accent) l calc(c * var(--rtm-c-accent) * 4) h);
 	--rtm-embed-padding: 8px;
 	--rtm-embed-width-percent: 100;
 	--rtm-embed-width: calc(var(--rtm-embed-width-percent) * 1%);
 	--rtm-embed-max-height: 1000px;
+	--rtm-embed-content-border: var(--rtm-embed-content-border-width) var(--rtm-embed-content-border-style) var(--rtm-embed-content-border-color);
+	--rtm-embed-content-shadow: inset 0 0 4px oklch(from var(--rtm-txt-normal) l c h / 50%);
+	--rtm-embed-content-radius: var(--rtm-embed-radius);
+	--rtm-embed-content-border-color: var(--rtm-workspace-secondary-border-color);
+	--rtm-embed-content-border-style: ridge;
+	--rtm-embed-content-border-width: 4px;
+	--rtm-embed-corner-shape: round;
+	--rtm-embed-content-corner-shape: round;
+
+
 	--rtm-bases-embed-height: 1000px;
 	--rtm-bases-embed-width-percent: 100;
 	--rtm-bases-embed-width: calc(var(--rtm-bases-embed-width-percent) * 1%);
@@ -1922,10 +1945,10 @@ body.is-mobile ::-webkit-scrollbar-thumb:active,
 .graph-controls:not(.is-close) {
 	background: var(--rtm-menu-bg);
 	border-radius: var(--rtm-menu-radius);
-	border: var(--rtm-menu-border);
 	box-shadow: var(--rtm-menu-box-shadow);
 	max-height: var(--rtm-menu-height);
 	corner-shape: var(--rtm-menu-corner-shape);
+	border: var(--rtm-menu-border);
 }
 
 /* # WORKSPACE */
@@ -2599,20 +2622,40 @@ blockquote p,
 }
 
 
-.pdf-embed,
-.pdf-embed:not(.canvas-node-content),
-.workspace-leaf-content[data-type="markdown"] .block-language-base,
-.workspace-leaf-content[data-type="markdown"] .bases-embed,
-.markdown-embed:not(.canvas .markdown-embed, .workspace-leaf-content[data-type="footnotes"] .markdown-embed),
-.internal-query {
+/* NOTE: embed containers */
+:is(.pdf-embed,
+	.pdf-embed:not(.canvas-node-content),
+	.workspace-leaf-content[data-type="markdown"] .block-language-base,
+	.workspace-leaf-content[data-type="markdown"] .bases-embed,
+	.markdown-embed:not(.canvas .markdown-embed, .workspace-leaf-content[data-type="footnotes"] .markdown-embed),
+	.internal-query):not(.popover *) {
 	padding: var(--rtm-embed-padding);
 	background-color: var(--rtm-embed-bg);
 	border-radius: var(--rtm-embed-radius);
-	box-shadow: var(--rtm-embed-box-shadow);
+	box-shadow: var(--rtm-embed-shadow);
 	border: var(--rtm-embed-border);
 	margin-left: var(--rtm-embed-margin-left);
 	margin-right: var(--rtm-embed-margin-right);
 	corner-shape: var(--rtm-embed-corner-shape);
+}
+
+/* NOTE: embed contents */
+:is(.markdown-embed-content:not(.canvas .markdown-embed .markdown-embed-content, .workspace-leaf-content[data-type="footnotes"] .markdown-embed .markdown-embed-content),
+.internal-query .search-result-container,
+iframe):not(.popover *){
+	border-radius: var(--rtm-embed-content-radius);
+	border: var(--rtm-embed-content-border);
+	box-shadow: var(--rtm-embed-content-shadow);
+	background: oklch(from var(--rtm-markdown-editor-bg) calc(l - 0.02) c h);
+	corner-shape: var(--rtm-embed-content-corner-shape);
+}
+
+:is(.pdf-embed .pdf-container,
+.workspace-leaf-content[data-type="markdown"] .bases-embed .bases-view):not(.popover *){
+	border-radius: var(--rtm-embed-content-radius);
+	border: var(--rtm-embed-content-border);
+	box-shadow: var(--rtm-embed-content-shadow);
+	corner-shape: var(--rtm-embed-content-corner-shape);
 }
 
 /* NOTE: regular markdown note embed height and width*/
@@ -2660,22 +2703,12 @@ blockquote p,
 	display: var(--rtm-internal-query-embed-title-display);
 }
 
-.markdown-embed-content:not(.canvas .markdown-embed .markdown-embed-content, .workspace-leaf-content[data-type="footnotes"] .markdown-embed .markdown-embed-content),
-.internal-query .search-result-container,
-iframe {
-	border-radius: var(--rtm-interface-radius);
-	border: var(--rtm-workspace-secondary-border);
-	box-shadow: inset 0 0 4px oklch(from var(--rtm-txt-normal) l c h / 50%);
-	background: oklch(from var(--rtm-markdown-editor-bg) calc(l - 0.02) c h);
-}
-
 .inline-embed>.markdown-embed-content>.markdown-source-view,
 .inline-embed>.markdown-embed-content>.markdown-preview-view {
 	padding: 24px;
 }
 
-.workspace-leaf-content[data-type="markdown"] .block-language-base .bases-view,
-.workspace-leaf-content[data-type="markdown"] .bases-embed .bases-view {
+.workspace-leaf-content[data-type="markdown"] .block-language-base .bases-view {
 	border: var(--rtm-workspace-secondary-border);
 }
 
@@ -3059,9 +3092,12 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 	border-radius: unset;
 }
 
-.popover:has(.bases-embed) {
-	padding: var(--rtm-embed-padding);
-	box-shadow: var(--rtm-embed-box-shadow);
+.popover {
+	border-radius: var(--rtm-page-preview-radius);
+	border: var(--rtm-page-preview-border);
+	padding: var(--rtm-page-preview-padding);
+	box-shadow: var(--rtm-page-preview-box-shadow);
+	corner-shape: var(--rtm-page-preview-corner-shape);
 }
 
 .prompt .suggestion-prefix {
@@ -4070,7 +4106,8 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 	padding-bottom: calc(var(--view-bottom-spacing) - var(--keyboard-height));
 }
 
-body.is-phone .workspace-leaf-content[data-type="style-manager-css-editor-view"] .view-content .style-manager-editor-container {	margin-top: var(--rtm-workspace-leaf-padding);
+body.is-phone .workspace-leaf-content[data-type="style-manager-css-editor-view"] .view-content .style-manager-editor-container {
+	margin-top: var(--rtm-workspace-leaf-padding);
 }
 
 body.is-phone:not(.is-floating-nav) .workspace-leaf-content[data-type="style-manager-css-editor-view"] .view-content .style-manager-editor-container {
@@ -5707,8 +5744,28 @@ body.rtm-ss-embed-align-right {
 body.rtm-ss-embed-simple {
 	--rtm-embed-bg: unset;
 	--rtm-embed-border: unset;
-	--rtm-embed-box-shadow: unset;
+	--rtm-embed-shadow: unset;
 	--rtm-embed-padding: 0;
+}
+
+body.rtm-ss-simple-menu {
+
+	.menu .menu-scroll .menu-group .menu-item.tappable,
+	.menu .menu-scroll .menu-group .menu-item.tappable:hover,
+	.menu .menu-scroll .menu-group .menu-item.tappable:active {
+		border: unset;
+		box-shadow: unset;
+		background: unset;
+		border-radius: var(--rtm-menu-radius);
+	}
+
+	.menu .menu-scroll .menu-group .menu-item.tappable>* {
+		transform: unset;
+	}
+
+	.menu .menu-scroll .menu-group .menu-item.tappable.selected {
+		background: var(--rtm-bg-paper);
+	}
 }
 
 /* # CUSTOM CALLOUTS */
@@ -12783,7 +12840,7 @@ settings:
     -
         id: rtm-workspace-secondary-border-style
         title: Workspace secondary-outline style
-        description: "Outline style for inner-pane, menus, modals, and popups."
+        description: "Outline style for inner-pane, modals, and popups."
         type: variable-select
         default: ridge
         options:
@@ -12808,7 +12865,7 @@ settings:
     -
         id: rtm-workspace-secondary-border-width
         title: Workspace secondary-outline thickness
-        description: "Outline thickness for inner-pane, menus, modals, and popups."
+        description: "Outline thickness for inner-pane, modals, and popups."
         type: variable-number-slider
         format: px
         default: 4
@@ -14094,14 +14151,17 @@ settings:
         level: 2
         collapsed: true
     -
-        id: rtm-embed-radius
-        title: Border-radius
-        type: variable-number-slider
-        format: px
-        default: 10
-        min: 0
-        max: 24
-        step: 1
+        id: embeds-block
+        title: Embed block (container)
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: rtm-ss-embed-simple
+        title: Simple embed block container
+        description: "Remove outline, extra padding and background colors of all embedded blocks."
+        type: class-toggle
+        default: false
     -
         id: rtm-embed-corner-shape
         title: Corner shape
@@ -14114,6 +14174,110 @@ settings:
             - scoop
             - square
             - squircle
+    -
+        id: rtm-embed-radius
+        title: Border-radius
+        type: variable-number-slider
+        format: px
+        default: 10
+        min: 0
+        max: 24
+        step: 1
+    -
+        id: rtm-embed-border-width
+        title: Outline thickness
+        type: variable-number-slider
+        format: px
+        default: 1
+        min: 0
+        max: 8
+        step: 1
+    -
+        id: rtm-embed-border-style
+        title: Outline style
+        type: variable-select
+        default: ridge
+        options:
+            - groove
+            - ridge
+            - dashed
+            - dotted
+            - solid
+            -
+            	label: none
+            	value: unset
+    -
+        id: rtm-embed-border-color
+        title: Outline color
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: embeds-content
+        title: Embed content
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: rtm-embed-content-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - scoop
+            - square
+            - squircle
+    -
+        id: rtm-embed-content-radius
+        title: Border-radius
+        type: variable-number-slider
+        format: px
+        default: 10
+        min: 0
+        max: 24
+        step: 1
+    -
+        id: rtm-embed-content-border-width
+        title: Outline thickness
+        type: variable-number-slider
+        format: px
+        default: 4
+        min: 0
+        max: 8
+        step: 1
+    -
+        id: rtm-embed-content-border-style
+        title: Outline style
+        type: variable-select
+        default: ridge
+        options:
+            - groove
+            - ridge
+            - dashed
+            - dotted
+            - solid
+            -
+            	label: none
+            	value: unset
+    -
+        id: rtm-embed-content-border-color
+        title: Outline color
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: embeds-alignment
+        title: Embed alignment
+        type: heading
+        level: 3
+        collapsed: true
     -
         id: embeds-alignment
         title: Embeds alignment
@@ -14157,12 +14321,6 @@ settings:
             -
             	label: Hide
             	value: none
-    -
-        id: rtm-ss-embed-simple
-        title: Simple embed block
-        description: "Remove border, extra padding and background colors of all embedded blocks."
-        type: class-toggle
-        default: false
     -
         id: rtm-embed-width-percent
         title: Note embed width (%)
@@ -17440,6 +17598,7 @@ settings:
     -
         id: page-preview
         title: Page preview (desktop)
+        description: "Customize hover preview popups for internal links."
         type: heading
         level: 2
         collapsed: true
@@ -17462,11 +17621,25 @@ settings:
         max: 100
         step: 5
     -
+        id: popover-info
+        title: 
+        description: "🔹 New styles will be added soon."
+        type: info-text
+        markdown: true
+    -
         id: menu
         title: Menu
+        description: "Change how right-click and dropdown menus look."
         type: heading
         level: 2
         collapsed: true
+    -
+        id: rtm-ss-simple-menu
+        title: Simple menu
+        description: "Removes button style from menu items."
+        type: class-toggle
+        default: false
+        addCommand: true
     -
         id: rtm-menu-radius
         title: Border-radius
@@ -17475,6 +17648,15 @@ settings:
         default: 10
         min: 0
         max: 24
+        step: 1
+    -
+        id: rtm-menu-border-width
+        title: Outline thickness
+        type: variable-number-slider
+        format: px
+        default: 4
+        min: 0
+        max: 8
         step: 1
     -
         id: rtm-menu-corner-shape
@@ -17489,8 +17671,40 @@ settings:
             - square
             - squircle
     -
+        id: rtm-menu-border-style
+        title: Menu outline style
+        description: "Outline style for the menu container."
+        type: variable-select
+        default: ridge
+        options:
+            - groove
+            - ridge
+            - dashed
+            - dotted
+            - solid
+            -
+            	label: none
+            	value: unset
+    -
+        id: rtm-menu-border-color
+        title: Outline color
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: rtm-menu-bg
+        title: Background color
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: modal
         title: Modal
+        description: "Style input overlays, including the Command Palette and Quick Switcher."
         type: heading
         level: 2
         collapsed: true
@@ -17502,6 +17716,12 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: modal-info
+        title: 
+        description: "🔹 New styles will be added soon."
+        type: info-text
+        markdown: true
     -
         id: pdf
         title: 📖 PDF
