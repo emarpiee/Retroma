@@ -69,6 +69,8 @@ The floating UI elements in Canvas now automatically hides when panning or activ
 
 Retroma includes built-in styling for **23 alternative checkbox types**. To use them, write standard markdown checkboxes containing any of the supported keys inside:
 
+![retroma-acb.png](assets/screenshots/retroma-acb.png)
+
 | Key | Type | Description | Key | Type | Description |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `[/]` | Incomplete | Hourglass / progress | `[S]` | Savings | Dollar sign |
@@ -83,6 +85,41 @@ Retroma includes built-in styling for **23 alternative checkbox types**. To use 
 | `[b]` | Bookmark | Ribbon bookmark | `[D]` | Draft PR | Git draft pull request |
 | `[i]` | Information | Info exclamation | `[P]` | Open PR | Git open pull request |
 | `[M]` | Merged PR | Git merged pull request | | | |
+
+---
+## Per-Note Font
+
+You can override the font on a **per-note basis** using Obsidian's built-in `cssclasses` property combined with any of Retroma's `rtm-font-*` classes. This lets individual notes use a different typeface without touching your global Style Manager settings.
+
+### How to Use
+
+Add a `cssclasses` property to the note's frontmatter with one of the class names from the table below:
+
+```yaml
+---
+cssclasses:
+  - rtm-font-special-elite
+---
+```
+
+### Available Font Classes
+
+| Class | Font |
+| :--- | :--- |
+| `rtm-font-atkinson-hyperlegible` | Atkinson Hyperlegible |
+| `rtm-font-cascadia-code` | Cascadia Code |
+| `rtm-font-caveat` | Caveat |
+| `rtm-font-courier-prime` | Courier Prime |
+| `rtm-font-excalifont` | Excalifont |
+| `rtm-font-fraunces` | Fraunces |
+| `rtm-font-ia-writer-mono` | iA Writer Mono |
+| `rtm-font-press-start-2p` | Press Start 2P |
+| `rtm-font-space-grotesk` | Space Grotesk |
+| `rtm-font-special-elite` | Special Elite |
+| `rtm-font-vt323` | VT323 |
+| `rtm-font-w95font` | W95font |
+
+> Only one `rtm-font-*` class should be applied per note. Using multiple font classes at the same time produces unpredictable results.
 
 ---
 ## Retroma Callouts
