@@ -194,19 +194,19 @@ body {
 	--rtm-tab-active-font: inherit;
 	--rtm-tab-inactive-font: var(--rtm-tab-active-font);
 
-	/* NOTE: Active tab | App focused & Pane focused */	
+	/* NOTE: Active tab | App focused & Pane focused */
 	--rtm-tab-txt-color-focused-active-current: oklch(from var(--rtm-interactive-accent) var(--rtm-l-low) calc(c * var(--rtm-c-accent)) h);
 
-	/* NOTE: Active tab | App focused & Pane unfocused */	
+	/* NOTE: Active tab | App focused & Pane unfocused */
 	--rtm-tab-txt-color-focused-active: oklch(from var(--rtm-tab-txt-color-focused-active-current) var(--rtm-l-low) c h / 0.8);
 
-	/* NOTE: Active tab | App unfocused */	
+	/* NOTE: Active tab | App unfocused */
 	--rtm-tab-txt-color-active: oklch(from var(--rtm-tab-txt-color-focused-active-current) var(--rtm-l-low) c h / 0.4);
 
-	/* NOTE: Inactive tab | App focused */	
+	/* NOTE: Inactive tab | App focused */
 	--rtm-tab-txt-color-focused: oklch(from var(--rtm-interactive-accent) var(--rtm-l-low) calc(c * var(--rtm-c-accent)) h / 0.6);
 
-	/* NOTE: Inactive tab | App unfocused */	
+	/* NOTE: Inactive tab | App unfocused */
 	--rtm-tab-txt-color: oklch(from var(--rtm-tab-txt-color-focused) l c h / 0.4);
 
 	--rtm-tab-outline-style: solid;
@@ -391,15 +391,15 @@ body {
 	--rtm-btn-outline-color: oklch(from var(--rtm-icon-color) var(--rtm-l-btn-outline) calc(c * var(--rtm-c-accent)) h);
 
 	--rtm-btn-offset-normal-factor: 2;
-  --rtm-btn-offset-active-factor: 2;
+	--rtm-btn-offset-active-factor: 2;
 
-  --rtm-btn-normal-transform-lightmode: translateX(calc(var(--h-x) / var(--rtm-btn-offset-normal-factor))) translateY(calc(var(--h-y) / var(--rtm-btn-offset-normal-factor)));
-  --rtm-btn-active-transform-lightmode: translateX(calc(var(--s-x-active) / var(--rtm-btn-offset-active-factor))) translateY(calc(var(--s-y-active) / var(--rtm-btn-offset-active-factor)));
+	--rtm-btn-normal-transform-lightmode: translateX(calc(var(--h-x) / var(--rtm-btn-offset-normal-factor))) translateY(calc(var(--h-y) / var(--rtm-btn-offset-normal-factor)));
+	--rtm-btn-active-transform-lightmode: translateX(calc(var(--s-x-active) / var(--rtm-btn-offset-active-factor))) translateY(calc(var(--s-y-active) / var(--rtm-btn-offset-active-factor)));
 
-  --rtm-btn-normal-transform-darkmode: translateX(calc(var(--h-x-darkmode) / var(--rtm-btn-offset-normal-factor))) translateY(calc(var(--h-y-darkmode) / var(--rtm-btn-offset-normal-factor)));
-  --rtm-btn-active-transform-darkmode: translateX(calc(var(--s-x-darkmode-active) / var(--rtm-btn-offset-active-factor))) translateY(calc(var(--s-y-darkmode-active) / var(--rtm-btn-offset-active-factor)));
+	--rtm-btn-normal-transform-darkmode: translateX(calc(var(--h-x-darkmode) / var(--rtm-btn-offset-normal-factor))) translateY(calc(var(--h-y-darkmode) / var(--rtm-btn-offset-normal-factor)));
+	--rtm-btn-active-transform-darkmode: translateX(calc(var(--s-x-darkmode-active) / var(--rtm-btn-offset-active-factor))) translateY(calc(var(--s-y-darkmode-active) / var(--rtm-btn-offset-active-factor)));
 
-  
+
 	--rtm-btn-state-transition-smoothness: 0s;
 	--rtm-btn-state-transition: transform var(--rtm-btn-state-transition-smoothness) cubic-bezier(0.2, 0, 0, 1),
 		box-shadow var(--rtm-btn-state-transition-smoothness) cubic-bezier(0.2, 0, 0, 1),
@@ -1849,7 +1849,8 @@ select.mouse-focus:focus-visible,
 	corner-shape: var(--rtm-btn-corner-shape);
 }
 
-.checkbox-container:focus-visible, .checkbox-container:hover{
+.checkbox-container:focus-visible,
+.checkbox-container:hover {
 	outline: calc(var(--rtm-btn-outline-focus-width) + 1px) var(--rtm-btn-outline-focus-style) var(--rtm-btn-outline-focus-color);
 }
 
@@ -2280,7 +2281,7 @@ body.is-phone .workspace-leaf-content[data-type="markdown"] {
 	gap: 0;
 }
 
-.view-content:not(.workspace-leaf-content:is([data-type="markdown"], [data-type="canvas"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="file-properties"], [data-type="footnotes"], [data-type="calendar"], [data-type="bases"], [data-type="pdf"], [data-type="style-manager-view"], [data-type="file-explorer"]) .view-content),
+.view-content:not(.workspace-leaf-content:is([data-type="markdown"], [data-type="canvas"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="file-properties"], [data-type="footnotes"], [data-type="calendar"], [data-type="bases"], [data-type="pdf"], [data-type="style-manager-view"], [data-type="style-manager-css-editor-view"], [data-type="file-explorer"]) .view-content),
 .tag-container,
 .nav-files-container {
 	border-radius: var(--rtm-workspace-pane-content-radius);
@@ -4063,6 +4064,21 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 	background: var(--rtm-bg-primary);
 }
 
+.workspace-leaf-content[data-type="style-manager-css-editor-view"] .view-content .style-manager-editor-container {
+	border: var(--rtm-view-content-border);
+	border-radius: var(--rtm-interface-radius);
+	padding-bottom: calc(var(--view-bottom-spacing) - var(--keyboard-height));
+}
+
+body.is-phone .workspace-leaf-content[data-type="style-manager-css-editor-view"] .view-content .style-manager-editor-container {	margin-top: var(--rtm-workspace-leaf-padding);
+}
+
+body.is-phone:not(.is-floating-nav) .workspace-leaf-content[data-type="style-manager-css-editor-view"] .view-content .style-manager-editor-container {
+	border-radius: 0;
+	border: unset;
+	padding-bottom: calc(var(--view-bottom-spacing) - var(--keyboard-height));
+}
+
 .style-manager-plugin {
 	--sm-cm-bg: var(--rtm-bg-paper);
 	--sm-reset-list-bg: var(--rtm-bg-paper);
@@ -4094,10 +4110,13 @@ body.rtm-ss-mobile-nav-btn-container-bottom.is-mobile {
 	background: var(--rtm-bg-paper);
 }
 
-.view-content.style-manager-editor-view {
-	margin-top: 4px;
-	border: var(--rtm-workspace-secondary-border);
-	border-radius: var(--rtm-interface-radius);
+body.is-phone:not(.is-floating-nav) .workspace-leaf-content[data-type="style-manager-css-editor-view"] {
+	padding: 0;
+}
+
+body.is-phone .modal.style-manager-plugin.modal-style-manager.style-manager-editor-modal {
+	border: unset;
+	border-radius: unset;
 }
 
 .style-settings-container {
@@ -4693,7 +4712,6 @@ body.rtm-ss-pdf-simple-view {
 
 	.workspace-leaf-content[data-type="pdf"] .view-content .pdf-content-container,
 	.pdf-container {
-		/* border-radius: 0; */
 		border: unset;
 		box-shadow: unset;
 		margin: 0;
@@ -4897,7 +4915,7 @@ body.rtm-ss-markdown-editor-overlay-pattern-grid {
 }
 
 body.rtm-ss-markdown-editor-overlay-pattern-crosshatch {
-	--rtm-markdown-editor-overlay-pattern: 
+	--rtm-markdown-editor-overlay-pattern:
 		linear-gradient(45deg, transparent calc(50% - var(--rtm-markdown-editor-pattern-thickness) / 2), var(--rtm-markdown-editor-pattern-color) calc(50% - var(--rtm-markdown-editor-pattern-thickness) / 2), var(--rtm-markdown-editor-pattern-color) calc(50% + var(--rtm-markdown-editor-pattern-thickness) / 2), transparent calc(50% + var(--rtm-markdown-editor-pattern-thickness) / 2)),
 		linear-gradient(-45deg, transparent calc(50% - var(--rtm-markdown-editor-pattern-thickness) / 2), var(--rtm-markdown-editor-pattern-color) calc(50% - var(--rtm-markdown-editor-pattern-thickness) / 2), var(--rtm-markdown-editor-pattern-color) calc(50% + var(--rtm-markdown-editor-pattern-thickness) / 2), transparent calc(50% + var(--rtm-markdown-editor-pattern-thickness) / 2));
 }
@@ -5219,6 +5237,7 @@ body.rtm-ss-alternative-checkbox {
 	li:not([data-task="x"], [data-task="X"], [data-task=" "])>p>input[type="checkbox"],
 	input[type="checkbox"][data-task]:not([data-task="x"], [data-task="X"], [data-task=" "]),
 	.suggestion-item[data-task]:not([data-task="x"], [data-task="X"], [data-task=" "]) input[type="checkbox"] {
+
 		&:checked,
 		&.is-checked {
 			--checkbox-marker-color: transparent;
