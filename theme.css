@@ -3400,31 +3400,24 @@ body:not(.is-grabbing) .search-result .tree-item-self.search-result-file-title:h
 	background: unset;
 }
 
-/* Base tag styles */
-.cm-hashtag,
-a.tag,
-.multi-select-pill {
+/* Base border for tag elements (including hover state) */
+:is(.cm-hashtag, a.tag, .multi-select-pill),
+:is(.cm-hashtag, a.tag, .multi-select-pill):hover {
 	border: var(--rtm-tag-border-width) var(--rtm-tag-border-style) var(--rtm-tag-border-color, var(--tag-color));
 	font-family: var(--rtm-tag-font);
 }
 
-/* Leading border highlights */
-.cm-hashtag.cm-hashtag-begin,
-a.tag,
-.multi-select-pill {
+/* Base leading border (including hover state) */
+:is(.cm-hashtag.cm-hashtag-begin, a.tag, .multi-select-pill),
+:is(.cm-hashtag.cm-hashtag-begin, a.tag, .multi-select-pill):hover {
 	border-inline-start: var(--rtm-tag-border-left-width) solid var(--rtm-tag-border-color, var(--tag-color));
 }
 
-/* Hover overrides */
-:is(.tag, [class*="cm-tag-"], .cm-hashtag, .multi-select-pill):hover {
+/* Hover effects */
+:is(.cm-hashtag, a.tag, .multi-select-pill, [class*="cm-tag-"]):hover {
 	--tag-color-hover: var(--tag-color);
 	opacity: 1;
 	filter: none;
-}
-
-/* Ensure left border is retained on hover */
-:is(.cm-hashtag.cm-hashtag-begin, a.tag, .multi-select-pill):hover {
-	border-inline-start: var(--rtm-tag-border-left-width) solid var(--rtm-tag-border-color, var(--tag-color));
 }
 
 .multi-select-pill.is-invalid,
