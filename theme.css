@@ -529,6 +529,7 @@ body {
 	--prompt-background: var(--rtm-prompt-bg);
 	--prompt-border-color: var(--rtm-workspace-secondary-border-color);
 	--rtm-prompt-bg: var(--rtm-modal-bg);
+	--rtm-prompt-corner-shape: round;
 	--rtm-prompt-border: var(--rtm-modal-border);
 	--rtm-prompt-radius: var(--rtm-interface-radius);
 	--rtm-prompt-instructions-bg: var(--rtm-bg-secondary);
@@ -3116,6 +3117,7 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 	background: var(--rtm-prompt-bg);
 	border-radius: var(--rtm-prompt-radius);
 	box-shadow: var(--rtm-modal-box-shadow);
+	corner-shape: var(--rtm-prompt-corner-shape);
 }
 
 .suggestion,
@@ -17760,6 +17762,18 @@ settings:
         type: heading
         level: 2
         collapsed: true
+    -
+        id: rtm-prompt-corner-shape
+        title: Corner shape
+        type: variable-select
+        default: round
+        options:
+            - round
+            - bevel
+            - notch
+            - scoop
+            - square
+            - squircle
     -
         id: rtm-modal-dim-bg
         title: Dim background color
