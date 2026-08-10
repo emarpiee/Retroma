@@ -57,7 +57,6 @@ If you’d rather skip the manual configurations, you can use and experiment wit
 
 ---
 
-
 ## Better Canvas
 
 The floating UI elements in Canvas now automatically hides when panning or actively editing card content.
@@ -65,6 +64,7 @@ The floating UI elements in Canvas now automatically hides when panning or activ
 ![retroma-canvas.gif](assets/screenshots/retroma-canvas.gif)
 
 ---
+
 ## Alternative Checkboxes
 
 Retroma includes built-in styling for **23 alternative checkbox types**. To use them, write standard markdown checkboxes containing any of the supported keys inside:
@@ -87,6 +87,7 @@ Retroma includes built-in styling for **23 alternative checkbox types**. To use 
 | `[M]` | Merged PR | Git merged pull request | | | |
 
 ---
+
 ## Per-Note Font
 
 You can override the font on a **per-note basis** using Obsidian's built-in `cssclasses` property combined with any of Retroma's `rtm-font-*` classes. This lets individual notes use a different typeface without touching your global Style Manager settings.
@@ -122,6 +123,63 @@ cssclasses:
 > Only one `rtm-font-*` class should be applied per note. Using multiple font classes at the same time produces unpredictable results.
 
 ---
+
+## Per-Note Accent Color & Color Scheme
+
+You can override the **accent color** and **color scheme** on a per-note basis using Obsidian's `cssclasses` property. The override is scoped to the active leaf, so only the note you are currently viewing changes — your global Style Manager accent stays untouched.
+
+![rtm-per-note-accent-cs.gif](assets/screenshots/rtm-per-note-accent-cs.gif)
+
+### How to Use
+
+Add one or both of the following class types to the note's frontmatter:
+
+```yaml
+---
+cssclasses:
+  - rtm-accent-teal
+  - rtm-triadic
+---
+```
+
+### Available Accent Color Classes
+
+| Class | Color |
+| :--- | :--- |
+| `rtm-accent-red` | Red |
+| `rtm-accent-orange` | Orange |
+| `rtm-accent-yellow` | Yellow |
+| `rtm-accent-green` | Green |
+| `rtm-accent-blue` | Blue |
+| `rtm-accent-indigo` | Indigo |
+| `rtm-accent-violet` | Violet |
+| `rtm-accent-purple` | Purple |
+| `rtm-accent-vermillion` | Vermillion |
+| `rtm-accent-amber` | Amber |
+| `rtm-accent-lime` | Lime |
+| `rtm-accent-teal` | Teal |
+| `rtm-accent-magenta` | Magenta |
+| `rtm-accent-rose` | Rose |
+| `rtm-accent-cyan` | Cyan |
+| `rtm-accent-gray` | Gray |
+
+### Available Color Scheme Classes
+
+| Class | Scheme |
+| :--- | :--- |
+| `rtm-analogous` | Analogous |
+| `rtm-analogous-flipped` | Analogous (flipped) |
+| `rtm-split-complementary` | Split-complementary |
+| `rtm-split-complementary-flipped` | Split-complementary (flipped) |
+| `rtm-triadic` | Triadic |
+| `rtm-triadic-flipped` | Triadic (flipped) |
+| `rtm-monochromatic` | Monochromatic |
+| `rtm-monochromatic-flipped` | Monochromatic (flipped) |
+
+> Accent color and color scheme classes can be combined freely. Only one class from each group should be used per note.
+
+---
+
 ## Retroma Callouts
 
 A collection of **79 styled callouts** for Obsidian, themed around vintage stationery, retro media hardware, photography, and academic materials.
@@ -322,7 +380,6 @@ I welcome contributions of all kinds! If you're interested in helping out, pleas
 
 ---
 
-
 ## 📍 Note from the Developer
 
 Retroma uses an algorithmic color system powered natively by CSS `oklch()`. Instead of relying on static hex codes, the theme dynamically calculates your entire palette, including background colors, foreground elements, and UI depth across dark and light modes directly from your chosen accent color.
@@ -343,4 +400,6 @@ Donations help me pay the bills, stay sane, and spoil my cat 🐱 Thanks for the
 - [PayPal Support](https://paypal.me/emarpiee)
 
 ---
+
 *Retroma – Written with 💜, with passion, and with cats by my side.*
+
