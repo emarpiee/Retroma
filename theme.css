@@ -2642,7 +2642,7 @@ body.rtm-ss-embed-title-hover :is(.markdown-embed, .inline-embed):hover>.markdow
 
 body.rtm-ss-embed-title-hide .inline-embed>.markdown-embed-title,
 body.rtm-ss-embed-title-hide :is(.markdown-embed, .inline-embed)>.markdown-embed-link {
-	display: none !important;
+	display: none;
 }
 
 
@@ -2740,7 +2740,7 @@ body.rtm-ss-internal-query-embed-title-hover .internal-query:hover .internal-que
 }
 
 body.rtm-ss-internal-query-embed-title-hide .internal-query .internal-query-header {
-	display: none !important;
+	display: none;
 }
 
 .inline-embed>.markdown-embed-content>.markdown-source-view,
@@ -4977,7 +4977,7 @@ body.rtm-ss-markdown-editor-overlay :is(.markdown-preview-view, .markdown-readin
 }
 
 body.rtm-ss-markdown-editor-overlay-hide-embed-preview :is(.markdown-embed, .internal-embed, .popover, .hover-popover) :is(.view-content, .markdown-preview-view, .markdown-reading-view) {
-	background-image: none !important;
+	background-image: none;
 }
 
 body.rtm-ss-markdown-editor-overlay-pattern-grid {
