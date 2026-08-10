@@ -1231,6 +1231,7 @@ body {
 	--rtm-pdf-thumbnail-radius: var(--rtm-interface-radius);
 
 	/* NOTE: FOOTNOTES */
+	--footnote-radius: 0;
 	--rtm-footnotes-view-item-radius: var(--rtm-interface-radius);
 }
 
