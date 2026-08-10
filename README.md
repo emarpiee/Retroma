@@ -11,23 +11,23 @@ Your notes are chaotic, your vault is a mess, and every modern theme looks the s
 
 From simple visual tweaks to absolute control over every pixel, the [Style Manager plugin](https://community.obsidian.md/plugins/style-manager) acts as your bridge between casual styling and hardcore customization. Swap color schemes, choose from a selection of built-in retro fonts to apply globally or to specific parts like your markdown editor and canvas, push heading colors from muted to neon, fine-tune the corner roundness of your code blocks, or style your buttons to range from classic *skeuomorphism* to bold *neubrutalism*. You can even apply a vintage CRT scanline filter, go completely monochrome with a grayscale toggle, or strip away the clutter with Zen Mode to focus entirely on your writing. No judgment here, this is your chance to show off your inner perfectionist.
 
-| Section                           | Description                                                                              | Specific Customizations                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **🖌️ Workspace and Panes**       | Shape your digital workspace.                                                            | Theme font selection, OKLCH color scheme & accent tuner, text color weights, window/sidebar borders, custom background/foreground color overrides.                                                                                                                                                                                                                                                          |
-| **✍️ Markdown editor**            | Customize your primary markdown editor, behavior, and default formatting.                | Editor font selection, markdown editor background color, simple editor header and container, readable line length, editor background patterns, blockquotes, callout box styling, alternative checkboxes, syntax highlighting, heading styling, links, lists, paragraph spacing, metadata properties, table borders, tags/pills, highlighter, text selection, strikethrough, horizontal rules. |
-| **📦️ Button and inputs**         | Sculpt your buttons, customize input and touch interactions.                             | State transition animation speed, 3D button shadow & highlight properties for light & dark modes, color overrides (backgrounds, icons, borders).                                                                                                                                                                                                                                                            |
-| **📊 Bases**                      | Configure cards and table view layouts.                                                  | Database-style table layout, cards view layout (cover color, borders, corner shapes), maps view popup colors.                                                                                                                                                                                                                                                                                               |
-| **🔲 Canvas**                     | Adjust how you visualize your knowledge in canvas.                                       | Canvas floating UI (toggle, positions, fade delay, radius, spacing, background), canvas colors (background, grid dots, card background/borders), card and group corner roundness and border thickness.                                                                                                                                                                                                      |
-| **📂 Folder and files**           | Adjust the visibility, structure, and general styling of the file explorer tree.         | Simple sidebar pane header and content, file item text wrapping, folder layout (radius, icon style, indentation lines, thickness), color overrides (rainbow text removal, text/bg colors, Folders 1–15 colors), file item styling.                                                                                                                                                                          |
-| **⏹️ Popups**                     | Customize page preview, menu, modal and prompt popups.                                   | Custom hover page preview popups height and width, and modal backdrop dimming colors.                                                                                                                                                                                                                                                                                                                       |
-| **📖 PDF**                        | Customize PDF viewer.                                                                    | Simple PDF viewer toggle, page background color, thumbnail sidebar background color, and thumbnail corner radius.                                                                                                                                                                                                                                                                                           |
-| **☕️ Zen mode (desktop)**         | Focus on writing.                                                                        | Zen mode toggle, fade opacity, fade delay, custom background color overrides, and pinning controls (keep title bar, status bar, tabs, left sidebar, or right sidebar visible during Zen mode).                                                                                                                                                                                                              |
-| **🎞️ Filters**                   | Modify the visual appearance of your screen with custom overlay effects.                 | Retro 8-bit pixelated icons, CRT screen effect (scanline thickness, inner/outer vignette colors), CRT text glow (toggle, brightness, glow size), grayscale toggles (force backgrounds, text, buttons, folder/files, images, or videos into black-and-white).                                                                                                                                                |
-| **🔗 Backlink and search pane**   | Customize the layout and color styling of backlinks, outgoing links, and search results. | Search result match highlights, title text colors, search header/body background colors.                                                                                                                                                                                                                                                                                                                    |
-| **🖥️ Desktop specific settings** | Customize tabs, title bar, status bar and scrollbar.                                     | Active/inactive tab radius and outline colors, window title bar active/inactive colors, status bar height/colors, scrollbar desktop width and thumb radius.                                                                                                                                                                                                                                                 |
-| **📱 Mobile specific settings**   | Customize toolbar, sidebar, file navigation and scrollbar.                               | Simple bottom navigation bar toggle, mobile bottom toolbar background color, slide-out sidebar screen width (percentage), file explorer action buttons (top vs. bottom), mobile scrollbar thickness and thumb radius.                                                                                                                                                                                       |
-| **🎲 Misc**                       | A collection of miscellaneous tools, extra and features.                                 | Toggle pre-designed retro callout blocks with fixed color schemes and classic styling.                                                                                                                                                                                                                                                                                                                      |
-| **🧪 Plugin integrations**        | Plugin-specific styling.                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Section | Description | Specific Customizations |
+| :--- | :--- | :--- |
+| **🖌️ Workspace and Panes** | Shape your digital workspace. | • Theme font selection<br>• OKLCH color scheme & accent tuner<br>• Text color weights<br>• Window/sidebar borders<br>• Custom background/foreground overrides |
+| **✍️ Markdown editor** | Customize your primary editor, behavior, and formatting. | • Editor font selection & background colors<br>• Simple editor header & container<br>• Readable line length & background patterns<br>• Blockquotes & callout box styling<br>• Alternative checkboxes & syntax highlighting<br>• Note & search query embeds (alignment, outlines, hover titles/links)<br>• Heading styles, weights, sizes, and underlines<br>• Links (internal/external & underlines)<br>• Lists, paragraph spacing, and footnotes<br>• Metadata properties & table styles<br>• Tags/pills, highlighter, text selection, strikethrough, rules |
+| **📦️ Button and inputs** | Sculpt buttons, input fields, and touch controls. | • State transition animation speed<br>• 3D button shadow & highlight properties<br>• Color overrides (backgrounds, icons, borders) |
+| **📊 Bases** | Configure cards and table view layouts. | • Database-style table layout<br>• Cards view layout (cover, borders, corners)<br>• Maps view popup colors |
+| **🔲 Canvas** | Adjust how you visualize your knowledge. | • Floating UI controls (delay, radius, position)<br>• Canvas colors (background, grid, cards)<br>• Cards & groups corner roundness and borders |
+| **📂 Folder and files** | Customize your file explorer navigation tree. | • Simple sidebar pane header & content<br>• File item text wrapping<br>• Folder layout (radius, icons, indent lines)<br>• Custom folder colors (1-15 rainbow removal) |
+| **⏹️ Popups** | Customize hover previews, menus, and modals. | • Hover page preview height & width<br>• Modal backdrop dimming colors |
+| **📖 PDF** | Customize the built-in PDF viewer. | • Simple PDF viewer toggle<br>• Page & thumbnail sidebar background colors<br>• Thumbnail corner radius |
+| **☕️ Zen mode (desktop)** | Focus entirely on your writing. | • Zen mode toggle & fade properties<br>• Custom background color overrides<br>• Pinning controls for toolbars/sidebars |
+| **🎞️ Filters** | Apply vintage visual overlay effects. | • Retro 8-bit pixelated icons<br>• CRT screen effect (scanlines, vignette)<br>• CRT text glow (brightness, glow size)<br>• Grayscale toggles (force monochrome layout) |
+| **🔗 Backlink & search** | Customize link panels and search results. | • Search result match highlights<br>• Title text colors<br>• Search header & body backgrounds |
+| **🖥️ Desktop settings** | Customize window, tabs, and scrollbars. | • Active/inactive tab radius & outlines<br>• Window title bar active/inactive colors<br>• Status bar height & colors<br>• Desktop scrollbar width & thumb radius |
+| **📱 Mobile settings** | Customize mobile navigation and toolbars. | • Simple bottom navigation bar toggle<br>• Mobile bottom toolbar background color<br>• Slide-out sidebar width percentage<br>• Mobile scrollbar thickness & thumb radius |
+| **🎲 Misc** | Additional features and styling tools. | • Pre-designed retro callout blocks |
+| **🧪 Plugin integrations** | Custom styles for community plugins. | • Third-party plugin styling overrides |
 
 ## 🎨 Presets
 
@@ -63,6 +63,26 @@ If you’d rather skip the manual configurations, you can use and experiment wit
 The floating UI elements in Canvas now automatically hides when panning or actively editing card content.
 
 ![retroma-canvas.gif](assets/screenshots/retroma-canvas.gif)
+
+---
+## Alternative Checkboxes
+
+Retroma includes built-in styling for **23 alternative checkbox types**. To use them, write standard markdown checkboxes containing any of the supported keys inside:
+
+| Key | Type | Description | Key | Type | Description |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `[/]` | Incomplete | Hourglass / progress | `[S]` | Savings | Dollar sign |
+| `[-]` | Cancelled | Cross / canceled task | `[I]` | Idea | Seedling |
+| `[>]` | Forwarded | Rightward arrow | `[p]` | Pros | Thumbs up |
+| `[<]` | Scheduling | Calendar icon | `[c]` | Cons | Thumbs down |
+| `[?]` | Question | Help / question mark | `[f]` | Fire | Fire icon |
+| `[!]` | Important | Exclamation / warning | `[k]` | Key | Key icon |
+| `[*]` | Star | Star icon | `[w]` | Win | Trophy icon |
+| `["]` | Quote | Quote mark | `[u]` | Up | Arrow trend up |
+| `[l]` | Location | Map pin icon | `[d]` | Down | Arrow trend down |
+| `[b]` | Bookmark | Ribbon bookmark | `[D]` | Draft PR | Git draft pull request |
+| `[i]` | Information | Info exclamation | `[P]` | Open PR | Git open pull request |
+| `[M]` | Merged PR | Git merged pull request | | | |
 
 ---
 ## Retroma Callouts
@@ -143,106 +163,68 @@ Add `+` (open by default) or `-` (closed by default) after the name:
 
 #### 📷 Photo-Film
 
-| Callout | Description |
-| :--- | :--- |
-| `polaroid-1` | Classic white-border polaroid photo |
-| `polaroid-2` | Polaroid variant with alternate styling |
-| `film` | 35 mm film canister / roll |
-| `filmstrip` | Film strip with frame borders |
-| `negative` | Photographic film negative |
-| `photoalbum` | Scrapbook-style photo album page |
-| `photoslide` | Mounted slide transparency |
-| `photomount` | Photo mount / corner-tab style |
+| Callout | Description | Callout | Description |
+| :--- | :--- | :--- | :--- |
+| `polaroid-1` | Classic white-border polaroid photo | `polaroid-2` | Polaroid variant with alternate styling |
+| `film` | 35 mm film canister / roll | `filmstrip` | Film strip with frame borders |
+| `negative` | Photographic film negative | `photoalbum` | Scrapbook-style photo album page |
+| `photoslide` | Mounted slide transparency | `photomount` | Photo mount / corner-tab style |
 
 #### 📼 Media-Hardware
 
-| Callout | Description |
-| :--- | :--- |
-| `floppy` | 3½" floppy disk label |
-| `cassette-1` | Cassette tape — variant 1 |
-| `cassette-2` | Cassette tape — variant 2 |
-| `vinyl` | Vinyl LP record sleeve |
-| `reeltoreel` | Reel-to-reel tape recorder |
-| `radio` | AM/FM radio broadcast |
-| `transistor` | Transistor radio / shortwave |
-| `eurorack` | Eurorack modular panel |
-| `walkietalkie` | Walkie-talkie transmission |
-| `calculator` | Vintage pocket calculator |
-| `pager-1` | Numeric pager — variant 1 |
-| `pager-2` | Numeric pager — variant 2 |
-| `pagerunit` | Alphanumeric pager unit |
-| `terminal` | Green-screen terminal |
-| `matrixstream` | Matrix / data-stream display |
-| `pcbboard` | PCB / circuit board |
-| `tamagotchi` | Tamagotchi pet status screen |
-| `punchedtape` | Punched paper tape |
-| `marquee` | Arcade marquee header |
-| `arcademarquee` | Full arcade cabinet marquee |
-| `highscore` | High-score leaderboard |
+| Callout | Description | Callout | Description |
+| :--- | :--- | :--- | :--- |
+| `floppy` | 3½" floppy disk label | `cassette-1` | Cassette tape — variant 1 |
+| `cassette-2` | Cassette tape — variant 2 | `vinyl` | Vinyl LP record sleeve |
+| `reeltoreel` | Reel-to-reel tape recorder | `radio` | AM/FM radio broadcast |
+| `transistor` | Transistor radio / shortwave | `eurorack` | Eurorack modular panel |
+| `walkietalkie` | Walkie-talkie transmission | `calculator` | Vintage pocket calculator |
+| `pager-1` | Numeric pager — variant 1 | `pager-2` | Numeric pager — variant 2 |
+| `pagerunit` | Alphanumeric pager unit | `terminal` | Green-screen terminal |
+| `matrixstream` | Matrix / data-stream display | `pcbboard` | PCB / circuit board |
+| `tamagotchi` | Tamagotchi pet status screen | `punchedtape` | Punched paper tape |
+| `marquee` | Arcade marquee header | `arcademarquee` | Full arcade cabinet marquee |
+| `highscore` | High-score leaderboard | | |
 
 #### 📝 Office-Stationery
 
-| Callout | Description |
-| :--- | :--- |
-| `notepad` | Yellow lined notepad |
-| `postcard-1` | Air mail postcard — variant 1 |
-| `postcard-2` | Air mail postcard — variant 2 |
-| `touristcard` | Tourist destination card |
-| `artpostcard` | Art / museum postcard |
-| `ticketstub` | Event ticket stub |
-| `scrapbook` | Craft scrapbook page |
-| `receipt-1` | Paper receipt — variant 1 |
-| `receipt-2` | Paper receipt — variant 2 |
-| `matchbook` | Hotel matchbook cover |
-| `mailbox` | Vintage mailbox / letter |
-| `indexcard` | 3×5 lined index card |
-| `filingtab` | Filing folder with tab |
-| `luggagetag` | Luggage / baggage tag |
-| `krafttag` | Kraft paper gift tag |
-| `duedate` | Library due-date slip |
-| `visastamp` | Visa / entry stamp |
-| `museumtag` | Museum object label |
-| `toploader` | Card top-loader sleeve |
-| `stickynote-red` | Sticky note — red |
-| `stickynote-orange` | Sticky note — orange |
-| `stickynote-yellow` | Sticky note — yellow |
-| `stickynote-green` | Sticky note — green |
-| `stickynote-blue` | Sticky note — blue |
-| `stickynote-indigo` | Sticky note — indigo |
-| `stickynote-violet` | Sticky note — violet |
-| `legalpad` | Yellow legal pad |
-| `gridnotebook` | Graph-paper notebook |
-| `clipboard` | Clipboard with paper |
-| `dailycalendar` | Daily desk calendar |
-| `indextab` | Index / bookmark tab |
-| `kraftpaper` | Kraft wrapping paper |
-| `graphmemo` | Graph-paper memo |
-| `library` | Library catalog card |
-| `news` | Newspaper / broadsheet |
+| Callout | Description | Callout | Description |
+| :--- | :--- | :--- | :--- |
+| `notepad` | Yellow lined notepad | `postcard-1` | Air mail postcard — variant 1 |
+| `postcard-2` | Air mail postcard — variant 2 | `touristcard` | Tourist destination card |
+| `artpostcard` | Art / museum postcard | `ticketstub` | Event ticket stub |
+| `scrapbook` | Craft scrapbook page | `receipt-1` | Paper receipt — variant 1 |
+| `receipt-2` | Paper receipt — variant 2 | `matchbook` | Hotel matchbook cover |
+| `mailbox` | Vintage mailbox / letter | `indexcard` | 3×5 lined index card |
+| `filingtab` | Filing folder with tab | `luggagetag` | Luggage / baggage tag |
+| `krafttag` | Kraft paper gift tag | `duedate` | Library due-date slip |
+| `visastamp` | Visa / entry stamp | `museumtag` | Museum object label |
+| `toploader` | Card top-loader sleeve | `stickynote-red` | Sticky note — red |
+| `stickynote-orange` | Sticky note — orange | `stickynote-yellow` | Sticky note — yellow |
+| `stickynote-green` | Sticky note — green | `stickynote-blue` | Sticky note — blue |
+| `stickynote-indigo` | Sticky note — indigo | `stickynote-violet` | Sticky note — violet |
+| `legalpad` | Yellow legal pad | `gridnotebook` | Graph-paper notebook |
+| `clipboard` | Clipboard with paper | `dailycalendar` | Daily desk calendar |
+| `indextab` | Index / bookmark tab | `kraftpaper` | Kraft wrapping paper |
+| `graphmemo` | Graph-paper memo | `library` | Library catalog card |
+| `news` | Newspaper / broadsheet | | |
 
 #### 🎓 Academics-Journaling
 
-| Callout | Description |
-| :--- | :--- |
-| `compbook` | Composition book |
-| `chalkboard` | Chalkboard / blackboard |
-| `ruler` | Wooden ruler |
-| `librarycard` | Library borrowing card |
-| `flashcard` | Study flashcard |
-| `labnotebook` | Lab / science notebook |
-| `blueprint` | Technical blueprint |
-| `fieldnote` | Field notes journal |
-| `typewriter` | Typewritten manuscript page |
-| `inspection` | Inspection / checklist form |
+| Callout | Description | Callout | Description |
+| :--- | :--- | :--- | :--- |
+| `compbook` | Composition book | `chalkboard` | Chalkboard / blackboard |
+| `ruler` | Wooden ruler | `librarycard` | Library borrowing card |
+| `flashcard` | Study flashcard | `labnotebook` | Lab / science notebook |
+| `blueprint` | Technical blueprint | `fieldnote` | Field notes journal |
+| `typewriter` | Typewritten manuscript page | `inspection` | Inspection / checklist form |
 
 #### 🔖 Vintage-Stationery & Tactile Paper
 
-| Callout | Description |
-| :--- | :--- |
-| `typewriter-page` | Typewriter page with paper clip detail |
-| `vintage-ticket` | Vintage event / travel ticket (ADMIT ONE badge) |
-| `passport-stamp` | Passport entry stamp with notched corners |
-| `cardboard-cutout-shape` | Corrugated cardboard with torn top & bottom edges |
+| Callout | Description | Callout | Description |
+| :--- | :--- | :--- | :--- |
+| `typewriter-page` | Typewriter page with paper clip detail | `vintage-ticket` | Vintage event / travel ticket (ADMIT ONE badge) |
+| `passport-stamp` | Passport entry stamp with notched corners | `cardboard-cutout-shape` | Corrugated cardboard with torn top & bottom edges |
 
 ### Quick Reference Cheat Sheet
 
