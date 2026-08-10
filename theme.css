@@ -1198,7 +1198,7 @@ body {
 	--rtm-list-marker-gap: max(0.01em, var(--rtm-list-bullet-size) * 0.3);
 
 	/* -- EMBEDS */
-	--bases-embed-hight: var(--rtm-bases-embed-height);
+	--bases-embed-height: var(--rtm-bases-embed-height);
 	--bases-embed-width: var(--rtm-bases-embed-width);
 	--bases-embed-transform: unset;
 	--embed-max-height: var(--rtm-embed-max-height);
@@ -12728,7 +12728,7 @@ settings:
     -
         id: pane
         title: Pane
-        description: ""
+        description: "Customizes layout, spacing, background colors, and corner styling of workspace panes."
         type: heading
         level: 2
         collapsed: true
@@ -12802,7 +12802,7 @@ settings:
     -
         id: pane-header
         title: Pane header
-        description: ""
+        description: "Customizes the styling, colors, and corners of pane header bars."
         type: heading
         level: 2
         collapsed: true
@@ -12855,7 +12855,7 @@ settings:
     -
         id: pane-outline
         title: Pane outline (WIP)
-        description: ""
+        description: "Configures custom outlines, border styles, and outline colors for workspace panes (work in progress)."
         type: heading
         level: 2
         collapsed: true
@@ -12964,6 +12964,7 @@ settings:
     -
         id: rtm-primary-accent-rotation
         title: Primary hue (deprecated)
+        description: "Adjusts the base primary hue rotation (deprecated)."
         type: variable-number-slider
         default: '#'
         min: 0
@@ -12972,6 +12973,7 @@ settings:
     -
         id: rtm-secondary-accent-rotation
         title: Secondary hue (deprecated)
+        description: "Adjusts the base secondary hue rotation (deprecated)."
         type: variable-number-slider
         default: '#'
         min: 0
@@ -13175,6 +13177,7 @@ settings:
     -
         id: rtm-markdown-editor-pattern-zoom
         title: Zoom
+        description: "Adjusts the zoom/scale of the editor background pattern."
         type: variable-number-slider
         format: px
         default: 15
@@ -16827,6 +16830,7 @@ settings:
     -
         id: rtm-bases-theader-icon-display
         title: Header icon display
+        description: "Choose whether to show or hide icons in the table header of embedded databases."
         type: variable-select
         default: flex
         options:
@@ -17041,6 +17045,7 @@ settings:
     -
         id: nav-canvas-control-position-selection
         title: Canvas controls position
+        description: "Choose where the Canvas view controller toolbar is positioned (left or right)."
         type: class-select
         default: default
         allowEmpty: false
@@ -17213,12 +17218,14 @@ settings:
     -
         id: rtm-ss-nav-folder-pane-header-simple
         title: Simple folder pane header
+        description: "Simplifies the style of the file explorer folder pane header."
         type: class-toggle
         default: false
         addCommand: true
     -
         id: rtm-ss-nav-folder-pane-content-simple
         title: Simple folder pane content
+        description: "Simplifies the style of the file explorer folder pane content list."
         type: class-toggle
         default: false
         addCommand: true
