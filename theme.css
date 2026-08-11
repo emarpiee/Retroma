@@ -837,7 +837,7 @@ body {
 	--rtm-bases-tr-bg-hover: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-faint) c h / 0.2);
 	--rtm-bases-tcell-shadow-active-color: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-normal) c h);
 	--rtm-bases-tcell-shadow-active-width: 2px;
-	--rtm-bases-tcell-active-bg: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-faint) c h / 0.2);
+	--rtm-bases-tcell-active-bg: var(--rtm-bg-paper);
 	--rtm-bases-tcell-selected-bg: oklch(from var(--rtm-interactive-accent) var(--rtm-l-txt-normal) c h / 0.2);
 	--rtm-bases-cards-border-width: 1px;
 	--rtm-bases-cards-border-style: solid;
