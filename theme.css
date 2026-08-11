@@ -1231,7 +1231,7 @@ body {
 	--rtm-embed-content-corner-shape: round;
 
 
-	--rtm-bases-embed-height: 1000px;
+	--rtm-bases-embed-height: 500px;
 	--rtm-bases-embed-width-percent: 100;
 	--rtm-bases-embed-width: calc(var(--rtm-bases-embed-width-percent) * 1%);
 
@@ -2704,7 +2704,7 @@ body.rtm-ss-embed-title-hide :is(.markdown-embed, .inline-embed)>.markdown-embed
 
 .block-language-base .bases-view,
 .bases-embed .bases-view {
-	max-height: var(--rtm-bases-embed-height);
+	height: var(--rtm-bases-embed-height);
 }
 
 /* NOTE: pdf embed height and width */
@@ -14513,7 +14513,7 @@ settings:
         description: "Limits how tall embedded bases can grow before scrolling."
         type: variable-number-slider
         format: px
-        default: 1000
+        default: 500
         min: 50
         max: 1000
         step: 50
