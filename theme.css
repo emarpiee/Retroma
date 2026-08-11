@@ -2697,7 +2697,7 @@ body.rtm-ss-embed-title-hide :is(.markdown-embed, .inline-embed)>.markdown-embed
 
 /* NOTE: bases embed height and width */
 :is(.block-language-base,
-	.bases-embed):not(.popover *) {
+	.bases-embed):not(.popover *, .canvas-node-content.bases-embed) {
 	min-height: var(--rtm-bases-embed-height);
 	height: auto;
 }
@@ -3225,6 +3225,10 @@ body.mod-rtl:not(.rtm-ss-nav-folder-icon-hide) .nav-folder-title-content,
 
 .mod-root .document-search-container {
 	background: transparent;
+}
+
+.canvas-wrapper > .document-search-container {
+	margin-top: var(--header-height);
 }
 
 .search-result-container.mod-global-search {
