@@ -653,6 +653,7 @@ body {
 
 	/* -- SLIDER */
 	--slider-track-background: var(--rtm-bg-secondary);
+	--slider-fill-background: oklch(from var(--rtm-interactive-accent) var(--rtm-l-mid) c h);
 	--slider-track-radius: var(--rtm-btn-radius);
 	--slider-thumb-radius: var(--rtm-btn-radius);
 	--rtm-slider-track-radius: var(--rtm-btn-radius);
@@ -1656,7 +1657,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 }
 
 /* # INPUT NORMAL */
-:is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button),
+:is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button, button.cp_format),
 	.mobile-toolbar-option,
 	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu, .setting-item),
 	.clickable-icon,
