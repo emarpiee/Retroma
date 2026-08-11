@@ -1659,7 +1659,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 }
 
 /* # INPUT NORMAL */
-:is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button, button.cp_format),
+:is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button, button.cp_format, .draw-in-canvas-color-palette button),
 	.mobile-toolbar-option,
 	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu, .setting-item),
 	.clickable-icon,
@@ -1685,7 +1685,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 }
 
 /* # INPUT ACTIVE */
-:is(button:not(.excalidraw button, .pcr-app button, .cm-panel button, .mod-warning, .mod-cta, .mod-success, .mod-error):active,
+:is(button:not(.excalidraw button, .pcr-app button, .cm-panel button, .mod-warning, .mod-cta, .mod-success, .mod-error, .draw-in-canvas-color-palette button):active,
 	.mobile-toolbar-option:active,
 	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .setting-item):active,
 	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self):is(.is-active, .is-selected),
@@ -1705,7 +1705,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 }
 
 /* # INPUT HOVER */
-:is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button),
+:is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button, .draw-in-canvas-color-palette button),
 	.mobile-toolbar-option,
 	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .setting-item),
 	.clickable-icon,
@@ -1724,7 +1724,7 @@ body:is(.theme-light, .theme-dark) :is(.mobile-tab .mobile-tab-pin:active > *,
 }
 
 /* NOTE: Hover and focus-visible states share identical properties, but I separated the declarations to make debugging and code maintenance easier. */
-:is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button):focus-visible,
+:is(button:not(.excalidraw button, .mod-warning, .mod-cta, .pcr-app button, .cm-panel button, .draw-in-canvas-color-palette button):focus-visible,
 	.mobile-toolbar-option:focus-visible,
 	.tappable:not(.mod-root .workspace-tab-header, .tree-item-self, .search-result-file-match, .empty-state-action, .mod-navigable, hr, .mobile-navbar-action.has-longpress-menu, .setting-item).selected,
 	.clickable-icon:focus-visible,
@@ -4257,6 +4257,31 @@ body.is-phone .modal.style-manager-plugin.modal-style-manager.style-manager-edit
 	padding-top: 0;
 }
 
+/* NOTE: DRAW IN CANVAS */
+.draw-in-canvas-color-disc-panel {
+	padding-inline: 12px;
+	padding-block: 6px;
+}
+
+.draw-in-canvas-color-disc-palette-swatches {
+	gap: 4px;
+}
+
+.draw-in-canvas-color-palette .draw-in-canvas-color-disc-palette-swatch {
+	border-radius: 0;
+	box-shadow: var(--rtm-btn-3d-normal);
+}
+
+.draw-in-canvas-color-disc-palette-swatch.is-selected {
+	box-shadow: unset;
+	outline: 1px solid var(--rtm-txt-normal);
+	outline-offset: 2px;
+}
+
+.draw-in-canvas-color-palette input.draw-in-canvas-hsl-slider[type="range"] {
+	outline: unset;
+}
+
 /* ## NOTEBOOK NAVIGATOR */
 .notebook-navigator {
 	--nn-theme-nav-bg: var(--rtm-bg-primary);
@@ -5785,6 +5810,7 @@ body.rtm-ss-embed-simple {
 	--rtm-embed-bg: unset;
 	--rtm-embed-border: unset;
 	--rtm-embed-shadow: unset;
+	--rtm-embed-content-shadow: unset;
 	--rtm-embed-padding: 0;
 }
 
