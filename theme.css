@@ -693,7 +693,7 @@ body {
 	--rtm-search-result-title-bg: oklch(from var(--rtm-interactive-accent) var(--rtm-l-bg-secondary) calc(c * var(--rtm-c-accent)) h);
 	--rtm-search-result-match-margin: -2px 0 12px;
 	--rtm-search-result-match-bg: var(--rtm-bg-primary);
-	--rtm-search-result-match-radius: 0 0 var(--rtm-interface-radius) var(--rtm-interface-radius);
+	--rtm-search-result-match-radius: 0 0 calc(var(--rtm-interface-radius) * 0.8) calc(var(--rtm-interface-radius) * 0.8);
 
 	/* -- TAG AND PILL */
 	--tag-border-width: var(--rtm-tag-border-width);
@@ -1965,6 +1965,7 @@ body.is-mobile ::-webkit-scrollbar-thumb:active,
 
 .workspace-leaf {
 	border-radius: var(--rtm-workspace-leaf-radius);
+	corner-shape: var(--rtm-workspace-leaf-corner-shape);
 }
 
 .workspace-fake-target-overlay:not(.is-in-sidebar) .workspace-tabs .workspace-leaf,
