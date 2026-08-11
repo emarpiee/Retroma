@@ -182,6 +182,8 @@ cssclasses:
 
 ## Retroma Callouts
 
+> Requires Style Manager plugin.
+
 A collection of **79 styled callouts** for Obsidian, themed around vintage stationery, retro media hardware, photography, and academic materials.
 
 ![retroma-retro-callouts.png](assets/screenshots/retroma-retro-callouts.png)
