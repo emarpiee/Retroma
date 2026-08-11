@@ -1259,6 +1259,8 @@ body {
 
 	/* NOTE: FOOTNOTES */
 	--footnote-radius: 0;
+	--footnote-size: var(--rtm-footnote-size);
+	--rtm-footnote-size: 0.9;
 	--rtm-footnotes-view-item-radius: var(--rtm-interface-radius);
 }
 
