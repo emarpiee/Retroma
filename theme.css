@@ -3890,6 +3890,8 @@ code {
 pre,
 .markdown-source-view pre,
 .markdown-rendered pre {
+	border-width: var(--rtm-code-border-width);
+	border-color: var(--rtm-code-border-color);
 	border-style: var(--rtm-code-outline-style);
 	corner-shape: var(--rtm-code-corner-shape);
 }
