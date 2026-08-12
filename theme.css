@@ -1220,7 +1220,7 @@ body {
 	--rtm-embed-padding: 8px;
 	--rtm-embed-width-percent: 100;
 	--rtm-embed-width: calc(var(--rtm-embed-width-percent) * 1%);
-	--rtm-embed-max-height: 1000px;
+	--rtm-embed-max-height: auto;
 	--rtm-embed-content-border: var(--rtm-embed-content-border-width) var(--rtm-embed-content-border-style) var(--rtm-embed-content-border-color);
 	--rtm-embed-content-shadow: inset 0 0 4px oklch(from var(--rtm-txt-normal) l c h / 50%);
 	--rtm-embed-content-radius: var(--rtm-embed-radius);
@@ -1231,16 +1231,16 @@ body {
 	--rtm-embed-content-corner-shape: round;
 
 
-	--rtm-bases-embed-height: 500px;
+	--rtm-bases-embed-height: auto;
 	--rtm-bases-embed-width-percent: 100;
 	--rtm-bases-embed-width: calc(var(--rtm-bases-embed-width-percent) * 1%);
 
-	--rtm-pdf-embed-height: 1000px;
+	--rtm-pdf-embed-height: auto;
 	--rtm-pdf-embed-width-percent: 100;
 	--rtm-pdf-embed-width: calc(var(--rtm-pdf-embed-width-percent) * 1%);
 
 	--rtm-internal-query-embed-title-display: flex;
-	--rtm-internal-query-embed-height: 1000px;
+	--rtm-internal-query-embed-height: auto;
 	--rtm-internal-query-embed-width-percent: 100;
 	--rtm-internal-query-embed-width: calc(var(--rtm-internal-query-embed-width-percent) * 1%);
 
@@ -14343,6 +14343,40 @@ settings:
         type: class-toggle
         default: false
     -
+        id: rtm-embed-title-display
+        title: Note embed title and link
+        description: "Choose whether to show, show on hover, or hide the note title and embed link within embedded blocks."
+        type: class-select
+        default: rtm-ss-embed-title-show
+        allowEmpty: false
+        options:
+            -
+                label: Show
+                value: rtm-ss-embed-title-show
+            -
+                label: Show on hover
+                value: rtm-ss-embed-title-hover
+            -
+                label: Hide
+                value: rtm-ss-embed-title-hide
+    -
+        id: rtm-internal-query-embed-title-display
+        title: Internal search query embed title
+        description: "Choose whether to show, show on hover, or hide the internal search query title within embedded blocks."
+        type: class-select
+        default: rtm-ss-internal-query-embed-title-show
+        allowEmpty: false
+        options:
+            -
+                label: Show
+                value: rtm-ss-internal-query-embed-title-show
+            -
+                label: Show on hover
+                value: rtm-ss-internal-query-embed-title-hover
+            -
+                label: Hide
+                value: rtm-ss-internal-query-embed-title-hide
+    -
         id: rtm-embed-corner-shape
         title: Corner shape
         type: variable-select
@@ -14476,40 +14510,6 @@ settings:
                 label: Right
                 value: rtm-ss-embed-align-right
     -
-        id: rtm-embed-title-display
-        title: Note embed title and link
-        description: "Choose whether to show, show on hover, or hide the note title and embed link within embedded blocks."
-        type: class-select
-        default: rtm-ss-embed-title-show
-        allowEmpty: false
-        options:
-            -
-                label: Show
-                value: rtm-ss-embed-title-show
-            -
-                label: Show on hover
-                value: rtm-ss-embed-title-hover
-            -
-                label: Hide
-                value: rtm-ss-embed-title-hide
-    -
-        id: rtm-internal-query-embed-title-display
-        title: Internal search query embed title
-        description: "Choose whether to show, show on hover, or hide the internal search query title within embedded blocks."
-        type: class-select
-        default: rtm-ss-internal-query-embed-title-show
-        allowEmpty: false
-        options:
-            -
-                label: Show
-                value: rtm-ss-internal-query-embed-title-show
-            -
-                label: Show on hover
-                value: rtm-ss-internal-query-embed-title-hover
-            -
-                label: Hide
-                value: rtm-ss-internal-query-embed-title-hide
-    -
         id: rtm-embed-width-percent
         title: Note embed width (%)
         description: "Sets the width of embedded notes as a percentage of the editor's readable line."
@@ -14524,7 +14524,7 @@ settings:
         description: "Limits how tall embedded notes can grow before scrolling."
         type: variable-number-slider
         format: px
-        default: 1000
+        default: '#'
         min: 100
         max: 1000
         step: 50
@@ -14543,7 +14543,7 @@ settings:
         description: "Limits how tall embedded bases can grow before scrolling."
         type: variable-number-slider
         format: px
-        default: 500
+        default: '#'
         min: 50
         max: 1000
         step: 50
@@ -14562,7 +14562,7 @@ settings:
         description: "Limits how tall embedded PDF can grow before scrolling."
         type: variable-number-slider
         format: px
-        default: 1000
+        default: '#'
         min: 100
         max: 1000
         step: 50
@@ -14581,7 +14581,7 @@ settings:
         description: "Limits how tall embedded internal search query can grow before scrolling."
         type: variable-number-slider
         format: px
-        default: 1000
+        default: '#'
         min: 100
         max: 1000
         step: 50
