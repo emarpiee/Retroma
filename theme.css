@@ -32,6 +32,8 @@
 	--rtm-canvas-ui-fade-in-delay: 0.25s;
 	--rtm-canvas-ui-fade-speed: 0.25s;
 
+	--rtm-hue-rotate-duration: 1s;
+
 	/* LCH */
 	--rtm-l-bg-mod-hover: l;
 	--rtm-l-bg-mod-success: l;
@@ -4759,7 +4761,7 @@ body.rtm-ss-txt-glow * {
 }
 
 body.rtm-ss-hue-rotate {
-	animation: rtm-hue-rotate 1s linear infinite;
+	animation: rtm-hue-rotate var(--rtm-hue-rotate-duration) linear infinite;
 }
 
 @keyframes rtm-hue-rotate {
@@ -17219,8 +17221,6 @@ settings:
         type: variable-number
         format: s
         default: 0.15
-        min: 0
-        max: 1
     -
         id: rtm-canvas-ui-fade-in-delay
         title: Floating UI fade-in delay
@@ -18631,9 +18631,22 @@ settings:
         id: rtm-ss-hue-rotate
         title: ??
         description: "⚠️ TW flashing lights. If you’re not a little fruity, this isn't for you."
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: rtm-ss-hue-rotate
+        title: ??
         type: class-toggle
         default: false
         addCommand: true
+    -
+        id: rtm-hue-rotate-duration
+        title: Full rotate duration
+        description: "Sets the total time (in seconds) required to complete a full 360-degree color hue rotation cycle. Higher value = slower steps."
+        type: variable-number
+        format: s
+        default: 1
     -
         id: plugin-integration
         title: 🧪 Plugin integrations
