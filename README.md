@@ -67,6 +67,8 @@ The floating UI elements in Canvas now automatically hides when panning or activ
 
 ## Alternative Checkboxes
 
+> Requires Style Manager plugin.
+
 Retroma includes built-in styling for **23 alternative checkbox types**. To use them, write standard markdown checkboxes containing any of the supported keys inside:
 
 ![retroma-acb.png](assets/screenshots/retroma-acb.png)
